@@ -43,6 +43,20 @@ Bootstrap env:
 
   # sudo salt-call state.highstate
 
+  3. create minion keys for master pre-seeding
+
+  # cd /srv
+  # ./createminionkeys.sh
+
+
+Build BCCVL Node:
+=================
+
+  This works very similar to building the master node.
+
+  # vagrant up bccvl
+  # vagrant ssh bccvl
+  # sudo salt-call state.highstate
 
 
 
@@ -59,3 +73,5 @@ TODO:
 
 * document folder structure ... esp. pillar/base/keys and certs
 * document how and what to override for different environments
+* change monitor node to manage all envs
+* add halite to monitor

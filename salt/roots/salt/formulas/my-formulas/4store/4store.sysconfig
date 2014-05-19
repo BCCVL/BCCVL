@@ -1,0 +1,7 @@
+
+{% set stores = pillar['4store']['stores'] | join(' ') %}
+
+# space separated list of backends to start on boot
+AUTOSTART_STORES="{{ stores }}"
+# space separated list of http fronteds to start on boot
+AUTOSTART_HTTP="{{ stores }}"

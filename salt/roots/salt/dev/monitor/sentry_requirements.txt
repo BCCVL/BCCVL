@@ -1,0 +1,2 @@
+#sentry==6.4.4 [postgresql]
+sentry==6.4.4

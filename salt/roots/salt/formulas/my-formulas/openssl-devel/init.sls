@@ -1,0 +1,3 @@
+
+openssl-devel:
+  pkg.installed

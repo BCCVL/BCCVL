@@ -1,0 +1,4 @@
+
+python-virtualenv:
+  pkg.installed
+
