@@ -1,0 +1,38 @@
+users:
+  ## Minimal required pillar values
+  auser:
+    fullname: A User
+
+  ## Full list of pillar values
+  buser:
+    fullname: B User
+    password: $6$w.............
+    home: /custom/buser
+    sudouser: True
+    sudo_rules: 
+      - ALL=(root) /usr/bin/find
+      - ALL=(otheruser) /usr/bin/script.sh
+    shell: /bin/bash
+    prime_group:
+      name: primarygroup
+      gid: 500
+    groups:
+      - users
+    ssh_key_type: rsa
+    ssh_keys:
+      privkey: PRIVATEKEY
+      pubkey: PUBLICKEY
+    ssh_auth:
+      - PUBLICKEY
+
+  ## Absent user
+  cuser:
+    absent: True
+    purge: True
+    force: True
+
+
+## Old syntax of absent_users still supported
+absent_users:
+  - donald
+  - bad_guy
