@@ -25,6 +25,8 @@ include:
     - template: jinja
     - require:
       - pkg: 4store
+    - watch_in:
+      - service: 4store
 
 {% for store in pillar['4store']['stores'] %}
 {%   set segments = salt['pillar.get']('4store:stores:' + store +':segments') %}
@@ -49,5 +51,7 @@ include:
         soft-lmit = 0
     - require:
       - pkg: 4store
+    - watch_in:
+      - service: 4store
 
 {% endfor %}

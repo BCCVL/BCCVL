@@ -19,3 +19,11 @@ python27-python-virtualenv:
     - installed
     - require:
       - pkg: centos-release-SCL
+
+
+/usr/local/bin/python27-virtualenv:
+  file.managed:
+    - source: salt://python27/python27-virtualenv.sh
+    - user: root
+    - group: root
+    - mode: 755

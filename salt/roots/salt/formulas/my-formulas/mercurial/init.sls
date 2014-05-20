@@ -1,0 +1,4 @@
+
+
+mercurial:
+  pkg.installed
