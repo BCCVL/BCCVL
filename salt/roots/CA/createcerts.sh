@@ -145,7 +145,7 @@ CLIENT_CERTS="worker plone bccvllogger flower"
 
 create_server_cert ${CADIR} "${CURDIR}/monitor" "monitor.bccvl.org.au"
 create_server_cert ${CADIR} "${CURDIR}/bccvl" "main.bccvl.org.au"
-create_server_cert ${CADIR} "${CURDIR}/rabbitmq" "queue.bccvl.org.au"
+create_server_cert ${CADIR} "${CURDIR}/rabbitmq" "192.168.100.200"  # "queue.bccvl.org.au"
 
 for name in ${CLIENT_CERTS} ; do
     create_client_cert ${CADIR} "${CURDIR}/${name}" "${name}.bccvl.org.au"
