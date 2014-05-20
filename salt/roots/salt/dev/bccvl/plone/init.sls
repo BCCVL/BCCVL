@@ -83,7 +83,7 @@ libtiff-devel:
 # plone worker celery settings
 /home/{{ user }}/bccvl_buildout/etc/bccvl_celery.json:
   file.managed:
-    - source: salt://bccvl/plone_worker.json
+    - source: salt://bccvl/plone/plone_worker.json
     - user: {{ user }}
     - group: {{ user }}
     - mode: 640
