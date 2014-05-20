@@ -72,6 +72,24 @@ libtiff-devel:
       - pkg: python27-python-virtualenv
       - file: /usr/local/bin/python27-virtualenv
 
+/home/{{ user }}/bccvl_buildout/etc:
+  file.directory:
+    - user: {{ user }}
+    - group: {{ user }}
+    - mode: 750
+    - require:
+      - git: /home/{{ user }}/bccvl_buildout
+
+# plone worker celery settings
+/home/{{ user }}/bccvl_buildout/etc/bccvl_celery.json:
+  file.managed:
+    - source: salt://bccvl/plone_worker.json
+    - user: {{ user }}
+    - group: {{ user }}
+    - mode: 640
+    - template: jinja
+    - require:
+      - file: /home/{{ user }}/bccvl_buildout/etc
 
 /home/{{ user }}/bccvl_buildout/buildout.cfg:
   file.managed:
@@ -123,20 +141,11 @@ libtiff-devel:
     - unless: test -x /home/{{ user }}/bccvl_buildout/bin/instance-debug
     - require:
       - cmd: /home/{{ user }}/bccvl_buildout/bin/buildout
+      - file: /home/{{ user }}/bccvl_buildout/etc/bccvl_celery.json
       - service: 4store
     - watch:
       - git: /home/{{ user }}/bccvl_buildout
       - file: /home/{{ user }}/bccvl_buildout/buildout.cfg
-
-/home/{{ user }}/bccvl_buildout/etc/bccvl_celery.json:
-  file.managed:
-    - source: salt://bccvl/plone/plone_worker.json
-    - user: plone
-    - group: plone
-    - mode: 400
-    - template: jinja
-    - require:
-      - cmd: /home/{{ user }}/bccvl_buildout/bin/instance-debug
 
 /etc/supervisord.d/plone.ini:
   file.managed:
