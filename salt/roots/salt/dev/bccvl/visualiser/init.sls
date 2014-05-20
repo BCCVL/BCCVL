@@ -148,6 +148,7 @@ Visualiser Buildout:
     - group: root
     - mode: 440
     - source: salt://bccvl/visualiser/visualiser_supervisord.ini
+    - template: jinja
     - require:
       - pkg: supervisor
     - watch_in:
