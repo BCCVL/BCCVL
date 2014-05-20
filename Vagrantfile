@@ -20,7 +20,8 @@ Vagrant.configure("2") do |config|
 
     monitor.vm.provider "virtualbox" do |v|
       v.name = "monitor-dev"
-      v.customize ["modifyvm", :id, "--memory", "1024"]
+      v.memory = 1024
+      v.cpus = 2
     end
 
     monitor.vm.provision :salt do |salt|
@@ -67,7 +68,8 @@ Vagrant.configure("2") do |config|
 
     worker.vm.provider "virtualbox" do |v|
       v.name = "worker"
-      v.customize ["modifyvm", :id, "--memory", "1024"]
+      v.memory = 1024
+      v.cpus = 2
     end
 
     worker.vm.provision :salt do |salt|
@@ -95,7 +97,8 @@ Vagrant.configure("2") do |config|
 
     bccvl.vm.provider "virtualbox" do |v|
       v.name = "bccvl"
-      v.customize ["modifyvm", :id, "--memory", "2048"]
+      v.memory = 2048
+      v.cpus = 2
     end
 
     bccvl.vm.provision :salt do |salt|
