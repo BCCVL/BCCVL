@@ -1,2 +1,2 @@
 
-https://github.com/BCCVL/org.bccvl.tasks/archive/master.tar.gz#egg=org.bccvl.tasks
+https://github.com/BCCVL/org.bccvl.tasks/archive/develop.tar.gz#egg=org.bccvl.tasks

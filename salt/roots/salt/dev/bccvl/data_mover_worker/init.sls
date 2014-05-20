@@ -1,32 +1,32 @@
 include:
   - supervisord
   - git
-  - python27
+  #- python27
   - bccvl.data_mover
 
-# enable scl python27 for user data_mover permanently
-/home/data_mover/.bash_profile:
-  file.append:
-    - text: source /opt/rh/python27/enable
-    - require:
-      - pkg: python27-python
+# # enable scl python27 for user data_mover permanently
+# /home/data_mover/.bash_profile:
+#   file.append:
+#     - text: source /opt/rh/python27/enable
+#     - require:
+#       - pkg: python27-python
 
 /home/data_mover/worker:
    virtualenv.managed:
-    - venv_bin: /usr/local/bin/python27-virtualenv
+    #- venv_bin: /usr/local/bin/python27-virtualenv
     - user: data_mover
     - cwd: /home/data_mover
     - requirements: salt://bccvl/data_mover_worker/data_mover_worker_requirements.txt
     - require:
       - user: data_mover
       - pkg: git
-      - pkg: python27-python-virtualenv
-      - file: /usr/local/bin/python27-virtualenv
-      - require: /home/data_mover/.bash_profile
+      #- pkg: python27-python-virtualenv
+      #- file: /usr/local/bin/python27-virtualenv
+      #- file: /home/data_mover/.bash_profile
 
 /home/data_mover/worker/celery.json:
   file.managed:
-    - source: salt://bccvl/worker/data_mover_worker.json
+    - source: salt://bccvl/data_mover_worker/data_mover_worker.json
     - user: data_mover
     - group: data_mover
     - mode: 640
