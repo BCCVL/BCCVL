@@ -19,3 +19,4 @@ flower:
     host: 192.168.100.200
     httpport: "15671"
     amqpport: "5671"
+    vhost: bccvl

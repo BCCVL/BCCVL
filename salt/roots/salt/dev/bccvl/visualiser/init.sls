@@ -143,12 +143,13 @@ Visualiser Buildout:
       - cmd: Visualiser Bootstrap Buildout
 
 /etc/supervisord.d/visualiser.ini:
-  file.symlink:
-    - target: /home/visualiser/BCCVL_Visualiser/BCCVL_Visualiser/etc/supervisor.conf
+  file.managed:
+    - user: root
+    - group: root
+    - mode: 440
+    - source: salt://bccvl/visualiser/visualiser_supervisord.ini
     - require:
       - pkg: supervisor
-    - watch:
-      - cmd: Visualiser Buildout
     - watch_in:
       - service: supervisord
 

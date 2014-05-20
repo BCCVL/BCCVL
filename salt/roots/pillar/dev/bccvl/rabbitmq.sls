@@ -21,6 +21,7 @@ rabbitmq:
           - '.*'
           - '.*'
     - name: bccvl
+      password: bccvl
       # force: True
       perms:
         - 'bccvl':
@@ -28,6 +29,7 @@ rabbitmq:
           - '.*'
           - '.*'
     - name: flower
+      password: flower
       # force: True
       perms:
         - 'bccvl':
@@ -35,6 +37,7 @@ rabbitmq:
           - '.*'
           - '.*'
     - name: worker
+      password: worker
       # force: True
       perms:
         - 'bccvl':
