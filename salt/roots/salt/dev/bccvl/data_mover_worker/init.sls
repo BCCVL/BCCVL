@@ -4,6 +4,13 @@ include:
   - python27
   - bccvl.data_mover
 
+# enable scl python27 for user data_mover permanently
+/home/data_mover/.bash_profile:
+  file.append:
+    - text: source /opt/rh/python27/enable
+    - require:
+      - pkg: python27-python
+
 /home/data_mover/worker:
    virtualenv.managed:
     - venv_bin: /usr/local/bin/python27-virtualenv
@@ -15,6 +22,7 @@ include:
       - pkg: git
       - pkg: python27-python-virtualenv
       - file: /usr/local/bin/python27-virtualenv
+      - require: /home/data_mover/.bash_profile
 
 /home/data_mover/worker/celery.json:
   file.managed:

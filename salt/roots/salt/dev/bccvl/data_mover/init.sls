@@ -72,7 +72,6 @@ gmp-devel:
    virtualenv.managed:
     - venv_bin: /usr/local/bin/python27-virtualenv
     - user: {{ user }}
-    - runas: {{ user }}
     - cwd: /home/{{ user }}/bccvl_data_mover
     - require:
       - pkg: python27-python-virtualenv
