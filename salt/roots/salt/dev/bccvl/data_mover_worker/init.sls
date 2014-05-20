@@ -54,7 +54,7 @@ include:
 
 /etc/supervisord.d/data_mover_worker.ini:
   file.managed:
-    - source: salt://bccvl/worker/data_mover_worker_supervisord.ini
+    - source: salt://bccvl/data_mover_worker/data_mover_worker_supervisord.ini
     - user: root
     - group: root
     - mode: 640
