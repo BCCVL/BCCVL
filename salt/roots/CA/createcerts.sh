@@ -5,28 +5,32 @@ CANAME=bccvlca
 
 CURDIR=$(pwd)
 
-SALTROOT=$(readlink -m "${CURDIR}/..")
+function readlink() {
+  python -c 'import sys, os.path; print os.path.realpath(sys.argv[1])' $1
+}
 
-CADIR=${CURDIR}/${CANAME}
+SALTROOT=$(readlink "${CURDIR}/..")
+
+CADIR="${CURDIR}/${CANAME}"
 
 # Create a certificate Authority
-if [[ ! -d ${CADIR} ]] ; then
-    mkdir -p ${CADIR}
-    pushd ${CADIR}
+if [[ ! -d "${CADIR}" ]] ; then
+    mkdir -p "${CADIR}"
+    pushd "${CADIR}"
     mkdir certs private
     chmod 700 private
     echo 01 > serial
     touch index.txt
+    #echo "unique_subject = no " > index.txt.attr
     popd
 fi
 
 # Create openssl config file
-if [[ ! -f ${CADIR}/openssl.cnf ]] ; then
-  pushd ${CADIR}
+if [[ ! -f "${CADIR}/openssl.cnf" ]] ; then
+  pushd "${CADIR}"
   cat > openssl.cnf << EOL
 [ ca ]
 default_ca = ${CANAME}
-unique_subject = no # allow creation of cert with same subject
 
 [ ${CANAME} ]
 dir = .
@@ -43,6 +47,8 @@ default_md = sha1
 policy = ${CANAME}_policy
 x509_extensions = certificate_extensions
 
+unique_subject = no
+
 [ ${CANAME}_policy ]
 commonName = supplied
 stateOrProvinceName = optional
@@ -58,7 +64,7 @@ basicConstraints = CA:false
 default_bits = 2048
 default_keyfile = ./private/cakey.pem
 default_md = sha1
-promept = yes
+prompt = no
 distinguished_name = root_ca_distinguished_name
 x509_extensions = root_ca_extensions
 
@@ -76,20 +82,20 @@ basicConstraints = CA:false
 keyUsage = digitalSignature, keyEncipherment, keyAgreement
 # clientAuth = 1.3.6.1.5.5.7.3.2
 extendedKeyUsage = clientAuth
-subjectAltName = $ENV::SUBJECTALTNAME
+subjectAltName = \$ENV::SUBJECTALTNAME
 
 [ server_ca_extensions ]
 basicConstraints = CA:false
 # only digitalSignature should be require for ssl server
 keyUsage = digitalSignature, keyEncipherment, keyAgreement
 # serverAuth = 1.3.6.1.5.5.7.3.1
-subjectAltName = $ENV::SUBJECTALTNAME
+subjectAltName = \$ENV::SUBJECTALTNAME
 
 EOL
 
     # generate Certificate Authority
-    openssl req -x509 -config openssl.cnf -newkey rsa:2048 -days 365 -out cacert.pem -outform PEM -subj /CN=${CANAME}/ -nodes
-    openssl x509 -in cacert.pem -out cacert.cer -outform DER
+    SUBJECTALTNAME="${CANAME}" openssl req -x509 -config openssl.cnf -newkey rsa:2048 -days 365 -out cacert.pem -outform PEM -subj /CN=${CANAME}/ -nodes
+    SUBJECTALTNAME="${CANAME}" openssl x509 -in cacert.pem -out cacert.cer -outform DER
     popd
 fi
 
