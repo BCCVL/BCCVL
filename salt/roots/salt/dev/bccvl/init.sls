@@ -89,3 +89,14 @@ include:
       - pkg: haproxy
     - watch_in:
       - service: haproxy
+
+/etc/pki/tls/private/rabbitmq.key.pem:
+  file.managed:
+    - user: rabbitmq
+    - group: rabbitmq
+    - mode: 400
+    - contents_pillar: pki:manual:key:rabbitmq
+    - require:
+      - pkg: rabbitmq-server
+    - watch_in:
+      - service: rabbitmq-server
