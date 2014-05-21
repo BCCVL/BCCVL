@@ -1,0 +1,61 @@
+{% set rabbitmq = salt['pillar.get']('worker:rabbitmq',{}) %}
+
+{% set cred = rabbitmq.get('user', 'guest') + ':' + rabbitmq.get('pass', 'guest') %}
+{% set host = rabbitmq.get('host', '127.0.0.1') %}
+{% set port = rabbitmq.get('port', '5671') %}
+{% set vhost = rabbitmq.get('vhost', '') %}
+
+
+
+{
+    "BROKER": {
+        "URL": "amqp://{{ cred }}@{{ host }}:{{ port }}/{{ vhost }}",
+        "USE_SSL": {
+            "ca_certs": "/etc/pki/tls/bccvlca.crt.pem",
+            "keyfile": "/home/bccvl/worker/worker.key.pem",
+            "certfile": "/home/bccvl/worker/worker.crt.pem",
+            "cert_reqs": 2
+        }
+    },
+    "ADMINS": ["g.weis@griffith.edu.au"],
+    "CELERY":{
+        "ACCEPT_CONTENT": ["json", "msgpack", "yaml"],
+        "DEFAULT_ROUTING_KEY": "default",
+        "DEFAULT_QUEUE": "default",
+        "DEFAULT_EXCHANGE": "default",
+        "DEFAULT_EXCHANGE_TYPE": "direct",
+        "IMPORTS": [
+            "org.bccvl.tasks.compute"
+        ],
+        "IGNORE_RESULT": true,
+        "RESULT_BACKEND": "amqp",
+        "RESULT_SERIALIZER": "json",
+        "TASK_RESULT_EXPIRES": 3600,
+        "ROUTES": [
+            {"org.bccvl.tasks.plone.set_progress": {"queue": "plone", "routing_key": "plone"}},
+            {"org.bccvl.tasks.plone.import_ala": {"queue": "plone", "routing_key": "plone"}},
+            {"org.bccvl.tasks.plone.import_cleanup": {"queue": "plone", "routing_key": "plone"}},
+            {"org.bccvl.tasks.plone.import_result": {"queue": "plone", "routing_key": "plone"}},
+            {"org.bccvl.tasks.datamover.move": {"queue": "datamover", "routing_key": "datamover"}},
+            {"org.bccvl.tasks.ala_import.ala_import": {"queue": "datamover", "routing_key": "datamover"}},
+            {"org.bccvl.tasks.compute.sdm_task": {"queue": "worker", "routing_key": "worker"}}
+        ],
+        "TASK_SERIALIZER": "json",
+        "QUEUES": {
+            "worker": {"routing_key": "worker"},
+            "datamover": {"routing_key": "datamover"},
+            "plone": {"routing_key": "plone"}
+        },
+        "SEND_EVENTS": true,
+        "SEND_TASK_SENT_EVENT": true
+    },
+    "CELERYD": {
+        "PREFETCH_MULTIPLIER": 1,
+        "FORCE_EXECV": false
+    },
+    "logging": {
+        "level": "INFO",
+        "class": "logging.handlers.SysLogHandler",
+        "address": "/dev/log"
+    }
+}
