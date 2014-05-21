@@ -1,8 +1,6 @@
 #!/bin/bash
 
-scl enable perl516 - <<EOF
- my script
-EOF
+# TODO: in case this script dies at some point, I should also make sure it cleans up enough to be re-run
 
 
 function die() {
@@ -12,10 +10,6 @@ function die() {
   exit $code
 }
 
-function perl516() {
-  scl enable perl516 "perl $*"
-}
-
 function scl_enable_perl516() {
   scl enable perl516 "$*"
 }
@@ -23,12 +17,12 @@ function scl_enable_perl516() {
 
 function install_local_lib() {
   # download
-  curl --fail -k -L -O http://mirror.aarnet.edu.au/pub/CPAN/authors/id/H/HA/HAARG/local-lib-2.000012.tar.gz | die "Failed to download local::lib" 1
+  curl --fail -k -L -O http://mirror.aarnet.edu.au/pub/CPAN/authors/id/H/HA/HAARG/local-lib-2.000012.tar.gz || die "Failed to download local::lib" 1
   # unpack
-  tar xzf local-lib-2.000012.tar.gz | die "Failed to extract loacl::lib" 1
+  tar xzf local-lib-2.000012.tar.gz || die "Failed to extract loacl::lib" 1
   # build
-  pushd local-lib-2.000012 | die "Failed to enter local::lib extract" 1
-  perl516 Makefile.PL --bootstrap | die "Failed to bootstrap local::lib" 1
+  pushd local-lib-2.000012 || die "Failed to enter local::lib extract" 1
+  scl_enable_perl516 perl Makefile.PL --bootstrap || die "Failed to bootstrap local::lib" 1
   scl_enable_perl516 make test || die "Failed to make test lcoal::lib" 1
   scl_enable_perl516 make install || die "Failed to install local::lib" 1
   popd
@@ -63,7 +57,7 @@ function install_gdal_perl_bindings() {
   rm -f gdal-1.9.2.tar.gz
 }
 
-function install_biodiverse_depenencies() {
+function install_biodiverse_dependencies() {
   # dependencies first
   scl_enable_perl516 cpan App::cpanminus || die "Failed to install App::cpanminus" 1
   # YAML::Syck has installation failures at v1.27

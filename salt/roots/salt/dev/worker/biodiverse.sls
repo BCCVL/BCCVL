@@ -39,11 +39,13 @@ Install biodiverse:
     - script
     - source: salt://worker/install_biodiverse.sh
     - cwd: /home/bccvl
-    - user: /home/bccvl
-    - group: /home/bccvl
+    - user: bccvl
+    - group: bccvl
     #- stateful?
     - unless: test -d /home/bccvl/biodiverse
     - require:
       - pkg: perl516-perl
       - pkg: Install Biodiverse deps
       - file: Enable Perl SCL
+
+# TODO: maybe require subversion, make, gcc, etc... here as well
