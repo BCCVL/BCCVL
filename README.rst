@@ -67,7 +67,10 @@ Build Worker Node:
 
   # ./downloadrlibs.sh
 
-  Otherwise it's the same steps as above
+  Go to http://www.cs.princeton.edu/~schapire/maxent/ and download a
+  copy of maxent.jar and place it in salt/roots/salt/prod/worker
+
+  The last steps are the same steps as above
 
   # vagrant up worker
   # vagrant ssh worker
