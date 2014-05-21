@@ -61,7 +61,13 @@ Build BCCVL Node:
 Build Worker Node:
 ==================
 
-  Same steps as above
+  Run the script downloadrlibs.sh to fetch all required R
+  libraries. This step is necessary until a bug in salt file.managed
+  with multiple alternatvie source locatinos is fixed.
+
+  # ./downloadrlibs.sh
+
+  Otherwise it's the same steps as above
 
   # vagrant up worker
   # vagrant ssh worker
