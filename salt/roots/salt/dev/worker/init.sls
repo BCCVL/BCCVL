@@ -9,6 +9,7 @@ include:
   - git
   - python27
   - worker.rlibs
+  - worker.maxent
   - worker.biodiverse
 
 
