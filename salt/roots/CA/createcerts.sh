@@ -21,7 +21,6 @@ if [[ ! -d "${CADIR}" ]] ; then
     chmod 700 private
     echo 01 > serial
     touch index.txt
-    #echo "unique_subject = no " > index.txt.attr
     popd
 fi
 
