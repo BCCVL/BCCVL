@@ -1,6 +1,15 @@
 #!/bin/bash
 
-RLIBS_PATH="$(pwd)/salt/roots/salt/prod/worker/rlibs"
+SALT_ROOT="$(pwd)/salt/roots"
+if [ ! -d "${SALT_ROOT}" ] ; then
+  SALT_ROOT="/srv"
+  if [ !-d "${SALT_ROOT}" ] ; then
+    echo "Can't identify salt state root folder"
+    exit 1
+  fi
+fi
+
+RLIBS_PATH="${SALT_ROOT}/salt/prod/worker/rlibs"
 
 if [ ! -d "${RLIBS_PATH}" ] ; then
   mkdir "${RLIBS_PATH}"
