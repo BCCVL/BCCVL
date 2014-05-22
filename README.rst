@@ -16,7 +16,7 @@ The following command will create a VM with salt installed and activated::
 
 2. Create BCCVL certificates
 
-Create BCCVL certificates::
+::
 
   $ vagrant ssh monitor
   $ pushd /srv/CA
@@ -42,7 +42,7 @@ have to re-run the highstate::
 
 4. Create minion keys for master pre-seeding
 
-Create minion keys for master pre-seeding::
+::
 
   $ cd /srv
   $ ./createminionkeys.sh
