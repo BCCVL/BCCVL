@@ -31,6 +31,7 @@ rabbitmq:
     - name: flower
       password: flower
       # force: True
+      tags: monitoring
       perms:
         - 'bccvl':
           - '.*'
