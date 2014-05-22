@@ -1,51 +1,51 @@
-
-
-Install Virtualbox and Vagrant:
-===============================
+Install Virtualbox and Vagrant
+==============================
 
   For local setup, please install Virtualbox and Vagrant on your
   machine. Follow the installation instructions on their websites.
 
 
-Bootstrap env:
-==============
-
-  Follow the steps below to create a new BCCVL environment.
+Bootstrap the Environment
+=========================
 
   1. Boot the master node
 
-  The following command will create a VM with salt installed and activated::
+    The following command will create a VM with salt installed and activated::
 
-    $ vagrant up monitor
+      $ vagrant up monitor
 
-  2. Create BCCVL certificates::
+  2. Create BCCVL certificates
 
-    $ vagrant ssh monitor
-    $ pushd /srv/CA
-    $ ./createcerts.sh
-    $ popd
+    Create BCCVL certificates::
 
-  this copies also all generated certs and keys into pillar/base/certs
-  from where they can be used in normal pillar files
+      $ vagrant ssh monitor
+      $ pushd /srv/CA
+      $ ./createcerts.sh
+      $ popd
+
+    this copies also all generated certs and keys into pillar/base/certs
+    from where they can be used in normal pillar files
 
   3. Provision the monitor node
 
-  Because the master "salts" itself, we have to run highstate on the master
-  first::
+    Because the master "salts" itself, we have to run highstate on the master
+    first::
 
-    $ vagrant ssh monitor
-    $ sudo salt-call state.highstate
+      $ vagrant ssh monitor
+      $ sudo salt-call state.highstate
 
-  This should trigger a restart of the salt master daemon, which
-  causes the minion to loose it's connection. If that's the case we'll
-  have to re-run the highstate::
+    This should trigger a restart of the salt master daemon, which
+    causes the minion to loose it's connection. If that's the case we'll
+    have to re-run the highstate::
 
-    $ sudo salt-call state.highstate
+      $ sudo salt-call state.highstate
 
-  4. create minion keys for master pre-seeding::
+  4. Create minion keys for master pre-seeding
 
-    $ cd /srv
-    $ ./createminionkeys.sh
+    Create minion keys for master pre-seeding::
+
+      $ cd /srv
+      $ ./createminionkeys.sh
 
 
 Build BCCVL Node:
@@ -56,6 +56,7 @@ Build BCCVL Node:
     $ vagrant up bccvl
     $ vagrant ssh bccvl
     $ sudo salt-call state.highstate
+
 
 Build Worker Node:
 ==================
