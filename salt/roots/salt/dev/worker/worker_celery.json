@@ -19,6 +19,7 @@
     },
     "ADMINS": ["g.weis@griffith.edu.au"],
     "CELERY":{
+        "ACKS_LATE": true,
         "ACCEPT_CONTENT": ["json", "msgpack", "yaml"],
         "DEFAULT_ROUTING_KEY": "default",
         "DEFAULT_QUEUE": "default",
