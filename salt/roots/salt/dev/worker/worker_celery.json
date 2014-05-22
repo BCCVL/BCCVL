@@ -39,6 +39,7 @@
             {"org.bccvl.tasks.datamover.move": {"queue": "datamover", "routing_key": "datamover"}},
             {"org.bccvl.tasks.ala_import.ala_import": {"queue": "datamover", "routing_key": "datamover"}},
             {"org.bccvl.tasks.compute.sdm_task": {"queue": "worker", "routing_key": "worker"}}
+            {"org.bccvl.tasks.compute.biodiverse_task": {"queue": "worker", "routing_key": "worker"}}
         ],
         "TASK_SERIALIZER": "json",
         "QUEUES": {
