@@ -40,18 +40,17 @@ have to re-run the highstate::
 
   $ sudo salt-call state.highstate
 
-4. Create minion keys for master pre-seeding
-
-::
-
-  $ cd /srv
-  $ ./createminionkeys.sh
-
 
 Build BCCVL Node:
 =================
 
-This works very similar to building the master node::
+First, create the SSH keys for the various components::
+
+  $ pushd salt/roots/pillar/base/keys
+  $ ./createkeys.sh
+  $ popd
+
+Then, bring up the BCCVL node. This works very similar to building the master node::
 
   $ vagrant up bccvl
   $ vagrant ssh bccvl
