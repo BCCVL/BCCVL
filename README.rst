@@ -1,8 +1,8 @@
 Install Virtualbox and Vagrant
 ==============================
 
-  For local setup, please install Virtualbox and Vagrant on your
-  machine. Follow the installation instructions on their websites.
+For local setup, please install Virtualbox and Vagrant on your
+machine. Follow the installation instructions on their websites.
 
 
 Bootstrap the Environment
