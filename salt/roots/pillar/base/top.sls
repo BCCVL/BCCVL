@@ -1,6 +1,6 @@
-base:
-  '*':
-    - mine_functions
+#base:
+#  '*':
+#    - mine_functions
 
 dev:
   'monitor*dev*':
