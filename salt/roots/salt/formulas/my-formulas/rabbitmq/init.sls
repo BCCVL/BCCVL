@@ -41,6 +41,17 @@ rabbitmq_plugin_{{ plugin }}:
     - require:
       - pkg: rabbitmq-server
 {%   endfor %}
+{%   for user in rabbitmq.get('rootusers', []) %}
+rabbitmq_rootuser_{{ user['name'] }}:
+  rabbitmq_user.present:
+    - name: {{ user['name'] }}
+    {% for option in ('password', 'force', 'tags', 'perms') %}
+    {% if user.get(option) %}
+    - {{ option }}: {{ user.get(option) }}
+    {% endif %}
+    {% endfor %}
+    - runas: {{ runas }}
+{%   endfor %}
 {%   for vhost in rabbitmq.get('vhosts', []) %}
 rabbitmq_vhost_{{ vhost['name'] }}:
   rabbitmq_vhost.present:

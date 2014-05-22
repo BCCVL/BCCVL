@@ -4,13 +4,7 @@ rabbitmq:
   runas: rabbitmq
   plugins:
     - rabbitmq_management
-  vhosts:
-    - name: bccvl
-      owner: admin
-      conf: '.*'
-      write: '.*'
-      read: '.*'
-  users:
+  rootusers:
     - name: admin
       password: admin
       # force: True
@@ -20,6 +14,13 @@ rabbitmq:
           - '.*'
           - '.*'
           - '.*'
+  vhosts:
+    - name: bccvl
+      owner: admin
+      conf: '.*'
+      write: '.*'
+      read: '.*'
+  users:
     - name: bccvl
       password: bccvl
       # force: True
