@@ -12,7 +12,7 @@ include:
     - require:
       - user: data_mover
       - pkg: git
-      - pkg: virtualenv
+      - pkg: python-virtualenv
 
 /home/data_mover/worker/celery.json:
   file.managed:
