@@ -62,14 +62,14 @@ function install_biodiverse_dependencies() {
   scl_enable_perl516 cpan App::cpanminus || die "Failed to install App::cpanminus" 1
   # YAML::Syck has installation failures at v1.27
   scl_enable_perl516 cpanm YAML::Syck@1.23 || die "Failed to install YAML:Syck" 1
-  # and the rest of deps
-  scl_enable_perl516 cpanm Task::Biodiverse::NoGUI@0.191 || die "Failed to install Biodiverse::NoGUI" 1
   # and all the stuff that's missing in the documentation
   scl_enable_perl516 cpanm Getopt::Long::Descriptive
   scl_enable_perl516 cpanm JSON
   scl_enable_perl516 cpanm Time::HiRes
   scl_enable_perl516 cpanm --force Object::InsideOut
   scl_enable_perl516 cpanm Math::Random::MT::Auto
+  # and the rest of deps
+  scl_enable_perl516 cpanm Task::Biodiverse::NoGUI@0.191 || die "Failed to install Biodiverse::NoGUI" 1
 }
 
 
