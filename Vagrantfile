@@ -79,8 +79,6 @@ Vagrant.configure("2") do |config|
     worker.vm.network :private_network, ip: "192.168.100.101"
     worker.vm.hostname = "worker-dev"
 
-    #worker.vm.network :forwarded_port, guest: 22, host: 2221, auto_correct: true
-
     worker.vm.provider "virtualbox" do |v|
       v.name = "worker"
       v.memory = worker_conf.fetch("memory", 1024)
@@ -105,9 +103,6 @@ Vagrant.configure("2") do |config|
 
     bccvl.vm.network :private_network, ip: "192.168.100.200"
     bccvl.vm.hostname = "bccvl-dev"
-
-    # port 2222 is reserved by vagrant :(
-    #bccvl.vm.network :forwarded_port, guest: 22, host: 2223, auto_correct: true
 
     bccvl.vm.provider "virtualbox" do |v|
       v.name = "bccvl"
