@@ -34,6 +34,18 @@ elasticsearch:
     - require:
       - pkg: elasticsearch
 
+# listen only on localhost
+/etc/elasticsearch/elasticsearch.yml:
+  file:
+    - append
+    - text: |
+        network.host: 127.0.0.1
+    - require:
+      - pkg: elasticsearch
+    - watich_in:
+      - service: elasticsearch
+
+
 logstash:
   pkg:
     - installed
