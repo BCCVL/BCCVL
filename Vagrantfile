@@ -1,9 +1,24 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+# read in customisable local config if available
+custom_conf = {}
+if (File.exists?('vagrant.json'))
+  begin
+    require "json"
+    custom_conf = JSON.parse(IO.read('vagrant.json'))
+  rescue JSON::JSONError => ex
+    $stderr.print("Found vagrant.json but failed to parse it:\n")
+    $stderr.print(ex)
+    exit(1)
+  end
+end
+
 # TODO: uses a prefetched bootstrap-salt.sh script, because the vagrant script that downloads the salt-bootstrap script doesn't use the --insecure flage with curl and fails
 
 Vagrant.configure("2") do |config|
+  monitor_conf = custom_conf.fetch("monitor", {})
+
   config.vm.box = "contes65-x86_64-20140116"
   config.vm.box_url = "https://github.com/2creatives/vagrant-centos/releases/download/v6.5.3/centos65-x86_64-20140116.box"
 
@@ -16,12 +31,10 @@ Vagrant.configure("2") do |config|
 
     monitor.vm.synced_folder "salt/roots/", "/srv/"
 
-    monitor.vm.network :forwarded_port, guest: 22, host: 2220, auto_correct: true
-
     monitor.vm.provider "virtualbox" do |v|
       v.name = "monitor-dev"
-      v.memory = 1024
-      v.cpus = 2
+      v.memory = monitor_conf.fetch("memory", 1024)
+      v.cpus = monitor_conf.fetch("cpus", 2)
     end
 
     monitor.vm.provision :salt do |salt|
@@ -61,15 +74,17 @@ Vagrant.configure("2") do |config|
 
   # appX instance salt ninion
   config.vm.define :worker do |worker|
+    worker_conf = custom_conf.fetch("worker", {})
+
     worker.vm.network :private_network, ip: "192.168.100.101"
     worker.vm.hostname = "worker-dev"
 
-    worker.vm.network :forwarded_port, guest: 22, host: 2221, auto_correct: true
+    #worker.vm.network :forwarded_port, guest: 22, host: 2221, auto_correct: true
 
     worker.vm.provider "virtualbox" do |v|
       v.name = "worker"
-      v.memory = 1024
-      v.cpus = 2
+      v.memory = worker_conf.fetch("memory", 1024)
+      v.cpus = worker_conf.fetch("cpus", 2)
     end
 
     worker.vm.provision :salt do |salt|
@@ -86,19 +101,18 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define :bccvl do |bccvl|
+    bccvl_conf = custom_conf.fetch("bccvl", {})
 
     bccvl.vm.network :private_network, ip: "192.168.100.200"
     bccvl.vm.hostname = "bccvl-dev"
 
     # port 2222 is reserved by vagrant :(
-    bccvl.vm.network :forwarded_port, guest: 22, host: 2223, auto_correct: true
-    # Rabbitmq web management
-    bccvl.vm.network :forwarded_port, guest: 15672, host: 15672, auto_correct: true
+    #bccvl.vm.network :forwarded_port, guest: 22, host: 2223, auto_correct: true
 
     bccvl.vm.provider "virtualbox" do |v|
       v.name = "bccvl"
-      v.memory = 2048
-      v.cpus = 2
+      v.memory = bccvl_conf.fetch("memory", 2048)
+      v.cpus = bccvl_conf.fetch("cpus", 2)
     end
 
     bccvl.vm.provision :salt do |salt|
