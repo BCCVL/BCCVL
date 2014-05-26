@@ -105,7 +105,7 @@ Vagrant.configure("2") do |config|
     bccvl.vm.hostname = "bccvl-dev"
 
     # source checkouts for plone
-    bccvl.vm.synced_folder "dev/bccvl/bccvl_buildout", "/home/plone/bccvl_buildout", create: true, mount_options: ["uid=402,gid=402"]
+    bccvl.vm.synced_folder "dev/bccvl/bccvl_buildout/src", "/home/plone/bccvl_buildout/src", create: true, mount_options: ["uid=402,gid=402"]
     # source checkouts for data_mover
     bccvl.vm.synced_folder "dev/bccvl/bccvl_data_mover", "/home/data_mover/bccvl_data_mover", create: true, mount_options: ["uid=403,gid=403"]
     bccvl.vm.synced_folder "dev/bccvl/bccvl_data_mover_worker/org.bccvl.tasks", "/home/data_mover/worker/org.bccvl.tasks", create: true, mount_options: ["uid=403,gid=403"]

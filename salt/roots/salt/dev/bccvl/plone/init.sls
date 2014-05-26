@@ -60,8 +60,33 @@ libtiff-devel:
     - require:
       - user: {{ user.name }}
 
+
+# TODO: Dev only
+# TODO: work around this here by moving src folder one level up
 # clone buildout repo
 /home/{{ user.name }}/bccvl_buildout:
+  # TODO: Dev only
+  file.directory:
+    - user: {{ user.name }}
+    - group: {{ user.name }}
+    - mode: 750
+    - require:
+      - user: {{ user.name }}
+  # TODO: Dev only
+  cmd.run:
+    - name: |
+        git init .
+        git remote add -f origin https://github.com/BCCVL/bccvl_buildout.git
+        git checkout {{ pillar['plone']['buildout']['branch'] }}
+    - cwd: /home/{{ user.name }}/bccvl_buildout/
+    - user: {{ user.name }}
+    - group: {{ user.name }}
+    - unless: test -d /home/{{ user.name }}/bccvl_buildout/.git
+    - require:
+      - user: {{ user.name }}
+      - pkg: git
+      - file: /home/{{ user.name }}/bccvl_buildout
+  # TODO: Dev only
   git.latest:
     - name: https://github.com/BCCVL/bccvl_buildout.git
     - rev: {{ pillar['plone']['buildout']['branch'] }}
@@ -70,6 +95,7 @@ libtiff-devel:
     - require:
       - user: {{ user.name }}
       - pkg: git
+      - cmd: /home/{{ user.name }}/bccvl_buildout
   virtualenv.managed:
     - venv_bin: /usr/local/bin/python27-virtualenv
     - user: {{ user.name }}
