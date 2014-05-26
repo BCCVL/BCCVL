@@ -9,7 +9,11 @@ include:
 
 worker:
 
-  user: bccvl
+  user:
+    name: bccvl
+    fullname: BCCVL Worker
+    uid: 401
+    gid: 401
 
   sslcert: {{ worker_sslcert|string|json }}
   sslkey: {{ worker_sslkey|string|json }}

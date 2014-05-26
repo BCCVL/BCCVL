@@ -62,12 +62,7 @@ Vagrant.configure("2") do |config|
       #-A ... salt master ip (for minions ... placed in /etc/salt/minion.d/...)
       #-i ... salt minion id (for minions ... placed in /etc/sart/minion.d/...)
       #
-      # set pillar data if necessary
-      # salt.pillar({
-      #   "key" => {
-      #      subkey => "value"
-      #   }
-      # })
+
     end
   end
 
@@ -97,6 +92,7 @@ Vagrant.configure("2") do |config|
       # bootstrap debug log, set minion_id, set master ip
       salt.bootstrap_options = "-D -i worker-dev -A 192.168.100.100"
       salt.bootstrap_script = "bootstrap-salt.sh"
+
     end
   end
 
@@ -120,6 +116,7 @@ Vagrant.configure("2") do |config|
       salt.temp_config_dir = "/tmp"
       salt.bootstrap_options = "-D -i bccvl-dev -A 192.168.100.100"
       salt.bootstrap_script = "bootstrap-salt.sh"
+
     end
   end
 end

@@ -26,51 +26,57 @@ include:
       - service: rsyslog
 
 
-{{ user }}:
+{{ user.name }}:
   user.present:
-    - uid: 401
-    - gid: 401
-    - fullname: BCCVL Worker
+    {% if 'uid' in user %}
+    - uid: {{ user.uid }}
+    {% endif %}
+    {% if 'gid' in user %}
+    - gid: {{ user.gid }}
+    {% endif %}
+    {% if 'fullname' in user %}
+    - fullname: {{ user.fullname }}
+    {% endif %}
     - shell: /bin/bash
     - createhome: true
     - gid_from_name: true
     - system: true
   ssh_auth:
     - present
-    - user: {{ user }}
+    - user: {{ user.name }}
     - comment: data_mover
     - name: {{ salt['pillar.get']('worker:data_mover_ssh_pubkey') }}
 
 
-/home/{{ user }}/worker:
+/home/{{ user.name }}/worker:
   file.directory:
-    - user: {{ user }}
-    - group: {{ user }}
+    - user: {{ user.name }}
+    - group: {{ user.name }}
     - mode: 750
     - require:
-      - user: {{ user }}
+      - user: {{ user.name }}
   virtualenv.managed:
     - venv_bin: /usr/local/bin/python27-virtualenv
-    - user: {{ user }}
-    - cwd: /home/{{ user }}
+    - user: {{ user.name }}
+    - cwd: /home/{{ user.name }}
     - require:
-      - user: {{ user }}
+      - user: {{ user.name }}
       - pkg: python27-python-virtualenv
-      - file: /home/{{ user }}/worker
+      - file: /home/{{ user.name }}/worker
       - file: /usr/local/bin/python27-virtualenv
 
 ### TODO: dev only:
 ##  how do we manage different sources for git?
-/home/{{ user }}/worker/org.bccvl.tasks:
+/home/{{ user.name }}/worker/org.bccvl.tasks:
   git.latest:
     - name: https://github.com/BCCVL/org.bccvl.tasks.git
-    - target: /home/{{ user }}/worker/org.bccvl.tasks
+    - target: /home/{{ user.name }}/worker/org.bccvl.tasks
     - rev: develop
-    - runas: {{ user }}
+    - runas: {{ user.name }}
     - require:
-      - user: {{ user }}
+      - user: {{ user.name }}
       - pkg: git
-      - file: /home/{{ user }}/worker
+      - file: /home/{{ user.name }}/worker
 
 #### TODO: Dev only:
 ## install editable version of tool
@@ -78,36 +84,36 @@ include:
 worker_virtualenv:
   cmd.wait:
     - name: scl enable python27 ". bin/activate; pip install -e org.bccvl.tasks"
-    - cwd: /home/{{ user }}/worker
-    - user: {{ bccvl }}
+    - cwd: /home/{{ user.name }}/worker
+    - user: {{ user.name }}
     - require:
       - pkg: python27-python-devel
       - pkg: python27-python-virtualenv
-      - virtualenv: /home/{{ user }}/worker
+      - virtualenv: /home/{{ user.name }}/worker
     - watch:
-      - git: /home/{{ user }}/worker/org.bccvl.tasks
+      - git: /home/{{ user.name }}/worker/org.bccvl.tasks
 
 ### TODO: Prod only ...
 ### build virtualenv:
 # worker_virtualenv:
 #   cmd.run:
 #     - name: scl enable python27 ". bin/activate; pip install -U https://github.com/BCCVL/org.bccvl.tasks/archive/develop.tar.gz#egg=org.bccvl.tasks"
-#     - cwd: /home/{{ user }}
-#     - user: {{ user }}
+#     - cwd: /home/{{ user.name }}
+#     - user: {{ user.name }}
 #     - require:
 #       - pkg: python27-python-devel
 #       - pkg: python27-python-virtualenv
-#       - virtualenv: /home/{{ user }}/worker
+#       - virtualenv: /home/{{ user.name }}/worker
 
-/home/{{ user }}/worker/celery.json:
+/home/{{ user.name }}/worker/celery.json:
   file.managed:
     - source: salt://worker/worker_celery.json
-    - user: {{ user }}
-    - group: {{ user }}
+    - user: {{ user.name }}
+    - group: {{ user.name }}
     - mode: 640
     - template: jinja
     - require:
-      - file: /home/{{ user }}/worker
+      - file: /home/{{ user.name }}/worker
 
 /etc/supervisord.d/worker.ini:
   file.managed:
@@ -118,25 +124,25 @@ worker_virtualenv:
     - template: jinja
     - require:
       - pkg: supervisor
-      - file: /home/{{ user }}/worker/celery.json
-      - user: {{ user }}
+      - file: /home/{{ user.name }}/worker/celery.json
+      - user: {{ user.name }}
     - watch_in:
       - service: supervisord
 
-/home/{{ user }}/worker/worker.crt.pem:
+/home/{{ user.name }}/worker/worker.crt.pem:
   file.managed:
     - contents_pillar: worker:sslcert
-    - user: {{ user }}
-    - group: {{ user }}
+    - user: {{ user.name }}
+    - group: {{ user.name }}
     - mode: 400
     - require:
-      - file: /home/{{ user }}/worker
+      - file: /home/{{ user.name }}/worker
 
-/home/{{ user }}/worker/worker.key.pem:
+/home/{{ user.name }}/worker/worker.key.pem:
   file.managed:
     - contents_pillar: worker:sslkey
-    - user: {{ user }}
-    - group: {{ user }}
+    - user: {{ user.name }}
+    - group: {{ user.name }}
     - mode: 400
     - require:
-      - file: /home/{{ user }}/worker
+      - file: /home/{{ user.name }}/worker
