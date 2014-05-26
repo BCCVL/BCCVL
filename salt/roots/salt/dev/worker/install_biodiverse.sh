@@ -29,9 +29,6 @@ function install_local_lib() {
   # cleanup
   rm -fr local-lib-2.000012
   rm -f local-lib-2.000012.tar.gz
-  # setup shell
-  # assumes perl516 scl has been enabled before this command runs in .bashrc
-  echo '[ $SHLVL -eq 1 ] && eval "$(scl enable perl516 \\"perl -I$HOME/perl5/lib/perl5 -Mlocal::lib\\")"' >> ~/.bashrc
 }
 
 
@@ -77,8 +74,6 @@ function install_biodiverse_dependencies() {
 function install_biodiverse() {
   # checkout sources
   svn checkout http://biodiverse.googlecode.com/svn/trunk/ biodiverse
-  # add $HOME/biodivers/lib to PERL5LIB
-  echo 'PERL5LIB="${PERL5LIB:+${PERL5LIB}:}$HOME/biodiverse/lib"' >> ~/.bashrc
 }
 
 

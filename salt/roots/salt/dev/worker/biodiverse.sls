@@ -24,16 +24,6 @@ Install Biodiverse deps:
       - CharLS-devel
       - mysql-devel
 
-
-Enable Perl SCL:
-  file.append:
-    - name: /home/bccvl/.bashrc
-    - text: |
-        # BCCVL: enable perl 5.16 for this user
-        source /opt/rh/perl516/enable
-        export X_SCLS="$(scl enable perl516 'echo $X_SCLS')"
-
-
 Install biodiverse:
   cmd:
     - script
@@ -46,6 +36,5 @@ Install biodiverse:
     - require:
       - pkg: perl516-perl
       - pkg: Install Biodiverse deps
-      - file: Enable Perl SCL
 
 # TODO: maybe require subversion, make, gcc, etc... here as well
