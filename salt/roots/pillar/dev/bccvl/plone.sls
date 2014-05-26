@@ -7,7 +7,11 @@
 
 plone:
 
-  user: plone
+  user:
+    name: plone
+    fullname: BCCVL Plone
+    uid: 402
+    gid: 403
 
   hostname: 192.168.100.100
 

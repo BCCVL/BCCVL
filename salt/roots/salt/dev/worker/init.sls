@@ -1,4 +1,4 @@
-{% set user = salt['pillar.get']('worker:user', 'bccvl') %}
+{% set user = salt['pillar.get']('worker:user', {'name': 'bccvl'}) %}
 
 include:
   - pki
@@ -72,7 +72,7 @@ include:
     - name: https://github.com/BCCVL/org.bccvl.tasks.git
     - target: /home/{{ user.name }}/worker/org.bccvl.tasks
     - rev: develop
-    - runas: {{ user.name }}
+    - user: {{ user.name }}
     - require:
       - user: {{ user.name }}
       - pkg: git

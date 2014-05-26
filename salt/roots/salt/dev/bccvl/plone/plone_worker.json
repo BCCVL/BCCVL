@@ -1,3 +1,4 @@
+{% set user = salt['pillar.get']('plone:user', {'name': 'plone'}) %}
 {% set rabbitmq = salt['pillar.get']('plone:rabbitmq', {}) %}
 
 {% set cred = rabbitmq.get('user', 'guest') + ':' + rabbitmq.get('pass', 'guest') %}
@@ -10,8 +11,8 @@
         "URL": "amqp://{{ cred }}@{{ host }}:{{ port }}/{{ vhost }}",
         "USE_SSL": {
             "ca_certs": "/etc/pki/tls/bccvlca.crt.pem",
-            "keyfile": "/home/plone/bccvl_buildout/etc/plone.key.pem",
-            "certfile": "/home/plone/bccvl_buildout/etc/plone.crt.pem",
+            "keyfile": "/home/{{ user.name }}/bccvl_buildout/etc/plone.key.pem",
+            "certfile": "/home/{{ user.name }}/bccvl_buildout/etc/plone.crt.pem",
             "cert_reqs": 2
         }
     },

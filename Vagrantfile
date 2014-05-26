@@ -35,6 +35,7 @@ Vagrant.configure("2") do |config|
       v.name = "monitor-dev"
       v.memory = monitor_conf.fetch("memory", 1024)
       v.cpus = monitor_conf.fetch("cpus", 2)
+      v.customize ["modifyvm", :id, "--ioapic", "on"]
     end
 
     monitor.vm.provision :salt do |salt|
@@ -77,9 +78,10 @@ Vagrant.configure("2") do |config|
     worker.vm.synced_folder "dev/worker/org.bccvl.tasks", "/home/bccvl/worker/org.bccvl.tasks", create: true, mount_options: ["uid=401,gid=401"]
 
     worker.vm.provider "virtualbox" do |v|
-      v.name = "worker"
+      v.name = "worker-dev"
       v.memory = worker_conf.fetch("memory", 1024)
       v.cpus = worker_conf.fetch("cpus", 2)
+      v.customize ["modifyvm", :id, "--ioapic", "on"]
     end
 
     worker.vm.provision :salt do |salt|
@@ -102,10 +104,19 @@ Vagrant.configure("2") do |config|
     bccvl.vm.network :private_network, ip: "192.168.100.200"
     bccvl.vm.hostname = "bccvl-dev"
 
+    # source checkouts for plone
+    bccvl.vm.synced_folder "dev/bccvl/bccvl_buildout", "/home/plone/bccvl_buildout", create: true, mount_options: ["uid=402,gid=402"]
+    # source checkouts for data_mover
+    bccvl.vm.synced_folder "dev/bccvl/bccvl_data_mover", "/home/data_mover/bccvl_data_mover", create: true, mount_options: ["uid=403,gid=403"]
+    bccvl.vm.synced_folder "dev/bccvl/bccvl_data_mover_worker/org.bccvl.tasks", "/home/data_mover/worker/org.bccvl.tasks", create: true, mount_options: ["uid=403,gid=403"]
+    # source checkouts for visualiser
+    bccvl.vm.synced_folder "dev/bccvl/BCCVL_Visualiser", "/home/visualiser/BCCVL_Visualiser", create: true, mount_options: ["uid=404,gid=404"]
+
     bccvl.vm.provider "virtualbox" do |v|
-      v.name = "bccvl"
+      v.name = "bccvl-dev"
       v.memory = bccvl_conf.fetch("memory", 2048)
       v.cpus = bccvl_conf.fetch("cpus", 2)
+      v.customize ["modifyvm", :id, "--ioapic", "on"]
     end
 
     bccvl.vm.provision :salt do |salt|

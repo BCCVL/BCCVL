@@ -4,7 +4,11 @@
 
 visualiser:
 
-  user: visualiser
+  user:
+    name: visualiser
+    fullname: BCCVL Visualiser
+    uid: 404
+    gid: 404
 
   hostname: 192.168.100.200
 

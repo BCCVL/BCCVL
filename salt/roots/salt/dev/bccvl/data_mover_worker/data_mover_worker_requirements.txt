@@ -1,2 +1,0 @@
-
-https://github.com/BCCVL/org.bccvl.tasks/archive/develop.tar.gz#egg=org.bccvl.tasks

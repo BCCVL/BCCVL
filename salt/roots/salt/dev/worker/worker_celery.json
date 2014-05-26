@@ -1,3 +1,4 @@
+{% set user = salt['pillar.get']('worker:user', {'name': 'bccvl'}) %}
 {% set rabbitmq = salt['pillar.get']('worker:rabbitmq',{}) %}
 
 {% set cred = rabbitmq.get('user', 'guest') + ':' + rabbitmq.get('pass', 'guest') %}
@@ -12,8 +13,8 @@
         "URL": "amqp://{{ cred }}@{{ host }}:{{ port }}/{{ vhost }}",
         "USE_SSL": {
             "ca_certs": "/etc/pki/tls/bccvlca.crt.pem",
-            "keyfile": "/home/bccvl/worker/worker.key.pem",
-            "certfile": "/home/bccvl/worker/worker.crt.pem",
+            "keyfile": "/home/{{ user.name }}/worker/worker.key.pem",
+            "certfile": "/home/{{ user.name }}/worker/worker.crt.pem",
             "cert_reqs": 2
         }
     },
