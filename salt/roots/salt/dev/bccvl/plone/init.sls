@@ -62,7 +62,8 @@ libtiff-devel:
 
 
 # TODO: Dev only
-# TODO: work around this here by moving src folder one level up
+# TODO: work around this here by moving src folder one level up ->
+#       change mr.developer config
 # clone buildout repo
 /home/{{ user.name }}/bccvl_buildout:
   # TODO: Dev only
