@@ -67,7 +67,7 @@ with multiple alternative source locations is fixed::
   $ ./downloadrlibs.sh
 
 Go to http://www.cs.princeton.edu/~schapire/maxent/ and download a
-copy of maxent.jar and place it in salt/roots/salt/prod/worker
+copy of maxent.jar v3.3.3k and place it in `salt/roots/salt/prod/worker`
 
 The last steps are the same steps as above::
 
@@ -103,7 +103,7 @@ BCCVL Node:
 | https://192.168.100.200/_debug/      | BCCVL debug |
 | http://192.168.100.200/_debug/       |             |
 +--------------------------------------+-------------+
-| https://192.168.100.200:15167        | Rabbitmq    |
+| https://192.168.100.200:15671        | Rabbitmq    |
 +--------------------------------------+-------------+
 | https://192.168.100.200/_visualiser/ | Visualiser  |
 | http://192.168.100.200/_visualiser/  |             |
