@@ -70,16 +70,6 @@ include:
   {'name': 'biomod2',      'version': '3.1-25',  'hash': 'sha1=38c99da0d44dd6ed1c08e90f87679996117e1da7'}
 ] %}
 
-/home/bccvl/.Renviron:
-  file.managed:
-    - contents: |
-        R_LIBS="/home/bccvl/R_libs"
-    - user: bccvl
-    - group: bccvl
-    - mode: 600
-    - require:
-      - user: bccvl
-
 /home/bccvl/R_libs:
   file.directory:
     - user: bccvl
@@ -113,14 +103,13 @@ include:
     - group: root
     - mode: 644
   cmd.run:
-    - name: R CMD INSTALL {{ tmppkgtar }}
-    - unless: R --slave -e 'if (!("{{ name }}" %in% installed.packages() && packageVersion("{{ name }}") == "{{ version }}")) { quit("no", 1) }'
+    - name: R_LIBS=/home/bccvl/R_libs R CMD INSTALL {{ tmppkgtar }}
+    - unless: R_LIBS=/home/bccvl/R_libs R --slave -e 'if (!("{{ name }}" %in% installed.packages() && packageVersion("{{ name }}") == "{{ version }}")) { quit("no", 1) }'
     - user: bccvl
     - group: bccvl
     - require:
       - user: bccvl
       - pkg: R
       - file: {{ tmppkgtar }}
-      - file: /home/bccvl/.Renviron
-
+      - file: /home/bccvl/R_libs
 {% endfor %}
