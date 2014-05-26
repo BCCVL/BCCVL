@@ -79,6 +79,8 @@ Vagrant.configure("2") do |config|
     worker.vm.network :private_network, ip: "192.168.100.101"
     worker.vm.hostname = "worker-dev"
 
+    worker.vm.synced_folder "dev/worker/org.bccvl.tasks", "/home/bccvl/worker/org.bccvl.tasks", create: true, mount_options: ["uid=401,gid=401"]
+
     worker.vm.provider "virtualbox" do |v|
       v.name = "worker"
       v.memory = worker_conf.fetch("memory", 1024)
