@@ -77,12 +77,16 @@ include:
     - user: bccvl
     - group: bccvl
     - mode: 600
+    - require:
+      - user: bccvl
 
 /home/bccvl/R_libs:
   file.directory:
     - user: bccvl
     - group: bccvl
     - mode: 700
+    - require:
+      - user: bccvl
 
 # TODO: document the option to put the files onto master and serve via salt://worker/rlibs/<pkgtarfile>
 
