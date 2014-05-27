@@ -134,6 +134,7 @@ worker_virtualenv:
       - pkg: supervisor
       - file: /home/{{ user.name }}/worker/celery.json
       - user: {{ user.name }}
+      - cmd: worker_virtualenv
     - watch_in:
       - service: supervisord
 
