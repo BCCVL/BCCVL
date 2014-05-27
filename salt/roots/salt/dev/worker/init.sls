@@ -47,6 +47,13 @@ include:
     - comment: data_mover
     - name: {{ salt['pillar.get']('worker:data_mover_ssh_pubkey') }}
 
+/home/{{ user.name }}:
+  file.directory:
+    - user: {{ user.name }}
+    - group: {{ user.name }}
+    - mode: 750
+    - require:
+      - user: {{ user.name }}
 
 /home/{{ user.name }}/worker:
   file.directory:
@@ -55,6 +62,7 @@ include:
     - mode: 750
     - require:
       - user: {{ user.name }}
+      - file: /home/{{ user.name }}
   virtualenv.managed:
     - venv_bin: /usr/local/bin/python27-virtualenv
     - user: {{ user.name }}
