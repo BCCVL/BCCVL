@@ -56,6 +56,7 @@ gmp-devel:
     - contents_pillar: data_mover:ssh_privkey
     - require:
       - user: {{ user.name }}
+      - ssh_known_hosts: {{ user.name }}
 
 /home/{{ user.name }}/.ssh/id_dsa.pub:
   file.managed:
@@ -65,6 +66,7 @@ gmp-devel:
     - contents_pillar: data_mover:ssh_pubkey
     - require:
       - user: {{ user.name }}
+      - ssh_known_hosts: {{ user.name }}
 
 # Clone Data Mover repo
 /home/{{ user.name }}/bccvl_data_mover:
