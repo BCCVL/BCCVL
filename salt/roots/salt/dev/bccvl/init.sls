@@ -100,3 +100,7 @@ include:
       - pkg: rabbitmq-server
     - watch_in:
       - service: rabbitmq-server
+
+Australia/Brisbane:
+  timezone.system:
+    - order: 1

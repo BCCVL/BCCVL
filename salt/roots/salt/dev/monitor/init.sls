@@ -80,3 +80,7 @@ nginx_user_admin:
     - require:
       - pkg: httpd-tools
       - file: /etc/nginx/.htpasswd
+
+Australia/Brisbane:
+  timezone.system:
+    - order: 1

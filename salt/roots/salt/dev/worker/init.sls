@@ -146,3 +146,7 @@ worker_virtualenv:
     - mode: 400
     - require:
       - file: /home/{{ user.name }}/worker
+
+Australia/Brisbane:
+  timezone.system:
+    - order: 1
