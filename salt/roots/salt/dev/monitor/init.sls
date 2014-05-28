@@ -10,15 +10,24 @@ include:
   - monitor.loganalyzer
   - monitor.elasticsearch
 
-# TODO: this wolud be better to use the iptables state, but as it is
-#       broken in salt <= 2014.1.3, we have to use cmd.run
-allow_salt_master:
-  cmd.run:
-    - name: |
-       # insert -s
-       iptables -I INPUT 1 -m state -m multiport -m tcp -p tcp --state NEW --dports 4505,4506 -j ACCEPT
-       service iptables save
-    - unless: grep 'dports 4505,4506.*ACCEPT' /etc/sysconfig/iptables
+
+/etc/sysconfig/iptables:
+  file.managed:
+    - user: root
+    - group: root
+    - mode: 600
+    - source:
+      - salt://monitor/iptables
+      #- salt://roles/{{ grains.get('role') }}/etc/sysconfig/iptables
+      #- salt://hosts/{{ grains.host }}/etc/sysconfig/iptables
+      #- salt://defaults/etc/sysconfig/iptables
+{% if salt['cmd.retcode']('service iptables status') == 0 %}
+service iptables restart:
+  cmd.wait:
+    - watch:
+      - file: /etc/sysconfig/iptables
+{% endif %}
+
 
 ####### setup rsyslog
 /etc/rsyslog.d/monitor.conf:
