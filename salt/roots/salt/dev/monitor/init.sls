@@ -40,9 +40,12 @@ allow_salt_master:
     - group: nginx
     - file_mode: 600
     - source: salt://monitor/loganalyzer_config.php
+    - template: jinja
     - require:
       - cmd: /var/www/loganalyzer
       - pkg: nginx
+    - watch_in:
+      - service: php-fpm
 
 ###### configure nginx
 

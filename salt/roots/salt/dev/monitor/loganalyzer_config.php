@@ -168,18 +168,20 @@ $CFG['DiskAllowed'][] = "/var/log/";
 	$CFG['Sources']['Source2']['ViewID'] = "SYSLOG";
 */
 
-$CFG['DefaultSourceID'] = 'Source1';
 
-$CFG['Sources']['Source1']['ID'] = 'Source1';
-$CFG['Sources']['Source1']['Name'] = 'My Syslog Source';
-$CFG['Sources']['Source1']['ViewID'] = 'SYSLOG';
-$CFG['Sources']['Source1']['SourceType'] = SOURCE_MONGODB;
-$CFG['Sources']['Source1']['DBTableType'] = 'mongodb';
-$CFG['Sources']['Source1']['DBServer'] = 'localhost';
-$CFG['Sources']['Source1']['DBName'] = 'logs';
-$CFG['Sources']['Source1']['DBUser'] = '';
-$CFG['Sources']['Source1']['DBPassword'] = '';
-$CFG['Sources']['Source1']['DBTableName'] = 'syslog';
+$CFG['DefaultSourceID'] = '{{ salt['pillar.get']('loganalyzer:DefaultSourceID', 'Source1') }}';
+
+{% set sources = salt['pillar.get']('loganalyzer:Sources', {}) %}
+{% for sourceid, config in sources.items() -%}
+$CFG['Sources']['{{ sourceid }}']['ID'] = '{{ sourceid }}';
+{%   for key, value in config.items() -%}
+{% if key == 'SourceType' -%}
+$CFG['Sources']['{{ sourceid }}']['{{ key }}'] = {{ value }};
+{% else -%}
+$CFG['Sources']['{{ sourceid }}']['{{ key }}'] = '{{ value|default('', true) }}';
+{% endif -%}
+{%   endfor -%}
+{% endfor -%}
 
 // ---
 

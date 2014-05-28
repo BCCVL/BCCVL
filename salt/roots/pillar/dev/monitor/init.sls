@@ -1,6 +1,7 @@
 include:
   - monitor.pki
   - monitor.rsyslog
+  - monitor.loganalyzer
   - monitor.flower
 
 
