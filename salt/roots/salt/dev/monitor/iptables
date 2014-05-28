@@ -12,6 +12,7 @@
 -A INPUT -m state --state NEW -m tcp -p tcp --dport 443 -j ACCEPT
 -A INPUT -m state --state NEW -m tcp -p tcp --dport 1514 -j ACCEPT
 -A INPUT -m state --state NEW -m tcp -p tcp -m multiport --dports 4505,4506 -j ACCEPT
+-A INPUT -m udp -p udp --sport 67 --dport 68 -j ACCEPT
 -A INPUT -j REJECT --reject-with icmp-host-prohibited
 -A FORWARD -j REJECT --reject-with icmp-host-prohibited
 #-A INPUT -j LOGNDROP
