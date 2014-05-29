@@ -11,6 +11,23 @@ include:
   - worker.maxent
   - worker.biodiverse
 
+/etc/sysconfig/iptables:
+  file.managed:
+    - user: root
+    - group: root
+    - mode: 600
+    - source:
+      - salt://worker/iptables
+      #- salt://roles/{{ grains.get('role') }}/etc/sysconfig/iptables
+      #- salt://hosts/{{ grains.host }}/etc/sysconfig/iptables
+      #- salt://defaults/etc/sysconfig/iptables
+{% if salt['cmd.retcode']('service iptables status') == 0 %}
+service iptables restart:
+  cmd.wait:
+    - watch:
+      - file: /etc/sysconfig/iptables
+{% endif %}
+
 
 ####### setup rsyslog
 /etc/rsyslog.d/bccvl.conf:
