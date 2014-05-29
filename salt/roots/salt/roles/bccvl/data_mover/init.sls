@@ -5,6 +5,7 @@ include:
   - git
   - gcc
   - python27
+  - bccvl.data_mover.data_mover_source
 
 # TODO: enable proper updating of sources and build script
 #       (e.g. trigger rebuild if new source is available)
@@ -68,26 +69,6 @@ gmp-devel:
       - user: {{ user.name }}
       - ssh_known_hosts: {{ user.name }}
 
-# Clone Data Mover repo
-/home/{{ user.name }}/bccvl_data_mover:
-  file.directory:
-    - user: {{ user.name }}
-    - group: {{ user.name }}
-    # TODO: Dev only: mode can only be set if not synced folder
-    #- mode: 750
-    - require:
-      - user: {{ user.name }}
-  git.latest:
-    - name: https://github.com/BCCVL/bccvl_data_mover.git
-    - rev: develop
-    - target: /home/{{ user.name }}/bccvl_data_mover
-    - user: {{ user.name }}
-    - group: {{ user.name }}
-    - require:
-      - user: {{ user.name }}
-      - file: /home/{{ user.name }}/bccvl_data_mover
-      - pkg: git
-
 /home/{{ user.name }}/bccvl_data_mover/data_mover:
    virtualenv.managed:
     - venv_bin: /usr/local/bin/python27-virtualenv
@@ -96,7 +77,7 @@ gmp-devel:
     - require:
       - pkg: python27-python-virtualenv
       - file: /usr/local/bin/python27-virtualenv
-      - git: /home/{{ user.name }}/bccvl_data_mover
+      - git: data_mover_source
 
 # TODO: can I find all workers via mine or similar?
 /home/{{ user.name }}/bccvl_data_mover/data_mover/data_mover/destination_config.json:
@@ -108,7 +89,7 @@ gmp-devel:
     - group: {{ user.name }}
     - mode: 640
     - require:
-      - git: /home/{{ user.name }}/bccvl_data_mover
+      - git: data_mover_source
 
 /home/{{ user.name }}/bccvl_data_mover/data_mover/data_mover_buildout.cfg:
   file.managed:
@@ -119,7 +100,7 @@ gmp-devel:
     - group: {{ user.name }}
     - mode: 640
     - require:
-      - git: /home/{{ user.name }}/bccvl_data_mover
+      - git: data_mover_source
 
 /home/{{ user.name }}/bccvl_data_mover/data_mover/bin/buildout:
   cmd.run:
@@ -130,7 +111,7 @@ gmp-devel:
     - unless: test -x /home/{{ user.name }}/bccvl_data_mover/data_mover/bin/buildout
     - require:
       - file: /home/{{ user.name }}/bccvl_data_mover/data_mover/data_mover_buildout.cfg
-      - git: /home/{{ user.name }}/bccvl_data_mover
+      - git: data_mover_source
       - pkg: python27-python
       - virtualenv: /home/{{ user.name }}/bccvl_data_mover/data_mover
 
@@ -147,7 +128,7 @@ gmp-devel:
       - pkg: python27-python-devel
       - pkg: gmp-devel
     - watch:
-      - git: /home/{{ user.name }}/bccvl_data_mover
+      - git: data_mover_source
 
 /home/{{ user.name }}/bccvl_data_mover/data_mover/production.sqlite:
   cmd.run:
@@ -168,7 +149,7 @@ gmp-devel:
     - group: {{ user.name }}
     - mode: 640
     - require:
-      - git: /home/{{ user.name }}/bccvl_data_mover
+      - git: data_mover_source
     - watch_in:
       - service: supervisord
 
