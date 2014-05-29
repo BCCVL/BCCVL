@@ -9,7 +9,7 @@ if [ ! -d "${SALT_ROOT}" ] ; then
   fi
 fi
 
-RLIBS_PATH="${SALT_ROOT}/salt/prod/worker/rlibs"
+RLIBS_PATH="${SALT_ROOT}/salt/roles/worker/rlibs"
 
 if [ ! -d "${RLIBS_PATH}" ] ; then
   mkdir "${RLIBS_PATH}"
