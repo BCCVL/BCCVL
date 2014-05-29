@@ -63,7 +63,9 @@ libtiff-devel:
 
 # TODO: Dev only
 # TODO: work around this here by moving src folder one level up ->
-#       change mr.developer config
+#       change mr.developer config (or move eggs folder and possibly
+#       other buildout generated subfolders (eggs, parts, var) what
+#       about etc?)
 # clone buildout repo
 /home/{{ user.name }}/bccvl_buildout:
   # TODO: Dev only

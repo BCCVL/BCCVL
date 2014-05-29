@@ -5,7 +5,7 @@ base:
     - roles-as-grains
     - minion-id-as-hostname
     - timezone
-    #- locale
+    - locale
     - salt.minion
 
   'roles:salt-master':
