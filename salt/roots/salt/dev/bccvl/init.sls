@@ -104,3 +104,18 @@ include:
 Australia/Brisbane:
   timezone.system:
     - order: 1
+
+# en_AU.UTF-8:
+#   locale.present
+
+# system local:
+#   locale.system:
+#     - require:
+#       - locale: en_AU.UTF-8
+
+system:
+  network.system:
+    - order: 1
+    - enabled: True
+    - hostname: {{ grains.id }}
+    - nozeroconf: True
