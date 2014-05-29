@@ -5,6 +5,7 @@ include:
   - git
   - python27
   - bccvl.data_mover
+  - bccvl.data_mover_worker.data_mover_worker_virtualenv
 
 /home/{{ user.name }}/worker:
   file.directory:
@@ -22,46 +23,6 @@ include:
       - pkg: python27-python-virtualenv
       - file: /home/{{ user.name }}/worker
       - file: /usr/local/bin/python27-virtualenv
-
-### TODO: dev only:
-##  how do we manage different sources for git?
-/home/{{ user.name }}/worker/org.bccvl.tasks:
-  git.latest:
-    - name: https://github.com/BCCVL/org.bccvl.tasks.git
-    - target: /home/{{ user.name }}/worker/org.bccvl.tasks
-    - rev: develop
-    - user: {{ user.name }}
-    - require:
-      - user: {{ user.name }}
-      - pkg: git
-      - file: /home/{{ user.name }}/worker
-
-#### TODO: Dev only:
-## install editable version of tool
-##  ... run this step if the above git clone reports changes
-worker_virtualenv:
-  cmd.wait:
-    - name: scl enable python27 ". bin/activate; pip install -e org.bccvl.tasks"
-    - cwd: /home/{{ user.name }}/worker
-    - user: {{ user.name }}
-    - require:
-      - pkg: python27-python-devel
-      - pkg: python27-python-virtualenv
-      - virtualenv: /home/{{ user.name }}/worker
-    - watch:
-      - git: /home/{{ user.name }}/worker/org.bccvl.tasks
-
-### TODO: Prod only ...
-### build virtualenv:
-# worker_virtualenv:
-#   cmd.run:
-#     - name: scl enable python27 ". bin/activate; pip install -U https://github.com/BCCVL/org.bccvl.tasks/archive/develop.tar.gz#egg=org.bccvl.tasks"
-#     - cwd: /home/{{ user.name }}
-#     - user: {{ user.name }}
-#     - require:
-#       - pkg: python27-python-devel
-#       - pkg: python27-python-virtualenv
-#       - virtualenv: /home/{{ user.name }}/worker
 
 /home/{{ user.name }}/worker/celery.json:
   file.managed:
