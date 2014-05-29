@@ -11,6 +11,7 @@ include:
   - python27
   - 4store
   - supervisord
+  - bccvl.plone.plone_virtualenv
 
 freetype-devel:
   pkg.installed
@@ -60,63 +61,13 @@ libtiff-devel:
     - require:
       - user: {{ user.name }}
 
-
-# TODO: Dev only
-# TODO: work around this here by moving src folder one level up ->
-#       change mr.developer config (or move eggs folder and possibly
-#       other buildout generated subfolders (eggs, parts, var) what
-#       about etc?)
-# clone buildout repo
-/home/{{ user.name }}/bccvl_buildout:
-  # TODO: Dev only
+/home/{{ user.name }}/bccvl_buildout/etc:
   file.directory:
     - user: {{ user.name }}
     - group: {{ user.name }}
     - mode: 750
     - require:
-      - user: {{ user.name }}
-  # TODO: Dev only
-  cmd.run:
-    - name: |
-        git init .
-        git remote add -f origin https://github.com/BCCVL/bccvl_buildout.git
-        git checkout {{ pillar['plone']['buildout']['branch'] }}
-    - cwd: /home/{{ user.name }}/bccvl_buildout/
-    - user: {{ user.name }}
-    - group: {{ user.name }}
-    - unless: test -d /home/{{ user.name }}/bccvl_buildout/.git
-    - require:
-      - user: {{ user.name }}
-      - pkg: git
-      - file: /home/{{ user.name }}/bccvl_buildout
-  # TODO: Dev only
-  git.latest:
-    - name: https://github.com/BCCVL/bccvl_buildout.git
-    - rev: {{ pillar['plone']['buildout']['branch'] }}
-    - target: /home/{{ user.name }}/bccvl_buildout
-    - user: {{ user.name }}
-    - require:
-      - user: {{ user.name }}
-      - pkg: git
-      - cmd: /home/{{ user.name }}/bccvl_buildout
-  virtualenv.managed:
-    - venv_bin: /usr/local/bin/python27-virtualenv
-    - user: {{ user.name }}
-    - cwd: /home/{{ user.name }}
-    - require:
-      - user: {{ user.name }}
-      - git: /home/{{ user.name }}/bccvl_buildout
-      - pkg: python27-python-virtualenv
-      - file: /usr/local/bin/python27-virtualenv
-
-/home/{{ user.name }}/bccvl_buildout/etc:
-  file.directory:
-    - user: {{ user.name }}
-    - group: {{ user.name }}
-    # TODO: Dev only: mode can only be set when not on synced folder
-    #- mode: 750
-    - require:
-      - git: /home/{{ user.name }}/bccvl_buildout
+      - virtualenv: plone_virtualenv
 
 # plone worker celery settings
 /home/{{ user.name }}/bccvl_buildout/etc/bccvl_celery.json:
@@ -137,7 +88,7 @@ libtiff-devel:
     - mode: 440
     - template: jinja
     - require:
-      - git: /home/{{ user.name }}/bccvl_buildout
+      - virtualenv: plone_virtualenv
 
 # create storage if necessary
 {% if pillar['plone'].get('storage', false) %}
@@ -160,7 +111,7 @@ libtiff-devel:
     - unless: test -x /home/{{ user.name }}/bccvl_buildout/bin/buildout
     - require:
       - file: /home/{{ user.name }}/bccvl_buildout/buildout.cfg
-      - virtualenv: /home/{{ user.name }}/bccvl_buildout
+      - virtualenv: plone_virtualenv
       - pkg: gcc
       - pkg: gcc-c++
       - pkg: make
@@ -170,6 +121,8 @@ libtiff-devel:
       - pkg: freetype-devel
       - pkg: libtiff-devel
 
+# TODO: will this run on update? (see watch) or would unless: override
+# any watch state... wolud this be different with cmd.wait?
 /home/{{ user.name }}/bccvl_buildout/bin/instance-debug:
   cmd.run:
     - name: scl enable python27 ". ./bin/activate; ./bin/buildout"
@@ -182,7 +135,7 @@ libtiff-devel:
       - file: /home/{{ user.name }}/bccvl_buildout/etc/bccvl_celery.json
       - service: 4store
     - watch:
-      - git: /home/{{ user.name }}/bccvl_buildout
+      - git: plone_virtualenv
       - file: /home/{{ user.name }}/bccvl_buildout/buildout.cfg
 
 /etc/supervisord.d/plone.ini:
