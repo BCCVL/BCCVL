@@ -1,36 +1,37 @@
-
 # environments top tree can also be moved into envdir/top.sls
+
+base:
+  '*':
+    - roles-as-grains
+    - minion-id-as-hostname
+    - timezone
+    #- locale
+    - salt.minion
+
+  'roles:salt-master':
+    - match: pillar
+    - salt.master
 
 dev:
   'monitor*dev*':
-    - salt.master
-    - salt.minion
     - monitor
   'worker*dev*':
-    - salt.minion
     - worker
   'bccvl*dev*':
-    - salt.minion
     - bccvl
 
 qa:
   'monitor*qa*':
-    - salt.master
-    - salt.minion
+    - monitor
   'worker*qa*':
-    - salt.minion
     - worker
   'bccvl*qa*':
-    - salt.minion
     - bccvl
 
 prod:
   'monitor*prod*':
-    - salt.master
-    - salt.minion
+    - monitor
   'worker*prod*':
-    - salt.minion
     - worker
   'bccvl*prod*':
-    - salt.minion
     - bccvl

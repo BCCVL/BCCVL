@@ -11,24 +11,22 @@ salt:
     file_roots:
       base:
         - /srv/salt/base
+        - /srv/salt/formulas/salt-formula
       dev:
         - /srv/salt/dev
         - /srv/salt/qa
         - /srv/salt/prod
-        - /srv/salt/formulas/salt-formula
         - /srv/salt/formulas/users-formula
         - /srv/salt/formulas/epel-formula
         - /srv/salt/formulas/my-formulas
       qa:
         - /srv/salt/qa
         - /srv/salt/prod
-        - /srv/salt/formulas/salt-formula
         - /srv/salt/formulas/users-formula
         - /srv/salt/formulas/epel-formula
         - /srv/salt/formulas/my-formulas
       prod:
         - /srv/salt/prod
-        - /srv/salt/formulas/salt-formula
         - /srv/salt/formulas/users-formula
         - /srv/salt/formulas/epel-formula
         - /srv/salt/formulas/my-formulas

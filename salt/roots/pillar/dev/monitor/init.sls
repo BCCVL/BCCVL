@@ -1,4 +1,5 @@
 include:
+  - monitor.roles
   - monitor.pki
   - monitor.rsyslog
   - monitor.loganalyzer
