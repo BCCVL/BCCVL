@@ -5,6 +5,7 @@
 dev:
   'monitor*dev*':
     - salt.master
+    - salt.minion
     - monitor
   'worker*dev*':
     - salt.minion
@@ -16,6 +17,7 @@ dev:
 qa:
   'monitor*qa*':
     - salt.master
+    - salt.minion
     - monitor
   'worker*qa*':
     - salt.minion
@@ -27,6 +29,7 @@ qa:
 prod:
   'monitor*prod*':
     - salt.master
+    - salt.minion
     - monitor
   'worker*prod*':
     - salt.minion

@@ -1,3 +1,5 @@
+{% import_yaml "variables.yml" as vars %}
+
 salt:
   master:
     fileserver_backend:
@@ -60,4 +62,4 @@ salt:
   # here, otherwise saltstack-formula would take the salt.master
   # dictionary to set master: in minion.cfg
   minion:
-    master: 192.168.100.100
+    master: {{ vars.monitor.hostname }}

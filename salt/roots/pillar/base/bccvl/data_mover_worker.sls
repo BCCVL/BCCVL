@@ -1,3 +1,5 @@
+{% import_yaml "variables.yml" as vars %}
+
 {% import "certs/plone.crt.pem" as plone_sslcert %}
 {% import "certs/plone.key.pem" as plone_sslkey %}
 
@@ -8,8 +10,8 @@ data_mover_worker:
   sslkey: {{ plone_sslkey|string|json }}
 
   rabbitmq:
-    host: 192.168.100.200
+    host: {{ vars.rabbitmq.host }}
     port: '5671'
     vhost: bccvl
-    user: bccvl
-    pass: bccvl
+    user: {{ vars.rabbitmq.users.bccvl.name }}
+    pass: {{ vars.rabbitmq.users.bccvl.pass }}

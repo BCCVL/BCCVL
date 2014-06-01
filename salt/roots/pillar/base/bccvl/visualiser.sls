@@ -1,3 +1,5 @@
+{% import_yaml "variables.yml" as vars %}
+
 {% import 'keys/visualiser.id_dsa' as visualiser_id_dsa_priv %}
 {% import 'keys/visualiser.id_dsa.pub' as visualiser_id_dsa_pub %}
 
@@ -10,7 +12,7 @@ visualiser:
     uid: 404
     gid: 404
 
-  hostname: 192.168.100.200
+  hostname: {{ vars.bccvl.hostname }}
 
   host: 127.0.0.1
   port: 10600

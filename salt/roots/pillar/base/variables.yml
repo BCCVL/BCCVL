@@ -1,0 +1,39 @@
+{% set monitor = {'ip': '192.168.100.100',
+                  'hostname': '192.168.100.100'} %}
+{% set bccvl = {'ip': '192.168.100.200',
+                'hostname': '192.168.100.200'} %}
+
+rabbitmq:
+
+  users:
+    flower:
+      name: flower
+      pass: flower
+    worker:
+      name: worker
+      pass: worker
+    bccvl:
+      name: bccvl
+      pass: bccvl
+    admin:
+      name: admin
+      pass: admin
+
+  host: {{ bccvl.hostname }}
+
+monitor:
+  hostname: {{ monitor.hostname }}
+
+  admin:
+    user: admin
+    pass: admin
+
+rsyslog:
+  host: {{ monitor.hostname }}
+
+bccvl:
+  hostname: {{ bccvl.hostname }}
+
+plone:
+  admin: admin
+  password: admin

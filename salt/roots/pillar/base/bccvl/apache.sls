@@ -1,6 +1,7 @@
+{% import_yaml "variables.yml" as vars %}
 
 apache:
-  servername: 192.168.100.200
+  servername: {{ vars.bccvl.hostname }}
   serveradmin: g.weis@griffith.edu.au
 
   shibboleth: false

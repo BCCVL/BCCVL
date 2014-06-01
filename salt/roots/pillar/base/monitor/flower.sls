@@ -1,3 +1,4 @@
+{% import_yaml "variables.yml" as vars %}
 
 {% import "certs/flower.crt.pem" as flower_sslcert %}
 {% import "certs/flower.key.pem" as flower_sslkey %}
@@ -14,9 +15,9 @@ flower:
   sslkey: {{ flower_sslkey|string|json }}
 
   broker:
-    user: flower
-    pass: flower
-    host: 192.168.100.200
+    user: {{ vars.rabbitmq.users.flower.name }}
+    pass: {{ vars.rabbitmq.users.flower.pass }}
+    host: {{ vars.rabbitmq.host }}
     httpport: "15671"
     amqpport: "5671"
     vhost: bccvl

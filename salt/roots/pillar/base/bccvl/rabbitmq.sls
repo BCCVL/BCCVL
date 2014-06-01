@@ -1,3 +1,4 @@
+{% import_yaml "variables.yml" as vars %}
 
 rabbitmq:
 
@@ -5,9 +6,9 @@ rabbitmq:
   plugins:
     - rabbitmq_management
   rootusers:
-    - name: admin
-      password: admin
-      # force: True
+    - name: {{ vars.rabbitmq.users.admin.name }}
+      password: {{ vars.rabbitmq.users.admin.pass }}
+      force: True
       tags: administrator
       perms:
         - '/':
@@ -16,31 +17,31 @@ rabbitmq:
           - '.*'
   vhosts:
     - name: bccvl
-      owner: admin
+      owner: {{ vars.rabbitmq.users.admin.name }}
       conf: '.*'
       write: '.*'
       read: '.*'
   users:
-    - name: bccvl
-      password: bccvl
-      # force: True
+    - name: {{ vars.rabbitmq.users.bccvl.name }}
+      password: {{ vars.rabbitmq.users.bccvl.pass }}
+      force: True
       perms:
         - 'bccvl':
           - '.*'
           - '.*'
           - '.*'
-    - name: flower
-      password: flower
-      # force: True
+    - name: {{ vars.rabbitmq.users.flower.name }}
+      password: {{ vars.rabbitmq.users.flower.pass }}
+      force: True
       tags: monitoring
       perms:
         - 'bccvl':
           - '.*'
           - '.*'
           - '.*'
-    - name: worker
-      password: worker
-      # force: True
+    - name: {{ vars.rabbitmq.users.worker.name }}
+      password: {{ vars.rabbitmq.users.worker.pass }}
+      force: True
       perms:
         - 'bccvl':
           - '.*'

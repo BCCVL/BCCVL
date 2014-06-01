@@ -1,6 +1,8 @@
+{% import_yaml "variables.yml" as vars %}
+
 salt:
   minion:
-    master: 192.168.100.100
+    master: {{ vars.monitor.hostname }}
     #module_config:
     #  test: True
     #  test.foo: foo
