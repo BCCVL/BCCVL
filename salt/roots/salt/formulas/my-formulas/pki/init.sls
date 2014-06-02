@@ -15,7 +15,7 @@
 
 {% set certlist = salt['pillar.get']('pki:cert', []) %}
 {% for name in certlist %}
-/etc/pki/tls/{{ name }}.crt.pem:
+/etc/pki/tls/certs/{{ name }}.crt.pem:
   file.managed:
     - user: root
     - group: root

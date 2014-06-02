@@ -1,4 +1,4 @@
-{% set cabundle = salt['pillar.get']('flower:cabundle', '/etc/pki/tls/cert.pem') %}
+{% set cabundle = salt['pillar.get']('flower:cabundle', '/etc/pki/tls/certs/ca-bundle.crt') %}
 {% set broker = salt['pillar.get']('flower:broker', {}) %}
 
 {% set cred = broker.get('user', 'guest') +  ':' +  broker.get('pass', 'guest') %}

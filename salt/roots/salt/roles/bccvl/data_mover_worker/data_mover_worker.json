@@ -10,7 +10,7 @@
     "BROKER": {
         "URL": "amqp://{{ cred }}@{{ host }}:{{ port }}/{{ vhost }}",
         "USE_SSL": {
-            "ca_certs": "/etc/pki/tls/bccvlca.crt.pem",
+            "ca_certs": "/etc/pki/tls/certs/bccvlca.crt.pem",
             "keyfile": "/home/{{ user.name }}/worker/worker.key.pem",
             "certfile": "/home/{{ user.name }}/worker/worker.crt.pem",
             "cert_reqs": 2

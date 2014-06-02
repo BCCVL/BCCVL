@@ -50,6 +50,7 @@ service iptables restart:
     - user: rabbitmq
     - group: rabbitmq
     - mode: 600
+    - template: jinja
     - require:
       - pkg: rabbitmq-server
     - watch_in:
@@ -113,6 +114,17 @@ service iptables restart:
     - group: rabbitmq
     - mode: 400
     - contents_pillar: pki:manual:key:rabbitmq
+    - require:
+      - pkg: rabbitmq-server
+    - watch_in:
+      - service: rabbitmq-server
+
+/etc/pki/tls/private/rabbitweb.key.pem:
+  file.managed:
+    - user: rabbitmq
+    - group: rabbitmq
+    - mode: 400
+    - contents_pillar: pki:manual:key:rabbitweb
     - require:
       - pkg: rabbitmq-server
     - watch_in:

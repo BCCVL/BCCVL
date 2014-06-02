@@ -6,7 +6,7 @@
 
 flower:
 
-  cabundle: /etc/pki/tls/bccvlca.crt.pem
+  cabundle: /etc/pki/tls/certs/bccvlca.crt.pem
   # auth: email@domain|email2@domain .. or any other regexp
   # auth: g.weis@griffith.edu.au
 

@@ -17,6 +17,7 @@ pki:
     bccvllogger: {{ bccvllogger_sslcert|string|json }}
     rabbitmq: {{ rabbitmq_sslcert|string|json }}
     bccvl: {{ bccvl_sslcert|string|json }}
+    rabbitweb: {{ bccvl_sslcert|string|json }}
   key:
     bccvllogger: {{ bccvllogger_sslkey|string|json }}
     bccvl: {{ bccvl_sslkey|string|json }}
@@ -24,3 +25,4 @@ pki:
   manual:
     key:
       rabbitmq: {{ rabbitmq_sslkey|string|json }}
+      rabbitweb: {{ bccvl_sslkey|string|json }}
