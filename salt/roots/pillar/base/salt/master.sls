@@ -26,6 +26,12 @@ salt:
         - /srv/salt/formulas/users-formula
         - /srv/salt/formulas/epel-formula
         - /srv/salt/formulas/my-formulas
+      test:
+        - /srv/salt/test
+        - /srv/salt/roles
+        - /srv/salt/formulas/users-formula
+        - /srv/salt/formulas/epel-formula
+        - /srv/salt/formulas/my-formulas
       prod:
         - /srv/salt/prod
         - /srv/salt/roles
@@ -38,12 +44,12 @@ salt:
         - /srv/pillar/base
       dev:
         - /srv/pillar/dev
-        - /srv/pillar/qa
-        - /srv/pillar/prod
         - /srv/pillar/base
       qa:
         - /srv/pillar/qa
-        - /srv/pillar/prod
+        - /srv/pillar/base
+      test:
+        - /srv/pillar/test
         - /srv/pillar/base
       prod:
         - /srv/pillar/prod

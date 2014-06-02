@@ -37,6 +37,17 @@ loganalyzer:
       DBPassword:
       DBTableName: syslog
 
+    bccvl-test:
+      Name: BCCVL Test Logs
+      ViewID: SYSLOG
+      SourceType: SOURCE_MONGODB
+      DBTableType: mongodb
+      DBServer: localhost
+      DBName: test-logs
+      DBUser:
+      DBPassword:
+      DBTableName: syslog
+
     bccvl-prod:
       Name: BCCVL Prod Logs
       ViewID: SYSLOG

@@ -26,6 +26,18 @@ qa:
     - salt.minion
     - bccvl
 
+test:
+  'monitor*test*':
+    - salt.master
+    - salt.minion
+    - monitor
+  'worker*test*':
+    - salt.minion
+    - worker
+  'bccvl*test*':
+    - salt.minion
+    - bccvl
+
 prod:
   'monitor*prod*':
     - salt.master

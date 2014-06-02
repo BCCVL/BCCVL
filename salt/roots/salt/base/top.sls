@@ -28,6 +28,14 @@ qa:
   'bccvl*qa*':
     - bccvl
 
+test:
+  'monitor*test*':
+    - monitor
+  'worker*test*':
+    - worker
+  'bccvl*test*':
+    - bccvl
+
 prod:
   'monitor*prod*':
     - monitor
