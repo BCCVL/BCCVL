@@ -27,6 +27,7 @@ qa:
     - worker
   'bccvl*qa*':
     - bccvl
+    - bccvl.shibboleth
 
 test:
   'monitor*test*':
@@ -35,6 +36,7 @@ test:
     - worker
   'bccvl*test*':
     - bccvl
+    - bccvl.shibboleth
 
 prod:
   'monitor*prod*':
@@ -43,3 +45,4 @@ prod:
     - worker
   'bccvl*prod*':
     - bccvl
+    - bccvl.shibboleth

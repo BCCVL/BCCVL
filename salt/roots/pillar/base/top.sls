@@ -24,6 +24,7 @@ qa:
     - worker
   'bccvl*qa*':
     - salt.minion
+    - shibboleth
     - bccvl
 
 test:
@@ -36,6 +37,7 @@ test:
     - worker
   'bccvl*test*':
     - salt.minion
+    - shibboleth
     - bccvl
 
 prod:
@@ -48,4 +50,5 @@ prod:
     - worker
   'bccvl*prod*':
     - salt.minion
+    - shibboleth
     - bccvl
