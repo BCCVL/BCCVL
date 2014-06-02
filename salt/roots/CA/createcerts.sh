@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ROOTCA_CN=bccvlca.bccvl.org.au
 CANAME=bccvlca
@@ -139,30 +139,76 @@ function create_client_cert {
     popd  # DIR
 }
 
-SERVER_CERTS="monitor bccvl rabbitmq"
+function create_cert_environment {
+  ENV=$1
+
+  if [ "$ENV" != "dev" -a "$ENV" != "test" -a "$ENV" != "qa" -a "$ENV" != "prod" ] ; then
+    echo "Unknown environment '$ENV' "
+    exit 1
+  fi
+
+  # create the server certs
+  for name in ${SERVER_CERTS} ; do
+    create_server_cert ${CADIR} "${CURDIR}/${name}-${ENV}" "${DNSMAP[${name}-${ENV}]}"
+  done
+
+  # create some client certs:
+  for name in ${CLIENT_CERTS} ; do
+    create_client_cert ${CADIR} "${CURDIR}/${name}-${ENV}" "${name}-${ENV}.bccvl.org.au"
+  done
+
+  # Decide where to put the certs
+  PILLAR_ROOT=${SALTROOT}/pillar/${ENV}/certs
+
+  for name in ${CLIENT_CERTS} ; do
+    cp ${name}-${ENV}/cert.pem ${PILLAR_ROOT}/${name}.crt.pem
+    cp ${name}-${ENV}/key.pem ${PILLAR_ROOT}/${name}.key.pem
+  done
+
+  for name in ${SERVER_CERTS} ; do
+    if [ -e ${name}-${ENV}/cert.pem ] ; then
+      # TODO: don't overwrite non bccvlca server certs
+      cp ${name}-${ENV}/cert.pem ${PILLAR_ROOT}/${name}.crt.pem
+      cp ${name}-${ENV}/key.pem ${PILLAR_ROOT}/${name}.key.pem
+    fi
+  done
+
+}
+
+# map ENV names to domain names
+declare -A DNSMAP
+DNSMAP=(
+  ["monitor-dev"]="192.168.100.100"
+  ["monitor-qa"]="monitor.bccvl.org.au"
+  ["monitor-test"]="monitor.bccvl.org.au"
+  ["monitor-prod"]="monitor.bccvl.org.au"
+  ["rsyslog-dev"]="192.168.100.100"
+  ["rsyslog-qa"]="monitor.bccvl.org.au"
+  ["rsyslog-test"]="monitor.bccvl.org.au"
+  ["rsyslog-prod"]="monitor.bccvl.org.au"
+  ["bccvl-dev"]="192.168.100.200"
+  ["bccvl-qa"]="qa.bccvl.org.au"
+  ["bccvl-test"]="test.bccvl.org.au"
+  ["bccvl-prod"]="app.bccvl.org.au"
+  ["rabbitmq-dev"]="192.168.100.200"
+  ["rabbitmq-qa"]="qa.bccvl.org.au"
+  ["rabbitmq-test"]="test.bccvl.org.au"
+  ["rabbitmq-prod"]="app.bccvl.org.au"
+  ["rabbitweb-dev"]="192.168.100.200"
+  ["rabbitweb-qa"]="qa.bccvl.org.au"
+  ["rabbitweb-test"]="test.bccvl.org.au"
+  ["rabbitweb-prod"]="app.bccvl.org.au"
+)
+
+SERVER_CERTS="monitor rsyslog bccvl rabbitmq rabbitweb"
 CLIENT_CERTS="worker plone bccvllogger flower"
 
-create_server_cert ${CADIR} "${CURDIR}/monitor" "monitor.bccvl.org.au"
-create_server_cert ${CADIR} "${CURDIR}/bccvl" "main.bccvl.org.au"
-create_server_cert ${CADIR} "${CURDIR}/rabbitmq" "192.168.100.200"  # "queue.bccvl.org.au"
-
-for name in ${CLIENT_CERTS} ; do
-    create_client_cert ${CADIR} "${CURDIR}/${name}" "${name}.bccvl.org.au"
-done
-
-
-#### copy cert and key files to pillar folder base/certs
+#### copy root cert to pillar folder base/certs
 PILLAR_ROOT=${SALTROOT}/pillar/base/certs
-
 # copy cacert (no need to copy CA private key)
 cp ${CADIR}/cacert.pem ${PILLAR_ROOT}/${CANAME}.crt.pem
 
-for name in ${SERVER_CERTS} ; do
-    cp ${name}/cert.pem ${PILLAR_ROOT}/${name}.crt.pem
-    cp ${name}/key.pem ${PILLAR_ROOT}/${name}.key.pem
-done
-
-for name in ${CLIENT_CERTS} ; do
-    cp ${name}/cert.pem ${PILLAR_ROOT}/${name}.crt.pem
-    cp ${name}/key.pem ${PILLAR_ROOT}/${name}.key.pem
+### generate env specific certs
+for env in dev qa test prod ; do
+    create_cert_environment ${env}
 done
