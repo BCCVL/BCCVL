@@ -65,6 +65,14 @@ php-fpm:
     - require:
       - pkg: php-fpm
 
+/var/lib/php/session:
+  file.directory:
+    - user: apache
+    - group: apache
+    - mode: 770
+    - require:
+      - pkg: php-fpm
+
 /etc/php-fpm.d/loganalyzer.conf:
   file.managed:
     - source: salt://monitor/loganalyzer_php-fpm.conf
