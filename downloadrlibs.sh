@@ -1,5 +1,8 @@
 #!/bin/bash
 
+SHASUM=$(which shasum)
+SHASUM=${SHASUM:-$(which sha1sum)}
+
 SALT_ROOT="$(pwd)/salt/roots"
 if [ ! -d "${SALT_ROOT}" ] ; then
   SALT_ROOT="/srv"
@@ -38,7 +41,7 @@ function get_r_lib() {
     fi
   fi
   name="${dest%.tar.gz}.sha1"
-  shasum "${dest}"  | cut -f1 -d ' ' > "${name}"
+  ${SHASUM} "${dest}"  | cut -f1 -d ' ' > "${name}"
 }
 
 RLIBS=(rjson_0.2.13.tar.gz
