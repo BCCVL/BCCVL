@@ -16,7 +16,7 @@ shibd:
     - require:
       - pkg: shibboleth
 
-/etc/shibboleth/shibboleth2.xml
+/etc/shibboleth/shibboleth2.xml:
   file.managed:
     - source: salt://shibboleth/shibboleth2.xml
     - user: shibd
