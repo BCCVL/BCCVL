@@ -2,6 +2,7 @@
 
 include:
   - perl516
+  - subversion
 
 Install Biodiverse deps:
   pkg:
