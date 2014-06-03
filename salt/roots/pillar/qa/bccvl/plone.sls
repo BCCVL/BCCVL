@@ -28,7 +28,7 @@ plone:
   site_replace: false
 
   buildout:
-    branch: feature/remove_zc_async  # develop  # which branch to build
+    branch: develop  # which branch to build
 
   # instances to build
   instances:
