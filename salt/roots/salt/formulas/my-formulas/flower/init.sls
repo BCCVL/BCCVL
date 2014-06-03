@@ -1,4 +1,5 @@
 include:
+  - gcc
   - virtualenv
   - supervisord
   - libffi-devel
@@ -21,6 +22,7 @@ flower:
       - pkg: python-virtualenv
       - pkg: libffi-devel
       - pkg: openssl-devel
+      - pkg: gcc
       - user: flower
 
 /home/flower/etc:
