@@ -3,7 +3,7 @@
 /mnt/plone_var:
   file.directory:
     - user: {{ user.name }}
-    - group: {{ gorup.name }}
+    - group: {{ user.name }}
     - mode: 750
     - require:
       - user: {{ user.name }}
