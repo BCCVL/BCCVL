@@ -1,5 +1,13 @@
 {% set user = salt['pillar.get']('plone:user', {'name': 'plone'}) %}
 
+/mnt/plone_var:
+  file.directory:
+    - user: {{ user.name }}
+    - group: {{ gorup.name }}
+    - mode: 750
+    - require:
+      - user: {{ user.name }}
+
 plone_virtualenv:
   file.directory:
     - name: /home/{{ user.name }}/bccvl_buildout
@@ -26,3 +34,4 @@ plone_virtualenv:
       - git: plone_virtualenv
       - pkg: python27-python-virtualenv
       - file: /usr/local/bin/python27-virtualenv
+      - file: /mnt/plone_var
