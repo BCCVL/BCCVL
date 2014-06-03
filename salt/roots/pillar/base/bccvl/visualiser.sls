@@ -19,3 +19,7 @@ visualiser:
 
   ssh_privkey: {{ visualiser_id_dsa_priv|string|json }}
   ssh_pubkey: {{ visualiser_id_dsa_pub|string|json }}
+
+  # Root folder where visualiser stores it's data. (needs leading
+  # slash but can't handle trailing slash)
+  tmp: /tmp

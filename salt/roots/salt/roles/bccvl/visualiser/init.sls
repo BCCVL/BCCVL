@@ -1,4 +1,5 @@
 {% set user = salt['pillar.get']('visualiser:user', {'name': 'visualiser'}) %}
+{% set visualiser = salt['pillar.get']('visualiser', {}) %}
 
 include:
   - gdal
@@ -130,6 +131,17 @@ Visualiser Buildout Config:
     - require:
       - git: Visualiser Clone
 
+Visualiser Production INI:
+  file.managed:
+    - name: /home/{{ user.name }}/BCCVL_Visualiser/BCCVL_Visualiser/bccvl_production.ini
+    - source: salt://bccvl/visualiser/visualiser_production.ini
+    - user: {{ user.name }}
+    - group: {{ user.name }}
+    - mode: 640
+    - template: jinja
+    - require:
+      - git: Visualiser Clone
+
 Visualiser Bootstrap Buildout:
   cmd.run:
     - cwd: /home/{{ user.name }}/BCCVL_Visualiser/BCCVL_Visualiser
@@ -150,6 +162,22 @@ Visualiser Buildout:
     - require:
       - cmd: Visualiser Bootstrap Buildout
 
+Visualiser Files Root:
+  file.directory:
+    - name: {{ visualiser.get('tmp', '/tmp') }}/bccvl
+    - user: {{ user.name }}
+    - group: {{ user.name }}
+    - makedirs: True
+    - mode: 750
+
+Visualiser Public Dir:
+  file.directory:
+    - name: {{ visualiser.get('tmp', '/tmp') }}/visualiser_public
+    - user: {{ user.name }}
+    - group: {{ user.name }}
+    - makedirs: True
+    - mode: 750
+
 /etc/supervisord.d/visualiser.ini:
   file.managed:
     - user: root
@@ -158,6 +186,9 @@ Visualiser Buildout:
     - source: salt://bccvl/visualiser/visualiser_supervisord.ini
     - template: jinja
     - require:
+      - file: Visualiser Files Root
+      - file: Visualiser Public Dir
+      - file: Visualiser Production INI
       - pkg: supervisor
     - watch_in:
       - service: supervisord
