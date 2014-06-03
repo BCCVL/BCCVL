@@ -3,13 +3,7 @@
 # TODO: merge this module with formula
 
 include:
-  - epel
-
-erlang:
-  pkg:
-    - installed
-    - require:
-      - file: enable_epel
+  - erlang
 
 install_rabbit_rpm_pubkey:
   cmd.run:
