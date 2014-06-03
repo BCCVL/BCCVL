@@ -4,7 +4,7 @@
 ##  ... run this step if the above git clone reports changes
 worker_virtualenv:
   cmd.wait:
-    - name: scl enable python27 ". bin/activate; pip install -U https://github.com/BCCVL/org.bccvl.tasks/archive/qa.tar.gz#egg=org.bccvl.tasks"
+    - name: scl enable python27 ". bin/activate; pip install -U https://github.com/BCCVL/org.bccvl.tasks/archive/develop.tar.gz#egg=org.bccvl.tasks"
     - cwd: /home/{{ user.name }}/worker
     - user: {{ user.name }}
     - require:
