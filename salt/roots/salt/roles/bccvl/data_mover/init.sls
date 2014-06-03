@@ -10,7 +10,6 @@ include:
 # TODO: enable proper updating of sources and build script
 #       (e.g. trigger rebuild if new source is available)
 # TODO: also need known_host keys for worker(s) etc...
-# TODO: manage destinations_config.json here as well?
 
 # Requirements
 
@@ -77,18 +76,6 @@ gmp-devel:
     - require:
       - pkg: python27-python-virtualenv
       - file: /usr/local/bin/python27-virtualenv
-      - git: data_mover_source
-
-# TODO: can I find all workers via mine or similar?
-/home/{{ user.name }}/bccvl_data_mover/data_mover/data_mover/destination_config.json:
-  file.managed:
-    - source:
-      - salt://bccvl/data_mover/data_mover_destination_config.json
-    - template: jinja
-    - user: {{ user.name }}
-    - group: {{ user.name }}
-    - mode: 640
-    - require:
       - git: data_mover_source
 
 /home/{{ user.name }}/bccvl_data_mover/data_mover/data_mover_buildout.cfg:
@@ -164,6 +151,5 @@ gmp-devel:
       - pkg: supervisor
       - cmd: /home/{{ user.name }}/bccvl_data_mover/data_mover/production.sqlite
       - file: /home/{{ user.name }}/bccvl_data_mover/data_mover/data_mover.ini
-      - file: /home/{{ user.name }}/bccvl_data_mover/data_mover/data_mover/destination_config.json
     - watch_in:
       - service: supervisord
