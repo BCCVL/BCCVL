@@ -16,7 +16,7 @@ nginx:
   service:
     - running
     - enable: True
-    - restart: True
+    - reload: True
     - require:
       - pkg: nginx
     # - watch:
