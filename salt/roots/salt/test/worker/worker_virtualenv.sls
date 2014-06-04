@@ -18,6 +18,6 @@ worker_virtualenv:
   file.managed:
     - user: root
     - group: root
-    - mode: 750
+    - mode: 644
     - require_in:
       - service: supervisord
