@@ -13,3 +13,13 @@ worker_virtualenv:
       - virtualenv: /home/{{ user.name }}/worker
     - watch:
       - git: /home/{{ user.name }}/worker/org.bccvl.tasks
+
+
+# install Datamover SSL Cert chain
+/etc/pki/tls/certs/AusCert.crt.pem:
+  file.managed:
+    - user: root
+    - group: root
+    - mode: 750
+    - require_in:
+      - service: supervisord
