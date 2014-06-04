@@ -18,6 +18,7 @@ worker_virtualenv:
 # install Datamover SSL Cert chain
 /etc/pki/tls/certs/AusCert.crt.pem:
   file.managed:
+    - source: salt://worker/AusCert.crt.pem
     - user: root
     - group: root
     - mode: 644
