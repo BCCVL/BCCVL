@@ -25,18 +25,21 @@ salt:
         - /srv/salt/roles
         - /srv/salt/formulas/users-formula
         - /srv/salt/formulas/epel-formula
+        - /srv/salt/formulas/openssh-formula
         - /srv/salt/formulas/my-formulas
       test:
         - /srv/salt/test
         - /srv/salt/roles
         - /srv/salt/formulas/users-formula
         - /srv/salt/formulas/epel-formula
+        - /srv/salt/formulas/openssh-formula
         - /srv/salt/formulas/my-formulas
       prod:
         - /srv/salt/prod
         - /srv/salt/roles
         - /srv/salt/formulas/users-formula
         - /srv/salt/formulas/epel-formula
+        - /srv/salt/formulas/openssh-formula
         - /srv/salt/formulas/my-formulas
 
     pillar_roots:

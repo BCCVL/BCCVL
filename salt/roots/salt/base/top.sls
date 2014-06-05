@@ -23,7 +23,7 @@ dev:
 qa:
   '*qa*':
     - users
-    - sshd
+    - openssh.config
   'monitor*qa*':
     - monitor
   'worker*qa*':
@@ -35,7 +35,7 @@ qa:
 test:
   '*test*':
     - users
-    - sshd
+    - openssh.config
   'monitor*test*':
     - monitor
   'worker*test*':
@@ -47,7 +47,7 @@ test:
 prod:
   '*prod*':
     - users
-    - sshd
+    - openssh.config
   'monitor*prod*':
     - monitor
   'worker*prod*':
