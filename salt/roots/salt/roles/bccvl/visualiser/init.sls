@@ -44,6 +44,10 @@ include:
     - createhome: true
     - gid_from_name: true
     - system: true
+    - groups:
+      - bccvl_user
+    - require:
+      - group: bccvl_user
   ssh_auth:
     - present
     - user: {{ user.name }}

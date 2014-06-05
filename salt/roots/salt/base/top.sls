@@ -7,6 +7,7 @@ base:
     - timezone
     - locale
     - salt.minion
+    - groups
 
   'roles:salt-master':
     - match: pillar

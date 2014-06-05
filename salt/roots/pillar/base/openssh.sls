@@ -28,4 +28,4 @@ sshd_config:
       LC_IDENTIFICATION LC_ALL LANGUAGE
       XMODIFIERS
 
-  AllowGroups: ssh_user
+  AllowGroups: ssh_user bccvl_user
