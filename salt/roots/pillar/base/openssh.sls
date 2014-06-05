@@ -21,9 +21,10 @@ openssh:
       Banner: /etc/ssh/sshd_banner
       Subsystem: sftp /usr/lib/openssh/sftp-server
 
-      AcceptEnv: > LANG LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES
-                   LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT
-                   LC_IDENTIFICATION LC_ALL LANGUAGE
-                   XMODIFIERS
+      AcceptEnv: >
+          LANG LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES
+          LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT
+          LC_IDENTIFICATION LC_ALL LANGUAGE
+          XMODIFIERS
 
       AllowGroups: ssh_user
