@@ -21,6 +21,9 @@ dev:
     - bccvl
 
 qa:
+  '*qa*':
+    - users
+    - sshd
   'monitor*qa*':
     - monitor
   'worker*qa*':
@@ -30,6 +33,9 @@ qa:
     - shibboleth
 
 test:
+  '*test*':
+    - users
+    - sshd
   'monitor*test*':
     - monitor
   'worker*test*':
@@ -39,6 +45,9 @@ test:
     - shibboleth
 
 prod:
+  '*prod*':
+    - users
+    - sshd
   'monitor*prod*':
     - monitor
   'worker*prod*':

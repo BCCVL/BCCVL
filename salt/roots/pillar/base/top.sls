@@ -3,52 +3,51 @@
 #    - mine_functions
 
 dev:
+  '*dev*':
+    - salt.minion
   'monitor*dev*':
     - salt.master
-    - salt.minion
     - monitor
   'worker*dev*':
-    - salt.minion
     - worker
   'bccvl*dev*':
-    - salt.minion
     - bccvl
 
 qa:
+  '*qa*':
+    - salt.minion
+    - users
   'monitor*qa*':
     - salt.master
-    - salt.minion
     - monitor
   'worker*qa*':
-    - salt.minion
     - worker
   'bccvl*qa*':
-    - salt.minion
     - bccvl.shibboleth
     - bccvl
 
 test:
+  '*test*':
+    - salt.minion
+    - users
   'monitor*test*':
     - salt.master
-    - salt.minion
     - monitor
   'worker*test*':
-    - salt.minion
     - worker
   'bccvl*test*':
-    - salt.minion
     - bccvl.shibboleth
     - bccvl
 
 prod:
+  '*prod*':
+    - salt.minion
+    - users
   'monitor*prod*':
     - salt.master
-    - salt.minion
     - monitor
   'worker*prod*':
-    - salt.minion
     - worker
   'bccvl*prod*':
-    - salt.minion
     - bccvl.shibboleth
     - bccvl
