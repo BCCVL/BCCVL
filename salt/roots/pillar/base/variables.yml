@@ -37,3 +37,8 @@ bccvl:
 plone:
   admin: admin
   password: admin
+
+collectd:
+  network:
+    host: {{ monitor.hostname }}
+    password: collectd

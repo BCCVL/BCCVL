@@ -29,9 +29,11 @@ qa:
     - monitor
   'worker*qa*':
     - worker
+    - worker.collectd
   'bccvl*qa*':
     - bccvl
     - shibboleth
+    - bccvl.collectd
 
 test:
   '*test*':
@@ -41,9 +43,11 @@ test:
     - monitor
   'worker*test*':
     - worker
+    - worker.collectd
   'bccvl*test*':
     - bccvl
     - shibboleth
+    - bccvl.collectd
 
 prod:
   '*prod*':
@@ -51,8 +55,12 @@ prod:
     - openssh.config
   'monitor*prod*':
     - monitor
+    - monitor.graphite
+    - monitor.collectd
   'worker*prod*':
     - worker
+    - worker.collectd
   'bccvl*prod*':
     - bccvl
     - shibboleth
+    - bccvl.collectd

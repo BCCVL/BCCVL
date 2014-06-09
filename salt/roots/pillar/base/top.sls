@@ -16,6 +16,7 @@ dev:
 qa:
   '*qa*':
     - salt.minion
+    - collectd
     - openssh
     - users
   'monitor*qa*':
@@ -30,6 +31,7 @@ qa:
 test:
   '*test*':
     - salt.minion
+    - collectd
     - openssh
     - users
   'monitor*test*':
@@ -44,6 +46,7 @@ test:
 prod:
   '*prod*':
     - salt.minion
+    - collectd
     - openssh
     - users
   'monitor*prod*':

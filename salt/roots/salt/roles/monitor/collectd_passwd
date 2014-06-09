@@ -1,0 +1,3 @@
+{% set collectd salt['pillar.get']('collectd', {}) %}
+
+bccvl: {{ collectd.network.passwd }}
