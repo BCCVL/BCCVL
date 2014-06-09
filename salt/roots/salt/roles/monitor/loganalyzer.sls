@@ -94,9 +94,9 @@ php-fpm:
 #       doc_root ?
 #
 /etc/php.ini:
-  file.sed:
-    - before: ^;date.timezone =
-    - after: ^date.timezone = Australia/Brisbane
+  file.replace:
+    - pattern: ^;date.timezone =.*$
+    - repl: date.timezone = Australia/Brisbane
     - require:
       - pkg: php-common
     - watch_in:
