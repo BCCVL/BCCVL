@@ -1,7 +1,7 @@
 include:
   - epel
   - nginx
-
+  - supervisord
 
 python-whisper:
   pkg.installed:
@@ -92,6 +92,22 @@ carbon-cache:
     - enable: True
     - require:
       - pkg: python-carbon
+
+
+/etc/supervisord.d/graphite.ini:
+  file.managed:
+    - source: salt://monitor/graphite_supervisord.ini
+    - user: root
+    - group: root
+    - mode: 640
+    - template: jinja
+    - require:
+      - pkg: supervisor
+      - pkg: graphite-web
+      - pip: uwsgi
+      - service: carbon-cache
+    - watch_in:
+      - service: supervisord
 
 
 # TODO: start all services: uwsgi (supervisor?)
