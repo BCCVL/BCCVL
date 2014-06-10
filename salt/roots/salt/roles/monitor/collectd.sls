@@ -4,10 +4,11 @@ include:
 
 /etc/collectd.d/passwd:
   file.managed:
-    - source: salt://monitor/collectd_passwd.conf
+    - source: salt://monitor/collectd_passwd
     - user: root
     - group: root
     - mode: 600
+    - template: jinja
     - require:
       - pkg: collectd
 
@@ -17,6 +18,7 @@ include:
     - user: root
     - group: root
     - mode: 600
+    - template: jinja
     - require:
       - pkg: collectd
     - watch_in:
@@ -28,6 +30,7 @@ include:
     - user: root
     - group: root
     - mode: 600
+    - template: jinja
     - require:
       - pkg: collectd
     - watch_in:
@@ -39,6 +42,7 @@ include:
     - user: root
     - group: root
     - mode: 600
+    - template: jinja
     - require:
       - pkg: collectd
     - watch_in:

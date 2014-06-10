@@ -5,7 +5,7 @@ collectd:
   pkg.installed:
     - enablerepo: rpmforge-testing
     - require:
-      - pkgrepo: rpmforge
+      - pkg: rpmforge-release
   service.running:
     - enable: True
     - require:

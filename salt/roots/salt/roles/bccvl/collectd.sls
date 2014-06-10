@@ -8,6 +8,7 @@ include:
     - user: root
     - group: root
     - mode: 600
+    - template: jinja
     - require:
       - pkg: collectd
     - watch_in:
@@ -19,6 +20,7 @@ include:
     - user: root
     - group: root
     - mode: 600
+    - template: jinja
     - require:
       - pkg: collectd
     - watch_in:

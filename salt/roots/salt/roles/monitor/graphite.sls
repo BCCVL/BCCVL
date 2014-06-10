@@ -18,9 +18,8 @@ graphite-web:
     - require:
       - file: enable_epel
 
-
 python-pip:
-  pkg.installed:
+  pkg.installed
 
 ## TODO: move some of this stuff into uwsgi formula
 uwsgi:
