@@ -13,7 +13,9 @@ collectd:
 
 /etc/collectd.conf:
   file.append:
-    - text: Include "/etc/collectd.d/*.conf"
+    - text: |
+        FQDNLookup false
+        Include "/etc/collectd.d/*.conf"
     - require:
       - pkg: collectd
     - watch_in:
