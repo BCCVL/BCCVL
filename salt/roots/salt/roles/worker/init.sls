@@ -105,6 +105,12 @@ service iptables restart:
     - require:
       - file: /home/{{ user.name }}/worker
 
+/mnt/workdir:
+  file.directory:
+    - user: bccvl
+    - group: bccvl
+    - mode: 700
+
 /etc/supervisord.d/worker.ini:
   file.managed:
     - source: salt://worker/worker_supervisor.ini
@@ -117,6 +123,7 @@ service iptables restart:
       - file: /home/{{ user.name }}/worker/celery.json
       - user: {{ user.name }}
       - cmd: worker_virtualenv
+      - file: /mnt/workdir
     - watch_in:
       - service: supervisord
 
