@@ -56,8 +56,8 @@ uwsgi:
   file.managed:
     - source: salt://monitor/graphite_local_settings.py
     - user: root
-    - group: root
-    - mode: 600
+    - group: apache
+    - mode: 640
     - template: jinja
     - require:
       - pkg: graphite-web
@@ -66,8 +66,8 @@ uwsgi:
   file.managed:
     - source: salt://monitor/nginx_graphite.conf
     - user: root
-    - group: root
-    - mode: 600
+    - group: apache
+    - mode: 640
     - template: jinja
     - require:
       - pkg: nginx
