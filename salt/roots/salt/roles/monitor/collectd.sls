@@ -1,6 +1,6 @@
 include:
   - collectd
-
+  - supervisord
 
 /etc/collectd.d/passwd:
   file.managed:
@@ -47,3 +47,18 @@ include:
       - pkg: collectd
     - watch_in:
       - service: collectd
+
+/etc/supervisord.d/graphite.ini:
+  file.managed:
+    - source: salt://monitor/graphite_supervisord.ini
+    - user: root
+    - group: root
+    - mode: 640
+    - template: jinja
+    - require:
+      - pkg: supervisor
+      - pkg: graphite-web
+      - pip: uwsgi
+      - service: carbon-cache
+    - watch_in:
+      - service: supervisord
