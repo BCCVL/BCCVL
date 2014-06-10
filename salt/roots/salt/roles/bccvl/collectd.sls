@@ -4,7 +4,7 @@ include:
 
 /etc/collectd.d/df.conf:
   file.managed:
-    - source: salt://monitor/collectd_df.conf
+    - source: salt://bccvl/collectd_df.conf
     - user: root
     - group: root
     - mode: 600
@@ -16,7 +16,7 @@ include:
 
 /etc/collectd.d/network.conf:
   file.managed:
-    - source: salt://monitor/collectd_network.conf
+    - source: salt://bccvl/collectd_network.conf
     - user: root
     - group: root
     - mode: 600
