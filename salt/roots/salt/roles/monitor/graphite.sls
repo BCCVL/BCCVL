@@ -94,7 +94,5 @@ carbon-cache:
       - pkg: python-carbon
 
 
-# TODO: somehow set admin password and init db
-#       /usr/lib/python2.6/site-packages/graphite/manage.py syncdb
 # TODO: start all services: uwsgi (supervisor?)
 #       check /etc/carbon/* for configuration?
