@@ -74,6 +74,19 @@ uwsgi:
     - watch_in:
       - service: nginx
 
+# add missing build-index.sh
+/usr/share/graphite/bin/build-index.sh:
+  file.managed:
+    - source:
+      - salt://monitor/graphite_build_index.sh
+      - https://raw.githubusercontent.com/graphite-project/graphite-web/0.9.12/bin/build-index.sh
+    - makedirs: True
+    - user: root
+    - group: root
+    - mode: 755
+    - require:
+      - pkg: graphite-web
+
 carbon-cache:
   service.running:
     - enable: True
@@ -83,7 +96,5 @@ carbon-cache:
 
 # TODO: somehow set admin password and init db
 #       /usr/lib/python2.6/site-packages/graphite/manage.py syncdb
-#       mkdir /usr/share/graphite/bin
-#       vi /usr/share/graphite/bin/build-index.sh (https://github.com/graphite-project/graphite-web/blob/0.9.12/bin/build-index.sh)
 # TODO: start all services: uwsgi (supervisor?)
 #       check /etc/carbon/* for configuration?
