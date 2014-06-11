@@ -128,12 +128,11 @@ libtiff-devel:
 # TODO: will this run on update? (see watch) or would unless: override
 # any watch state... wolud this be different with cmd.wait?
 /home/{{ user.name }}/bccvl_buildout/bin/instance-debug:
-  cmd.run:
+  cmd.wait:
     - name: scl enable python27 ". ./bin/activate; ./bin/buildout"
     - cwd: /home/{{ user.name }}/bccvl_buildout
     - user: {{ user.name }}
     - group: {{ user.name }}
-    - unless: test -x /home/{{ user.name }}/bccvl_buildout/bin/instance-debug
     - require:
       - cmd: /home/{{ user.name }}/bccvl_buildout/bin/buildout
       - file: /home/{{ user.name }}/bccvl_buildout/etc/bccvl_celery.json
