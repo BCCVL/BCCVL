@@ -84,7 +84,7 @@ include:
 Visualiser Clone:
   git.latest:
     - name: https://github.com/BCCVL/BCCVL_Visualiser.git
-    - rev: develop
+    - rev: {{ visualiser.revision }}
     - target: /home/{{ user.name }}/BCCVL_Visualiser
     - user: {{ user.name }}
     - require:
