@@ -28,7 +28,7 @@ plone:
   site_replace: false
 
   buildout:
-    branch: 1.5.0-rc1  # which branch to build
+    branch: 1.5.1-rc1  # which branch to build
 
   # instances to build
   instances:
