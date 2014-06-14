@@ -28,21 +28,6 @@ qa:
     - bccvl.shibboleth
     - bccvl
 
-test:
-  '*test*':
-    - salt.minion
-    - collectd
-    - openssh
-    - users
-  'monitor*test*':
-    - salt.master
-    - monitor
-  'worker*test*':
-    - worker
-  'bccvl*test*':
-    - bccvl.shibboleth
-    - bccvl
-
 prod:
   '*prod*':
     - salt.minion

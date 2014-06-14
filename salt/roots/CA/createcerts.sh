@@ -142,7 +142,7 @@ function create_client_cert {
 function create_cert_environment {
   ENV=$1
 
-  if [ "$ENV" != "dev" -a "$ENV" != "test" -a "$ENV" != "qa" -a "$ENV" != "prod" ] ; then
+  if [ "$ENV" != "dev" -a "$ENV" != "qa" -a "$ENV" != "prod" ] ; then
     echo "Unknown environment '$ENV' "
     exit 1
   fi
@@ -180,23 +180,18 @@ declare -A DNSMAP
 DNSMAP=(
   ["monitor-dev"]="192.168.100.100"
   ["monitor-qa"]="monitor.bccvl.org.au"
-  ["monitor-test"]="monitor.bccvl.org.au"
   ["monitor-prod"]="monitor.bccvl.org.au"
   ["rsyslog-dev"]="192.168.100.100"
   ["rsyslog-qa"]="monitor.bccvl.org.au"
-  ["rsyslog-test"]="monitor.bccvl.org.au"
   ["rsyslog-prod"]="monitor.bccvl.org.au"
   ["bccvl-dev"]="192.168.100.200"
   ["bccvl-qa"]="qa.bccvl.org.au"
-  ["bccvl-test"]="test.bccvl.org.au"
   ["bccvl-prod"]="app.bccvl.org.au"
   ["rabbitmq-dev"]="192.168.100.200"
   ["rabbitmq-qa"]="qa.bccvl.org.au"
-  ["rabbitmq-test"]="test.bccvl.org.au"
   ["rabbitmq-prod"]="app.bccvl.org.au"
   ["rabbitweb-dev"]="192.168.100.200"
   ["rabbitweb-qa"]="qa.bccvl.org.au"
-  ["rabbitweb-test"]="test.bccvl.org.au"
   ["rabbitweb-prod"]="app.bccvl.org.au"
 )
 
@@ -209,6 +204,6 @@ PILLAR_ROOT=${SALTROOT}/pillar/base/certs
 cp ${CADIR}/cacert.pem ${PILLAR_ROOT}/${CANAME}.crt.pem
 
 ### generate env specific certs
-for env in dev qa test prod ; do
+for env in dev qa prod ; do
     create_cert_environment ${env}
 done

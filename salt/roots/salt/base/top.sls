@@ -35,20 +35,6 @@ qa:
     - shibboleth
     - bccvl.collectd
 
-test:
-  '*test*':
-    - users
-    - openssh.config
-  'monitor*test*':
-    - monitor
-  'worker*test*':
-    - worker
-    - worker.collectd
-  'bccvl*test*':
-    - bccvl
-    - shibboleth
-    - bccvl.collectd
-
 prod:
   '*prod*':
     - users
