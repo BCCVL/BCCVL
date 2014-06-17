@@ -24,7 +24,7 @@ plone:
   storage:
     root: /mnt/plone_var
 
-  mr_developer_always_checkout: false
+  mr_developer_always_checkout: true
   site_replace: false
 
   buildout:
