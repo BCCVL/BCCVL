@@ -16,6 +16,7 @@ plone_virtualenv:
     - require:
       - user: {{ user.name }}
       - pkg: git
+      - file: plone_virtualenv
   virtualenv.managed:
     - name: /home/{{ user.name }}/bccvl_buildout
     - venv_bin: /usr/local/bin/python27-virtualenv
