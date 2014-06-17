@@ -1,0 +1,4 @@
+
+exempi:
+  pkg.installed
+
