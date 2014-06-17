@@ -11,6 +11,7 @@ dev:
   'worker*dev*':
     - worker
   'bccvl*dev*':
+    - bccvl.shibboleth
     - bccvl
 
 qa:

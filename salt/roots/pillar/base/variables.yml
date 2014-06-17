@@ -42,3 +42,6 @@ collectd:
   network:
     host: {{ monitor.hostname }}
     password: collectd
+
+shibboleth:
+  enabled: False

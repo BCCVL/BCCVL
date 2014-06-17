@@ -19,6 +19,9 @@ dev:
   'worker*dev*':
     - worker
   'bccvl*dev*':
+{% if salt['pillar.items']('shibboleth:enabled', False) %}
+    - shibboleth
+{% endif %}
     - bccvl
 
 qa:
