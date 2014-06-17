@@ -1,2 +1,4 @@
 .vagrant
 vagrant.json
+*.sublime-project
+*.sublime-workspace
