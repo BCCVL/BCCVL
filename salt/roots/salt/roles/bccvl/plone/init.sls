@@ -7,6 +7,7 @@ include:
   - subversion
   - mercurial
   - zlib
+  - exempi.devel
   - libjpeg-turbo
   - python27
   - 4store
@@ -124,6 +125,7 @@ libtiff-devel:
       - pkg: libjpeg-turbo-devel
       - pkg: freetype-devel
       - pkg: libtiff-devel
+      - pkg: exempi-devel
 
 # TODO: will this run on update? (see watch) or would unless: override
 # any watch state... wolud this be different with cmd.wait?

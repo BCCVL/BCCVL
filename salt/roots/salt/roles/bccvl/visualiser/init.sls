@@ -5,7 +5,6 @@ include:
   - gdal
   - proj4
   - geos
-  - virtualenv
   - git
   - openssl-devel
   - python27
