@@ -33,6 +33,7 @@ rsyslog:
 
 bccvl:
   hostname: {{ bccvl.hostname }}
+  ca: bccvlca
 
 plone:
   admin: admin
