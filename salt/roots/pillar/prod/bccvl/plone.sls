@@ -28,7 +28,7 @@ plone:
   site_replace: false
 
   buildout:
-    branch: master  # which branch to build # rev number?
+    branch: 1.5.1  # which branch to build # rev number?
 
   # instances to build
   instances:

@@ -11,7 +11,7 @@ data_mover_source:
       - user: {{ user.name }}
   git.latest:
     - name: https://github.com/BCCVL/bccvl_data_mover.git
-    - rev: 1.5.0-rc1
+    - rev: 1.5.0
     - target: /home/{{ user.name }}/bccvl_data_mover
     - user: {{ user.name }}
     - group: {{ user.name }}
