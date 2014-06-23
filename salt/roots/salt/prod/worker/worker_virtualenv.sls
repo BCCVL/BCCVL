@@ -12,5 +12,3 @@ worker_virtualenv:
       - pkg: python27-python-devel
       - pkg: python27-python-virtualenv
       - virtualenv: /home/{{ user.name }}/worker
-    - watch:
-      - git: /home/{{ user.name }}/worker/org.bccvl.tasks
