@@ -40,10 +40,10 @@ plone:
       port: 8402
     instance3:
       host: 127.0.0.1
-      port: 8402
+      port: 8403
     instance4:
       host: 127.0.0.1
-      port: 8402
+      port: 8404
     instance-debug:
       host: 127.0.0.1
       port: 8499
