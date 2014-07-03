@@ -5,6 +5,7 @@
 dev:
   '*dev*':
     - salt.minion
+    - users
   'monitor*dev*':
     - salt.master
     - monitor
