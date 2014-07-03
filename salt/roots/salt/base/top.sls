@@ -14,7 +14,7 @@ base:
     - salt.master
 
 dev:
-  *dev*:
+  '*dev*':
     - users
   'monitor*dev*':
     - monitor
