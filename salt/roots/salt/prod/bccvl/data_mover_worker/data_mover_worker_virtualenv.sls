@@ -1,5 +1,5 @@
 {% set user = salt['pillar.get']('data_mover:user', {'name': 'data_mover'}) %}
-{% set version = '1.5.1' %}
+{% set version = '1.6.0' %}
 
 ## install editable version of tool
 ##  ... run this step if the above git clone reports changes

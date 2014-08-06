@@ -12,6 +12,7 @@ include:
   - subversion
   - libpng
   - zlib
+  - libcurl-devel
   - libjpeg-turbo
   - blas
   - lapack
