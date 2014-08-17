@@ -57,7 +57,7 @@ RLIBS=(rjson_0.2.13.tar.gz
        png_0.1-7.tar.gz
        survival_2.37-7.tar.gz
        lattice_0.20-29.tar.gz
-       gbm_2.1.tar.gz
+       gbm_2.0-8.tar.gz
        stringr_0.6.2.tar.gz
        evaluate_0.5.3.tar.gz
        dismo_0.9-3.tar.gz

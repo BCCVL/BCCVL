@@ -51,7 +51,7 @@ include:
   {'name': 'png',          'version': '0.1-7',   'hash': 'sha1=433aeec293faa67d1024af80097c64578b837bf7'},
   {'name': 'survival',     'version': '2.37-7',  'hash': 'sha1=836c616b24ba807ccf22bc8fcfac6c25f896a39f'},
   {'name': 'lattice',      'version': '0.20-29', 'hash': 'sha1=ab7d97fd730226ef50b644b38d122b2a9a52bdf2'},
-  {'name': 'gbm',          'version': '2.1',     'hash': 'sha1=796e8e9220a018049952461fbb72ef35453a658a'},
+  {'name': 'gbm',          'version': '2.0-8',   'hash': 'sha1=137f931e65496e7705f627644b35bdbc862bf951'},
   {'name': 'stringr',      'version': '0.6.2',   'hash': 'sha1=6b41bcf589412a9b48ee6357508e35ccbbd77d01'},
   {'name': 'evaluate',     'version': '0.5.3',   'hash': 'sha1=7f47f48df6c8de2e4d10fab14e4cf4f5f546ba55'},
   {'name': 'dismo',        'version': '0.9-3',   'hash': 'sha1=a9a3434733adffdd5a7560a14a22d5ef469fe8dd'},
