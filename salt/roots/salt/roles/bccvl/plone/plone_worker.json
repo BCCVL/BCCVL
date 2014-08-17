@@ -51,6 +51,7 @@
     },
     "CELERYD": {
         "PREFETCH_MULTIPLIER": 1,
+        "CONCURRENCY": 1,
         "FORCE_EXECV": false
     },
     "logging": {
