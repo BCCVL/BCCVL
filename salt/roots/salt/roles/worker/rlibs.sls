@@ -43,7 +43,7 @@ include:
   {'name': 'raster',       'version': '2.2-31',  'hash': 'sha1=023b75e695a0ebcee4de4367fb021dd1b204c8d2'},
   {'name': 'rgdal',        'version': '0.8-16',  'hash': 'sha1=99483734e8605f5424f6cba1835be837b166722f'},
   {'name': 'rgeos',        'version': '0.3-4',   'hash': 'sha1=dfc25bad67ea11ccb216aab62a5bbc67978bc11f'},
-  {'name': 'gam',          'version': '1.09',    'hash': 'sha1=218062abad49be8e4367838845e7f12fdcc75800'},
+  {'name': 'gam',          'version': '1.09.1',    'hash': 'sha1=ec96fc02f7140978120d90c0fbeb97dafc825435'},
   {'name': 'Rcpp',         'version': '0.11.1',  'hash': 'sha1=5b0b658cf273d7a069a841b181596a31b9436ee3'},
   {'name': 'plyr',         'version': '1.8.1',   'hash': 'sha1=28435911667715950113104dbfa38a58667593d8'},
   {'name': 'pROC',         'version': '1.7.2',   'hash': 'sha1=577b75cd1e184e498fb3f989057abaff2991ce76'},

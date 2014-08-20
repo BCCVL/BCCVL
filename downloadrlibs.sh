@@ -49,7 +49,7 @@ RLIBS=(rjson_0.2.13.tar.gz
        raster_2.2-31.tar.gz
        rgdal_0.8-16.tar.gz
        rgeos_0.3-4.tar.gz
-       gam_1.09.tar.gz
+       gam_1.09.1.tar.gz
        Rcpp_0.11.1.tar.gz
        plyr_1.8.1.tar.gz
        pROC_1.7.2.tar.gz
