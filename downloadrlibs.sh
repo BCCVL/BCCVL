@@ -73,7 +73,8 @@ RLIBS=(rjson_0.2.13.tar.gz
        rasterVis_0.28.tar.gz
        mda_0.4-4.tar.gz
        randomForest_4.6-7.tar.gz
-       biomod2_3.1-25.tar.gz)
+       biomod2_3.1-25.tar.gz
+       gamlss_4.3-0.tar.gz)
 
 for lib in ${RLIBS[@]} ; do
   get_r_lib "${lib}"

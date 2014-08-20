@@ -67,7 +67,8 @@ include:
   {'name': 'rasterVis',    'version': '0.28',    'hash': 'sha1=65c2dc445b5271ed439635acc22751407f345993'},
   {'name': 'mda',          'version': '0.4-4',   'hash': 'sha1=7764f05774a462da11cfd3bbc4bffb876a307f79'},
   {'name': 'randomForest', 'version': '4.6-7',   'hash': 'sha1=01f5455d952627cd7a2a1a3977ccfa4005121e9f'},
-  {'name': 'biomod2',      'version': '3.1-25',  'hash': 'sha1=38c99da0d44dd6ed1c08e90f87679996117e1da7'}
+  {'name': 'biomod2',      'version': '3.1-25',  'hash': 'sha1=38c99da0d44dd6ed1c08e90f87679996117e1da7'},
+  {'name': 'gamlss',       'version': '4.3-0',   'hash': 'sha1=a78394a905a2e9d1ee2295f69eabd0d802a1bc3e'},
 ] %}
 
 /home/bccvl/R_libs:
