@@ -68,6 +68,10 @@ include:
   {'name': 'mda',          'version': '0.4-4',   'hash': 'sha1=7764f05774a462da11cfd3bbc4bffb876a307f79'},
   {'name': 'randomForest', 'version': '4.6-7',   'hash': 'sha1=01f5455d952627cd7a2a1a3977ccfa4005121e9f'},
   {'name': 'biomod2',      'version': '3.1-25',  'hash': 'sha1=38c99da0d44dd6ed1c08e90f87679996117e1da7'},
+  {'name': 'nlme',         'version': '3.1-117', 'hash': 'sha1=144dc79d1b6297ba4a7dd6bd6f81c692998d06ee'},
+  {'name': 'MASS',         'version': '7.3-33',  'hash': 'sha1=5b401b104c532b8c0e8812b5a5fa6142c050bbbc'},
+  {'name': 'gamlss.dist',  'version': '4.3-0',   'hash': 'sha1=d68fa43637c9ac4f55f405a64b432aeff594757b'},
+  {'name': 'gamlss.data',  'version': '4.2-7',   'hash': 'sha1=807983f57982c036d450c48d175b9f4a76481048'},
   {'name': 'gamlss',       'version': '4.3-0',   'hash': 'sha1=a78394a905a2e9d1ee2295f69eabd0d802a1bc3e'},
 ] %}
 

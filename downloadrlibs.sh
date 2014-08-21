@@ -74,6 +74,10 @@ RLIBS=(rjson_0.2.13.tar.gz
        mda_0.4-4.tar.gz
        randomForest_4.6-7.tar.gz
        biomod2_3.1-25.tar.gz
+       MASS_7.3-33.tar.gz
+       nlme_3.1-117.tar.gz
+       gamlss.dist_4.3-0.tar.gz
+       gamlss.data_4.2-7.tar.gz
        gamlss_4.3-0.tar.gz)
 
 for lib in ${RLIBS[@]} ; do
