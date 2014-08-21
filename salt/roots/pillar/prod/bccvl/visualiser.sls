@@ -25,4 +25,4 @@ visualiser:
   tmp: /mnt/visualiser
 
   # branch, tag, revision of git repository
-  revision: 1.5.4
+  revision: 1.5.5

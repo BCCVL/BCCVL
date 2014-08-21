@@ -1,5 +1,5 @@
 {% set user = salt['pillar.get']('worker:user', {'name': 'bccvl'}) %}
-{% set version = '1.6.0' %}
+{% set version = '1.6.1' %}
 
 ## install editable version of tool
 ##  ... run this step if the above git clone reports changes
