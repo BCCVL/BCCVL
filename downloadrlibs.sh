@@ -84,7 +84,7 @@ RLIBS=(rjson_0.2.13.tar.gz
        FNN_1.1.tar.gz
        spacetime_1.1-1.tar.gz
        gstat_1.0-19.tar.gz
-       deldir_0.1-6)
+       deldir_0.1-6.tar.gz)
 
 for lib in ${RLIBS[@]} ; do
   get_r_lib "${lib}"
