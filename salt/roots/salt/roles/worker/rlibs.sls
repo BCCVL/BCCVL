@@ -73,6 +73,12 @@ include:
   {'name': 'gamlss.dist',  'version': '4.3-0',   'hash': 'sha1=d68fa43637c9ac4f55f405a64b432aeff594757b'},
   {'name': 'gamlss.data',  'version': '4.2-7',   'hash': 'sha1=807983f57982c036d450c48d175b9f4a76481048'},
   {'name': 'gamlss',       'version': '4.3-0',   'hash': 'sha1=a78394a905a2e9d1ee2295f69eabd0d802a1bc3e'},
+  {'name': 'intervals',    'version': '0.15.0',  'hash': 'sha1=cfa6062725b32696bc89ebf01c4f16157822986a'},
+  {'name': 'xts',          'version': '0.9-7',   'hash': 'sha1=c398c823ef2e31d5342954cc654424f05c97c52a'},
+  {'name': 'FNN',          'version': '1.1',     'hash': 'sha1=ac5c9025e3eb3b6323c7e785191b1e087801442d'},
+  {'name': 'spacetime',    'version': '1.1-1',   'hash': 'sha1=71b083efb41edd7d50c6e20d88e3ae92391baed7'},
+  {'name': 'gstat',        'version': '1.0-19',  'hash': 'sha1=0127f734d33f9766908e5638c0ae00c7c2b4bd98'},
+  {'name': 'deldir',       'version': '0.1-6',   'hash': 'sha1=0c350e9c29470ef1dae3f40f893ca24663a12841'},
 ] %}
 
 /home/bccvl/R_libs:

@@ -78,7 +78,13 @@ RLIBS=(rjson_0.2.13.tar.gz
        nlme_3.1-117.tar.gz
        gamlss.dist_4.3-0.tar.gz
        gamlss.data_4.2-7.tar.gz
-       gamlss_4.3-0.tar.gz)
+       gamlss_4.3-0.tar.gz
+       intervals_0.15.0.tar.gz
+       xts_0.9-7.tar.gz
+       FNN_1.1.tar.gz
+       spacetime_1.1-1.tar.gz
+       gstat_1.0-19.tar.gz
+       deldir_0.1-6)
 
 for lib in ${RLIBS[@]} ; do
   get_r_lib "${lib}"
