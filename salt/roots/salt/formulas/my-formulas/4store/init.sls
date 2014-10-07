@@ -55,3 +55,9 @@ include:
       - service: 4store
 
 {% endfor %}
+
+4store sysconfig soft-limit:
+  file.replace:
+    - name: /etc/4store.conf
+    - pattern: soft-limit =.*
+    - repl: soft-limit = 0
