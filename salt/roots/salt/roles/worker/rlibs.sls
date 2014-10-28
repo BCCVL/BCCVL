@@ -79,6 +79,16 @@ include:
   {'name': 'spacetime',    'version': '1.1-1',   'hash': 'sha1=71b083efb41edd7d50c6e20d88e3ae92391baed7'},
   {'name': 'gstat',        'version': '1.0-19',  'hash': 'sha1=0127f734d33f9766908e5638c0ae00c7c2b4bd98'},
   {'name': 'deldir',       'version': '0.1-6',   'hash': 'sha1=0c350e9c29470ef1dae3f40f893ca24663a12841'},
+  {'name': 'digest',       'version': '0.6.4',   'hash': 'sha1=1a4a9efd9ae339d1778076b77b428203b6aadf78'},
+  {'name': 'gtable',       'version': '0.1.2',   'hash': 'sha1=72bd4ad38e64bb801d622dbc48344897251cf537'},
+  {'name': 'reshape2',     'version': '1.4',     'hash': 'sha1=36fb089df7745300d7875460aa47d82d8574e8ad'},
+  {'name': 'dichromat',    'version': '2.0-0',   'hash': 'sha1=37aa8221aedb9b004decf7a1022a266ab7a0342e'},
+  {'name': 'colorspace',   'version': '1.2-4',   'hash': 'sha1=2210f82e7126e68429c1581581369c588fded106'},
+  {'name': 'munsell',      'version': '0.4.2',   'hash': 'sha1=4c225e23dbaf4c3740cbaa419a303a5fac1e216c'},
+  {'name': 'labeling',     'version': '0.3',     'hash': 'sha1=fb3328f5c876aabdfb47447a1c73de932e751bc6'},
+  {'name': 'scales',       'version': '0.2.4',   'hash': 'sha1=14ce2e1fad263e96c9e4a910eb1df4123c619a6c'},
+  {'name': 'proto',        'version': '0.3-10',  'hash': 'sha1=cf5132335b810d73e1e828ae04ce7f151f771051'},
+  {'name': 'ggplot2',      'version': '1.0.0',   'hash': 'sha1=2ff9bb37c385a3c10e90da75f886b6adfb977fac'},
 ] %}
 
 /home/bccvl/R_libs:

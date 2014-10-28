@@ -84,7 +84,17 @@ RLIBS=(rjson_0.2.13.tar.gz
        FNN_1.1.tar.gz
        spacetime_1.1-1.tar.gz
        gstat_1.0-19.tar.gz
-       deldir_0.1-6.tar.gz)
+       deldir_0.1-6.tar.gz
+       ggplot2_1.0.0.tar.gz
+       digest_0.6.4.tar.gz
+       gtable_0.1.2.tar.gz
+       reshape2_1.4.tar.gz
+       dichromat_2.0-0.tar.gz
+       colorspace_1.2-4.tar.gz
+       munsell_0.4.2.tar.gz
+       labeling_0.3.tar.gz
+       scales_0.2.4.tar.gz
+       proto_0.3-10.tar.gz )
 
 for lib in ${RLIBS[@]} ; do
   get_r_lib "${lib}"
