@@ -1,3 +1,4 @@
 *
 !.gitignore
 !AusCert.crt.pem
+!quovadisrootca.crt.pem
