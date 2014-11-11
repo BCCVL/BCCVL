@@ -5,7 +5,6 @@ include:
   - git
   - python27
   - bccvl.data_mover
-  - bccvl.data_mover_worker.data_mover_worker_virtualenv
 
 /home/{{ user.name }}/worker:
   file.directory:
@@ -23,6 +22,28 @@ include:
       - pkg: python27-python-virtualenv
       - file: /home/{{ user.name }}/worker
       - file: /usr/local/bin/python27-virtualenv
+
+/home/{{ user.name }}/worker/requirements.txt:
+  file.managed:
+    - source: salt://bccvl/data_mover_worker/data_mover_worker_requirements.txt
+    - user: {{ user.name }}
+    - group: {{ user.name }}
+    - mode: 640
+    - template: jinja
+    - require:
+      - file: /home/{{ user.name }}/worker
+
+data_mover_worker_virtualenv:
+  cmd.wait:
+    - name: scl enable python27 ". bin/activate; pip install -r requirements.txt"
+    - cwd: /home/{{ user.name }}/worker
+    - user: {{ user.name }}
+    - require:
+      - pkg: python27-python-devel
+      - pkg: python27-python-virtualenv
+      - virtualenv: /home/{{ user.name }}/worker
+    - watch:
+      - file: /home/{{ user.name }}/worker/requirements.txt
 
 /home/{{ user.name }}/worker/celery.json:
   file.managed:

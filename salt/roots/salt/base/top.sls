@@ -26,6 +26,7 @@ dev:
     - shibboleth
 {% endif %}
     - bccvl
+    - bccvl.data_mover_worker.data_mover_worker_virtualenv
 
 qa:
   '*qa*':
