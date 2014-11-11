@@ -20,6 +20,7 @@ dev:
     - monitor
   'worker*dev*':
     - worker
+    - worker.worker_virtualenv
   'bccvl*dev*':
 {% if salt['pillar.items']('shibboleth:enabled', False) %}
     - shibboleth
