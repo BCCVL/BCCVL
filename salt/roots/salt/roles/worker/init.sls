@@ -100,6 +100,7 @@ service iptables restart:
     - user: {{ user.name }}
     - group: {{ user.name }}
     - mode: 640
+    - template: jinja
     - require:
       - file: /home/{{ user.name }}/worker
 
