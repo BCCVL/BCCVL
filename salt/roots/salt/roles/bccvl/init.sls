@@ -69,6 +69,14 @@ service iptables restart:
     - watch_in:
       - service: httpd
 
+/var/www/bccvl/_error:
+  file.recurse:
+    - source: salt://bccvl/_error
+    - clean: True
+    - dir_mode: 755
+    - file_mode: 644
+    - require:
+      - pkg: httpd
 
 /etc/varnish/bccvl.vcl:
   file.managed:
