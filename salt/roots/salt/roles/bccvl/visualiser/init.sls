@@ -151,7 +151,7 @@ Visualiser Bootstrap Buildout:
     - cwd: /home/{{ user.name }}/BCCVL_Visualiser/BCCVL_Visualiser
     - user: {{ user.name }}
     - group: {{ user.name }}
-    - name: scl enable python27 "../env/bin/python bootstrap.py"
+    - name: scl enable python27 "../env/bin/python bootstrap.py -v 2.2.4"
     - unless: test -x /home/{{ user.name }}/BCCVL_Visualiser/BCCVL_Visualiser/bin/buildout
     - require:
       - cmd: Visualiser Virtualenv Matplotlib
