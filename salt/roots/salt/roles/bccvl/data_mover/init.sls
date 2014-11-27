@@ -92,7 +92,7 @@ gmp-devel:
 /home/{{ user.name }}/bccvl_data_mover/data_mover/bin/buildout:
   cmd.run:
     - cwd: /home/{{ user.name }}/bccvl_data_mover/data_mover/
-    - name: scl enable python27 ". bin/activate; python2.7 bootstrap.py -c data_mover_buildout.cfg"
+    - name: scl enable python27 ". bin/activate; python2.7 bootstrap.py -v 2.2.4 -c data_mover_buildout.cfg"
     - user: {{ user.name }}
     - group: {{ user.name }}
     - unless: test -x /home/{{ user.name }}/bccvl_data_mover/data_mover/bin/buildout
