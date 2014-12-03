@@ -8,7 +8,6 @@ base:
     - locale
     - salt.minion
     - groups
-    - elgis.purge
 
   'roles:salt-master':
     - match: pillar
@@ -17,6 +16,7 @@ base:
 dev:
   '*dev*':
     - users
+    - elgis.purge
   'monitor*dev*':
     - monitor
   'worker*dev*':
@@ -33,6 +33,7 @@ qa:
   '*qa*':
     - users
     - openssh.config
+    - elgis.purge
   'monitor*qa*':
     - monitor
   'worker*qa*':
@@ -47,6 +48,7 @@ prod:
   '*prod*':
     - users
     - openssh.config
+    - elgis.purge
   'monitor*prod*':
     - monitor
     - monitor.graphite
