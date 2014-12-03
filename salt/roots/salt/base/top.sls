@@ -8,7 +8,7 @@ base:
     - locale
     - salt.minion
     - groups
-    - elgis.purged
+    - elgis.purge
 
   'roles:salt-master':
     - match: pillar
