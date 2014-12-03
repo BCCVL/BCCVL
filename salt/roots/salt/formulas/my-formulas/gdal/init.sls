@@ -1,14 +1,14 @@
 include:
-  - elgis
+  - pgdg
 
 gdal:
   pkg:
     - installed
     - require:
-      - pkg: elgis-release
+      - pkg: pgdg-release
 
 gdal-devel:
   pkg:
     - installed
     - require:
-      - pkg: elgis-release
+      - pkg: pgdg-release

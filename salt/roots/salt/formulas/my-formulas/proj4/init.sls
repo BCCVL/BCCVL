@@ -1,26 +1,26 @@
 include:
-  - elgis
+  - pgdg
 
 proj:
   pkg:
     - installed
     - require:
-      - pkg: elgis-release
+      - pkg: pgdg-release
 
 proj-devel:
   pkg:
     - installed
     - require:
-      - pkg: elgis-release
+      - pkg: pgdg-release
 
 proj-epsg:
   pkg:
     - installed
     - require:
-      - pkg: elgis-release
+      - pkg: pgdg-release
 
 proj-nad:
   pkg:
     - installed
     - require:
-      - pkg: elgis-release
+      - pkg: pgdg-release

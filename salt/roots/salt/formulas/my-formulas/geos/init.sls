@@ -1,14 +1,14 @@
 include:
-  - elgis
+  - pgdg
 
 geos:
   pkg:
     - installed
     - require:
-      - pkg: elgis-release
+      - pkg: pgdg-release
 
 geos-devel:
   pkg:
     - installed
     - require:
-      - pkg: elgis-release
+      - pkg: pgdg-release
