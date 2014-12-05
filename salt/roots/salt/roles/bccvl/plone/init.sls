@@ -109,7 +109,7 @@ libtiff-devel:
 
 /home/{{ user.name }}/bccvl_buildout/bin/buildout:
   cmd.run:
-    - name: scl enable python27 ". ./bin/activate; python2.7 bootstrap.py -v 2.2.4"
+    - name: scl enable python27 ". ./bin/activate; python2.7 bootstrap.py -v 2.2.1"
     - cwd: /home/{{ user.name }}/bccvl_buildout
     - user: {{ user.name }}
     - group: {{ user.name }}
