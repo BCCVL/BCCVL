@@ -28,6 +28,10 @@ from where they can be used in normal pillar files
 
 3. Provision the monitor node
 
+Create an empty users.sls::
+
+  $ touch salt/roots/pillar/base/users.sls
+
 Because the master "salts" itself, we have to run highstate on the master
 first::
 
@@ -123,8 +127,8 @@ Problems:
 =========
 
 * When updating the master config via salt, the master will be restarted
-and the minion looses the connection with the master and fails to
-finish executing the remainder of the state tree
+  and the minion looses the connection with the master and fails to
+  finish executing the remainder of the state tree
 
 TODO:
 =====
