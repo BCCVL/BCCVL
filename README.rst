@@ -30,7 +30,7 @@ from where they can be used in normal pillar files
 
 Create an empty users.sls::
 
-  $ touch salt/roots/pillar/base/users.sls
+  $ touch /srv/pillar/base/users.sls
 
 Because the master "salts" itself, we have to run highstate on the master
 first::
@@ -43,6 +43,7 @@ causes the minion to loose it's connection. If that's the case we'll
 have to re-run the highstate::
 
   $ sudo salt-call state.highstate
+  $ exit
 
 
 Build BCCVL Node:
@@ -50,7 +51,7 @@ Build BCCVL Node:
 
 First, create the SSH keys for the various components::
 
-  $ pushd salt/roots/pillar/base/keys
+  $ pushd salt/roots/pillar/dev/keys
   $ ./createkeys.sh
   $ popd
 
@@ -59,6 +60,7 @@ Then, bring up the BCCVL node. This works very similar to building the master no
   $ vagrant up bccvl
   $ vagrant ssh bccvl
   $ sudo salt-call state.highstate
+  $ exit
 
 
 Build Worker Node:
@@ -78,6 +80,7 @@ The last steps are the same steps as above::
   $ vagrant up worker
   $ vagrant ssh worker
   $ sudo salt-call state.highstate
+  $ exit
 
 Available URIs after build:
 ===========================
