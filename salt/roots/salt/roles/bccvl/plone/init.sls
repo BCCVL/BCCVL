@@ -12,6 +12,7 @@ include:
   - python27
   - 4store
   - supervisord
+  - gdal
   - bccvl.plone.plone_virtualenv
 
 freetype-devel:
@@ -126,6 +127,7 @@ libtiff-devel:
       - pkg: freetype-devel
       - pkg: libtiff-devel
       - pkg: exempi-devel
+      - pkg: gdal-devel
 
 # TODO: will this run on update? (see watch) or would unless: override
 # any watch state... wolud this be different with cmd.wait?
