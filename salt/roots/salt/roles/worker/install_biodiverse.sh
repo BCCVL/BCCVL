@@ -56,6 +56,7 @@ function install_gdal_perl_bindings() {
 
 function install_biodiverse_dependencies() {
   # dependencies first
+  export PERL_MM_USE_DEFAULT=1
   scl_enable_perl516 cpan App::cpanminus || die "Failed to install App::cpanminus" 1
   # YAML::Syck has installation failures at v1.27
   scl_enable_perl516 cpanm YAML::Syck@1.23 || die "Failed to install YAML:Syck" 1

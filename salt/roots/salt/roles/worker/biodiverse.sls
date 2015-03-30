@@ -4,6 +4,32 @@ include:
   - perl516
   - subversion
 
+
+/home/bccvl/.cpan:
+  file.directory:
+    - user: bccvl
+    - group: bccvl
+    - mode: 750
+    - require:
+      - user: bccvl
+
+/home/bccvl/.cpan/CPAN:
+  file.directory:
+    - user: bccvl
+    - group: bccvl
+    - mode: 750
+    - require:
+      - file: /home/bccvl/.cpan
+
+
+/home/bccvl/.cpan/CPAN/MyConfig.pm:
+  file.managed:
+    - source: salt://worker/MyConfig.pm
+    - user: bccvl
+    - group: bccvl
+    - mode: 0644
+
+
 Install Biodiverse deps:
   pkg:
     - installed
@@ -35,6 +61,7 @@ Install biodiverse:
     #- stateful?
     - unless: test -d /home/bccvl/biodiverse
     - require:
+      - file: /home/bccvl/.cpan/CPAN/MyConfig.pm
       - pkg: perl516-perl
       - pkg: Install Biodiverse deps
 
