@@ -27,9 +27,6 @@ plone:
   mr_developer_always_checkout: false
   site_replace: false
 
-  buildout:
-    branch: qa  # which branch to build
-
   # instances to build
   instances:
     instance1:

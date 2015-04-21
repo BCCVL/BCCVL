@@ -6,6 +6,7 @@ dev:
   '*dev*':
     - salt.minion
     - users
+    - versions
   'monitor*dev*':
     - salt.master
     - monitor
@@ -21,6 +22,7 @@ qa:
     - collectd
     - openssh
     - users
+    - versions
   'monitor*qa*':
     - salt.master
     - monitor
@@ -36,6 +38,7 @@ prod:
     - collectd
     - openssh
     - users
+    - versions
   'monitor*prod*':
     - salt.master
     - monitor

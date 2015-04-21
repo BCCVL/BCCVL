@@ -1,2 +1,2 @@
-celery==3.1.16
+celery=={{ pillar['versions']['celery'] }}
 -e org.bccvl.tasks

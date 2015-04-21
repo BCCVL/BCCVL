@@ -84,7 +84,7 @@ include:
 Visualiser Clone:
   git.latest:
     - name: https://github.com/BCCVL/BCCVL_Visualiser.git
-    - rev: {{ visualiser.revision }}
+    - rev: {{ pillar['versions']['visualiser'] }}
     - target: /home/{{ user.name }}/BCCVL_Visualiser
     - user: {{ user.name }}
     - require:
@@ -105,7 +105,7 @@ Visualiser Virtualenv:
 
 Visualiser Virtualenv Nose:
   cmd.run:
-    - name: scl enable python27 "/home/{{ user.name }}/BCCVL_Visualiser/env/bin/pip install nose==1.3.4"
+    - name: scl enable python27 "/home/{{ user.name }}/BCCVL_Visualiser/env/bin/pip install nose=={{ pillar['versions']['nose'] }}"
     - unless: scl enable python27 "/home/{{ user.name }}/BCCVL_Visualiser/env/bin/pip show nose | grep -q 'Version:'"
     - user: {{ user.name }}
     - group: {{ user.name }}
@@ -114,7 +114,7 @@ Visualiser Virtualenv Nose:
 
 Visualiser Virtualenv Numpy:
   cmd.run:
-    - name: scl enable python27 "/home/{{ user.name }}/BCCVL_Visualiser/env/bin/pip install numpy==1.9.1"
+    - name: scl enable python27 "/home/{{ user.name }}/BCCVL_Visualiser/env/bin/pip install numpy=={{ pillar['versions']['numpy'] }}"
     - unless: scl enable python27 "/home/{{ user.name }}/BCCVL_Visualiser/env/bin/pip show numpy | grep -q 'Version:'"
     - user: {{ user.name }}
     - group: {{ user.name }}
@@ -123,7 +123,7 @@ Visualiser Virtualenv Numpy:
 
 Visualiser Virtualenv Matplotlib:
   cmd.run:
-    - name: scl enable python27 "/home/{{ user.name }}/BCCVL_Visualiser/env/bin/pip install matplotlib==1.4.2"
+    - name: scl enable python27 "/home/{{ user.name }}/BCCVL_Visualiser/env/bin/pip install matplotlib=={{ pillar['versions']['matplotlib'] }}"
     - unless: scl enable python27 "/home/{{ user.name }}/BCCVL_Visualiser/env/bin/pip show matplotlib | grep -q 'Version:'"
     - user: {{ user.name }}
     - group: {{ user.name }}
@@ -161,7 +161,7 @@ Visualiser Bootstrap Buildout:
     - cwd: /home/{{ user.name }}/BCCVL_Visualiser/BCCVL_Visualiser
     - user: {{ user.name }}
     - group: {{ user.name }}
-    - name: scl enable python27 "../env/bin/python bootstrap.py -v 2.2.4"
+    - name: scl enable python27 "../env/bin/python bootstrap.py -v {{ pillar['versions']['zc.buildout'] }}"
     - unless: test -x /home/{{ user.name }}/BCCVL_Visualiser/BCCVL_Visualiser/bin/buildout
     - require:
       - cmd: Visualiser Virtualenv Matplotlib

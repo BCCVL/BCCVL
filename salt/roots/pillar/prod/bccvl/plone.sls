@@ -27,9 +27,6 @@ plone:
   mr_developer_always_checkout: false
   site_replace: false
 
-  buildout:
-    branch: 1.6.7  # which branch to build # rev number?
-
   # instances to build
   instances:
     instance1:

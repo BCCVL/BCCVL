@@ -23,6 +23,3 @@ visualiser:
   # Root folder where visualiser stores it's data. (needs leading
   # slash but can't handle trailing slash)
   tmp: /tmp
-
-  # branch, tag, revision of git repository
-  revision: develop

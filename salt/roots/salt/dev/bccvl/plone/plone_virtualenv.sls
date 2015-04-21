@@ -17,7 +17,7 @@ plone_virtualenv:
     - name: |
         git init .
         git remote add -f origin https://github.com/BCCVL/bccvl_buildout.git
-        git checkout {{ pillar['plone']['buildout']['branch'] }}
+        git checkout {{ pillar['versions']['plone'] }}
     - cwd: /home/{{ user.name }}/bccvl_buildout/
     - user: {{ user.name }}
     - group: {{ user.name }}
@@ -28,7 +28,7 @@ plone_virtualenv:
       - file: plone_virtualenv
   git.latest:
     - name: https://github.com/BCCVL/bccvl_buildout.git
-    - rev: {{ pillar['plone']['buildout']['branch'] }}
+    - rev: {{ pillar['versions']['plone'] }}
     - target: /home/{{ user.name }}/bccvl_buildout
     - user: {{ user.name }}
     - require:

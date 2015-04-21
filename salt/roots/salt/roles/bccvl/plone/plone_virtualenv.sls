@@ -10,7 +10,7 @@ plone_virtualenv:
       - user: {{ user.name }}
   git.latest:
     - name: https://github.com/BCCVL/bccvl_buildout.git
-    - rev: {{ pillar['plone']['buildout']['branch'] }}
+    - rev: {{ pillar['versions']['plone'] }}
     - target: /home/{{ user.name }}/bccvl_buildout
     - user: {{ user.name }}
     - require:
