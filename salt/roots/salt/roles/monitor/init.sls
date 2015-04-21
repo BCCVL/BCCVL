@@ -3,6 +3,7 @@ include:
   - nginx
   - mongodb
   - rsyslog
+  - rsyslog.mongodb
   - erpel
   - supervisord
   - virtualenv

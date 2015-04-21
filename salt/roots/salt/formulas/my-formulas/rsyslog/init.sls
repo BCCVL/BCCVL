@@ -18,7 +18,6 @@ rsyslog:
     - require:
       - pkg: rsyslog
 
-
 rsyslog-relp:
   pkg:
     - installed
@@ -38,15 +37,6 @@ rsyslog-gnutls:
       - service: rsyslog
 
 rsyslog-mmjsonparse:
-  pkg:
-    - installed
-    - require:
-      - pkg: rsyslog
-      - file: /etc/yum.repos.d/adiscon.repo
-    - watch_in:
-      - service: rsyslog
-
-rsyslog-mongodb:
   pkg:
     - installed
     - require:
