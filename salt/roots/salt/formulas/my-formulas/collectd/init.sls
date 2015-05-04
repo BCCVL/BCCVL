@@ -3,9 +3,9 @@ include:
 
 collectd:
   pkg.installed:
-    - enablerepo: rpmforge-testing
+    - fromrepo: rpmforge-testing
     - require:
-      - pkg: rpmforge-release
+      - pkg: rpmforge
   service.running:
     - enable: True
     - require:
