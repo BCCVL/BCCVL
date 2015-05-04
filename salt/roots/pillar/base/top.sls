@@ -5,6 +5,7 @@
 dev:
   '*dev*':
     - salt.minion
+    - collectd
     - users
     - versions
   'monitor*dev*':

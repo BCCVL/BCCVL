@@ -22,12 +22,14 @@ dev:
   'worker*dev*':
     - worker
     - worker.worker_virtualenv
+    - worker.collectd
   'bccvl*dev*':
 {% if salt['pillar.items']('shibboleth:enabled', False) %}
     - shibboleth
 {% endif %}
     - bccvl
     - bccvl.data_mover_worker.data_mover_worker_virtualenv
+    - bccvl.collectd
 
 qa:
   '*qa*':
