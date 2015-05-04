@@ -66,6 +66,7 @@ function install_biodiverse_dependencies() {
   scl_enable_perl516 cpanm Time::HiRes
   scl_enable_perl516 cpanm --force Object::InsideOut
   scl_enable_perl516 cpanm Math::Random::MT::Auto
+  scl_enable_perl516 cpanm List::BinarySearch
   scl_enable_perl516 cpanm List::BinarySearch::XS
   # and the rest of deps
   scl_enable_perl516 cpanm Task::Biodiverse::NoGUI@0.191 || die "Failed to install Biodiverse::NoGUI" 1
