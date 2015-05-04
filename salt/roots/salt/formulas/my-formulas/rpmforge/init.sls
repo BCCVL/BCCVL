@@ -6,7 +6,7 @@ rpmforge-release:
 
 
 rpmforge:
-  pkg.mod_repo:
+  pkgrepo.managed:
     - repo: rpmforge
     - enabled: 0
     - require:
