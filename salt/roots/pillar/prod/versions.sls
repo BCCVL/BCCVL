@@ -9,5 +9,5 @@ versions:
     matplotlib: 1.4.2
     # The following are branch names or tags
     plone: 1.8.0
-    visualiser: 1.5.6
+    visualiser: 1.5.7
 
