@@ -5,6 +5,7 @@
 {% import "certs/rabbitmq.key.pem" as rabbitmq_sslkey %}
 {% import "certs/bccvl.crt.pem" as bccvl_sslcert %}
 {% import "certs/bccvl.key.pem" as bccvl_sslkey %}
+{% import "certs/quovadisrootca.crt.pem" as quovadis_sslchain %}
 
 
 pki:
@@ -18,6 +19,7 @@ pki:
     rabbitmq: {{ rabbitmq_sslcert|string|json }}
     bccvl: {{ bccvl_sslcert|string|json }}
     rabbitweb: {{ bccvl_sslcert|string|json }}
+    quovadischain: {{ quovadis_sslchain|string|json }}
   key:
     bccvllogger: {{ bccvllogger_sslkey|string|json }}
     bccvl: {{ bccvl_sslkey|string|json }}
