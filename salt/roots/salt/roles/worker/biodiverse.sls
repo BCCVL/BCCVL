@@ -2,8 +2,7 @@
 
 include:
   - perl516
-  - subversion
-
+  - git
 
 /home/bccvl/.cpan:
   file.directory:
@@ -51,18 +50,37 @@ Install Biodiverse deps:
       - CharLS-devel
       - mysql-devel
 
+# Clone Biodiverse
+biodiverse_source:
+  file.directory:
+    - name: /home/bccvl/biodiverse
+    - user: bccvl
+    - group: bccvl
+    - require:
+      - user: bccvl
+  git.latest:
+    - name: https://github.com/shawnlaffan/biodiverse.git
+    - rev: r1.0
+    - target: /home/bccvl/biodiverse
+    - user: bccvl
+    - group: bccvl
+    - require:
+      - user: bccvl
+      - file: biodiverse_source
+      - pkg: git
+    - watch_in:
+      - cmd: Install biodiverse
+
 Install biodiverse:
   cmd:
-    - script
+    - wait_script
     - source: salt://worker/install_biodiverse.sh
     - cwd: /home/bccvl
     - user: bccvl
     - group: bccvl
     #- stateful?
-    - unless: test -d /home/bccvl/biodiverse
     - require:
       - file: /home/bccvl/.cpan/CPAN/MyConfig.pm
       - pkg: perl516-perl
       - pkg: Install Biodiverse deps
 
-# TODO: maybe require subversion, make, gcc, etc... here as well

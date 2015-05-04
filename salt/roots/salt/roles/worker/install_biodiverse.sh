@@ -59,7 +59,7 @@ function install_biodiverse_dependencies() {
   export PERL_MM_USE_DEFAULT=1
   scl_enable_perl516 cpan App::cpanminus || die "Failed to install App::cpanminus" 1
   # YAML::Syck has installation failures at v1.27
-  scl_enable_perl516 cpanm YAML::Syck@1.23 || die "Failed to install YAML:Syck" 1
+  scl_enable_perl516 cpanm YAML::Syck || die "Failed to install YAML:Syck" 1
   # and all the stuff that's missing in the documentation
   scl_enable_perl516 cpanm Getopt::Long::Descriptive
   scl_enable_perl516 cpanm JSON
@@ -69,16 +69,8 @@ function install_biodiverse_dependencies() {
   scl_enable_perl516 cpanm List::BinarySearch
   scl_enable_perl516 cpanm List::BinarySearch::XS
   # and the rest of deps
-  scl_enable_perl516 cpanm Task::Biodiverse::NoGUI@0.191 || die "Failed to install Biodiverse::NoGUI" 1
+  scl_enable_perl516 cpanm Task::Biodiverse::NoGUI || die "Failed to install Biodiverse::NoGUI" 1
 }
-
-
-
-function install_biodiverse() {
-  # checkout sources
-  svn checkout http://biodiverse.googlecode.com/svn/trunk/ biodiverse
-}
-
 
 #1. setup local::lib
 install_local_lib
@@ -87,5 +79,3 @@ eval $(scl_enable_perl516 "perl -I$HOME/perl5/lib/perl5 -Mlocal::lib")
 #3. install_biodiverse_dependencies
 install_gdal_perl_bindings
 install_biodiverse_dependencies
-#4. install biodiverse
-install_biodiverse
