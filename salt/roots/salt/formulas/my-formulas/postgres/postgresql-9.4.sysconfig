@@ -1,0 +1,3 @@
+
+PGDATA={{ postgres.data_dir }}
+PGLOG={{ postgres.pgstartup_log }}

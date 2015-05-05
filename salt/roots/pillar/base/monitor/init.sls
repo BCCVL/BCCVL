@@ -6,6 +6,7 @@ include:
   - monitor.rsyslog
   - monitor.loganalyzer
   - monitor.flower
+  - monitor.postgres
 
 
 monitor:

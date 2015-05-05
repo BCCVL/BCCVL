@@ -2,6 +2,7 @@ include:
   - pki
   - nginx
   - mongodb
+  - postgres
   - rsyslog
   - rsyslog.mongodb
   - erpel
@@ -42,6 +43,28 @@ service iptables restart:
       - pkg: rsyslog
     - watch_in:
       - service: rsyslog
+
+/tmp/log_tables.sql:
+  file.managed:
+    - source: salt://monitor/log_tables.sql
+    - user: root
+    - group: root
+    - mode: 644
+    - template: jinja
+
+{% if 'databases' in pillar.get('postgres', {}) %}
+rsyslog-initdb:
+  cmd.run:
+    - name: |
+        {% for name, db in salt['pillar.get']('postgres:databases').items()  %}
+        psql -d {{ name }} -f /tmp/log_tables.sql
+        {% endfor %}
+    - user: postgres
+    - group: postgres
+    - requires:
+      - service: postgres-9.4
+      - file: /tmp/log_tables.sql
+{% endif %}
 
 ######### configure loganalyzer
 /var/www/loganalyzer/config.php:
