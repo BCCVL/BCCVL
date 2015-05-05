@@ -7,7 +7,7 @@
 
 flower:
 
-  cabundle: /etc/pki/tls/certs/bccvlca.crt.pem
+  cabundle: /etc/pki/tls/certs/quovadisrootca.crt.pem
   {% if auth %}
   auth: {{ auth }}
   {% endif %}

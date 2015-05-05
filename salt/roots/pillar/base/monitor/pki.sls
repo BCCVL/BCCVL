@@ -3,7 +3,7 @@
 {% import "certs/monitor.key.pem" as monitor_sslkey %}
 {% import "certs/rsyslog.crt.pem" as rsyslog_sslcrt %}
 {% import "certs/rsyslog.key.pem" as rsyslog_sslkey %}
-
+{% import "certs/quovadisrootca.crt.pem" as quovadisrootca_crt %}
 
 pki:
   # bundle:
@@ -14,6 +14,7 @@ pki:
     bccvlca: {{ bccvlca_crt|string|json }}
     monitor: {{ monitor_sslcrt|string|json }}
     rsyslog: {{ rsyslog_sslcrt|string|json }}
+    quovadisrootca: {{ quovadisrootca_crt|string|json }}
   key:
     monitor: {{ monitor_sslkey|string|json }}
     rsyslog: {{ rsyslog_sslkey|string|json }}
