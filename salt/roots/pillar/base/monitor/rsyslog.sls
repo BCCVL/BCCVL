@@ -3,5 +3,5 @@ rsyslog:
 
   port: 1514
 
-  ommongodb:
+  ompgsql:
     server: 127.0.0.1

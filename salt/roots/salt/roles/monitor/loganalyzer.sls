@@ -41,6 +41,12 @@ php-pecl-mongo:
     - watch_in:
       - service: php-fpm
 
+php-pgsql:
+  pkg:
+    - installed
+    - watch_in:
+      - service: php-fpm
+
 php-bcmath:
   pkg:
     - installed

@@ -5,6 +5,7 @@ include:
   - postgres
   - rsyslog
   - rsyslog.mongodb
+  - rsyslog.pgsql
   - erpel
   - supervisord
   - virtualenv

@@ -175,7 +175,7 @@ $CFG['DefaultSourceID'] = '{{ salt['pillar.get']('loganalyzer:DefaultSourceID', 
 {% for sourceid, config in sources.items() -%}
 $CFG['Sources']['{{ sourceid }}']['ID'] = '{{ sourceid }}';
 {%   for key, value in config.items() -%}
-{% if key == 'SourceType' -%}
+{% if key in ['SourceType', 'DBType', 'EnableRowCounting'] -%}
 $CFG['Sources']['{{ sourceid }}']['{{ key }}'] = {{ value }};
 {% else -%}
 $CFG['Sources']['{{ sourceid }}']['{{ key }}'] = '{{ value|default('', true) }}';
