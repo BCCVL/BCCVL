@@ -1,7 +1,7 @@
 include:
   - pki
   - nginx
-  - mongodb
+  - mongodb.purge
   - postgres
   - rsyslog
   - rsyslog.mongodb
