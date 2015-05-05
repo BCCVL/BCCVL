@@ -8,6 +8,7 @@
 flower:
 
   cabundle: /etc/pki/tls/certs/quovadisrootca.crt.pem
+  amqpcabundle: /etc/pki/tls/certs/bccvlca.crt.pem
   {% if auth %}
   auth: {{ auth }}
   {% endif %}
