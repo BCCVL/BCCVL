@@ -11,7 +11,6 @@ include:
   - virtualenv
   - flower
   - monitor.loganalyzer
-  - monitor.elasticsearch
 
 
 /etc/sysconfig/iptables:
