@@ -20,6 +20,7 @@
     },
     "ADMINS": ["g.weis@griffith.edu.au"],
     "CELERY":{
+        "ALWAYS_EAGER": fales,
         "ACKS_LATE": true,
         "ACCEPT_CONTENT": ["json", "msgpack", "yaml"],
         "DEFAULT_ROUTING_KEY": "default",
@@ -40,6 +41,7 @@
             {"org.bccvl.tasks.plone.import_result": {"queue": "plone", "routing_key": "plone"}},
             {"org.bccvl.tasks.datamover.move": {"queue": "datamover", "routing_key": "datamover"}},
             {"org.bccvl.tasks.ala_import.ala_import": {"queue": "datamover", "routing_key": "datamover"}},
+            {"org.bccvl.tasks.result_export.result_export": {"queue": "datamover", "routing_key": "datamover"}},
             {"org.bccvl.tasks.compute.r_task": {"queue": "worker", "routing_key": "worker"}},
             {"org.bccvl.tasks.compute.perl_task": {"queue": "worker", "routing_key": "worker"}}
         ],
