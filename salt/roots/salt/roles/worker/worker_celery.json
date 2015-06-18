@@ -20,7 +20,7 @@
     },
     "ADMINS": ["g.weis@griffith.edu.au"],
     "CELERY":{
-        "ALWAYS_EAGER": fales,
+        "ALWAYS_EAGER": false,
         "ACKS_LATE": true,
         "ACCEPT_CONTENT": ["json", "msgpack", "yaml"],
         "DEFAULT_ROUTING_KEY": "default",
