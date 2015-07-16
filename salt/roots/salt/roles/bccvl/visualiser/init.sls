@@ -128,7 +128,7 @@ Visualiser Virtualenv Mock:
     - user: {{ user.name }}
     - group: {{ user.name }}
     - require:
-      - cmd: Visualiser Virtualenv
+      - virtualenv: Visualiser Virtualenv
 
 Visualiser Virtualenv Matplotlib:
   cmd.run:
