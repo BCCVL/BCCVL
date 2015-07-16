@@ -5,6 +5,7 @@ versions:
     zc.buildout: 2.2.1
     nose: 1.3.4
     numpy: 1.9.1
+    mock: 1.0.1
     matplotlib: 1.4.2
     # The following are branch names or tags
     plone: develop
