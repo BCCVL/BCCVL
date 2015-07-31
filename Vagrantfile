@@ -68,7 +68,7 @@ Vagrant.configure("2") do |config|
   end
 
 
-  # appX instance salt ninion
+  # appX instance salt minion
   config.vm.define :worker do |worker|
     worker_conf = custom_conf.fetch("worker", {})
 
