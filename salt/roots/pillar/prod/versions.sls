@@ -9,6 +9,6 @@ versions:
     mock: 1.0.1
     matplotlib: 1.4.2
     # The following are branch names or tags
-    plone: 1.9
+    plone: 1.9.1
     visualiser: 1.5.8
 
