@@ -12,7 +12,7 @@ for dbname in dev-logs qa-logs prod-logs logs ; do
     get_errorlog.sh $dbname > "$tmpfile"
 
     # add email subject header
-    sed -i '1iSubject: BCCVL System Alert\n' $tmpfile
+    sed -i "1iSubject: BCCVL System Alert $dbname\n" $tmpfile
 
     # email error log to user
     if ! grep "(0 rows)" $tmpfile; then
