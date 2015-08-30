@@ -1,4 +1,11 @@
-me="dev-logs"
+#!/bin/sh
+
+if [ -z "$1" ] ; then
+    dbname="logs"
+else
+    dbname="$1"
+fi
+
 username="postgres"
 
 # Look for any error log with priority less than 4 for the last 6 minutes,
