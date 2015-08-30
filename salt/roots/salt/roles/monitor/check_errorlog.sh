@@ -1,5 +1,7 @@
 #!/bin/sh
 
+export PATH=/usr/local/bin:$PATH
+
 from="monitor@bccvl.org.au"
 support="g.weis@griffith.edu.au"
 
