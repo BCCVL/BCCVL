@@ -116,3 +116,21 @@ nginx_user_admin:
     - require:
       - pkg: httpd-tools
       - file: /etc/nginx/.htpasswd
+
+/usr/local/bin/check_errorlog.sh:
+  file.managed:
+    - source: salt://monitor/check_errorlog.sh
+    - user: root
+    - group: root
+    - mode: 755
+  cron.present:
+    - IDENTIFIER: CRON_LOG_ALERT
+    - minute: */5
+
+/usr/local/bin/get_errorlog.sh:
+  file.managed:
+    - source: salt://monitor/get_errorlog.sh
+    - user: root
+    - group: root
+    - mode: 755
+
