@@ -1,3 +1,4 @@
+{% import_yaml "variables.yml" as vars %}
 {% import 'keys/data_mover.id_dsa' as data_mover_id_dsa_priv %}
 {% import 'keys/data_mover.id_dsa.pub' as data_mover_id_dsa_pub %}
 
@@ -16,3 +17,14 @@ data_mover:
   ssh_pubkey: {{ data_mover_id_dsa_pub|string|json }}
 
   tmpdir: /tmp/data_mover
+
+  swift:
+    nectar:
+      auth:
+        url: {{ vars.nectar.auth.url }}
+        version: {{ vars.nectar.auth.version }}
+      tenant:
+        name: {{ vars.nectar.tenant.name }}
+      user:
+        name: {{ vars.nectar.user.name }}
+        key: {{ vars.nectar.user.key }}

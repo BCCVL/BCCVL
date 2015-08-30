@@ -46,3 +46,13 @@ collectd:
 
 shibboleth:
   enabled: False
+
+nectar:
+  auth:
+    url: https://keystone.rc.nectar.org.au:5000/v2.0/
+    version: 2
+  tenant:
+    name: <replace with tenant name> Biodiversity_Climate_Change_VL
+  user:
+    name: <replace with user name>
+    key: <replace with user key>
