@@ -4,7 +4,7 @@ support="g.weis@griffith.edu.au"
 
 # get the error log
 tmpfile=$(mktemp tmp_errorlog.XXXXXXX)
-./get_errorlog.sh > "$tmpfile"
+get_errorlog.sh > "$tmpfile"
 
 # add email subject header
 sed -i '1iSubject: BCCVL System Alert\n' $tmpfile
