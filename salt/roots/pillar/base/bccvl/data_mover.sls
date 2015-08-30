@@ -14,3 +14,5 @@ data_mover:
 
   ssh_privkey: {{ data_mover_id_dsa_priv|string|json }}
   ssh_pubkey: {{ data_mover_id_dsa_pub|string|json }}
+
+  tmpdir: /tmp/data_mover
