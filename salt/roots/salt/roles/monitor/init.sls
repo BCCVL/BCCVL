@@ -124,7 +124,7 @@ nginx_user_admin:
     - group: root
     - mode: 755
   cron.present:
-    - IDENTIFIER: CRON_LOG_ALERT
+    - identifier: CRON_LOG_ALERT
     - minute: '*/5'
 
 /usr/local/bin/get_errorlog.sh:
@@ -133,4 +133,3 @@ nginx_user_admin:
     - user: root
     - group: root
     - mode: 755
-
