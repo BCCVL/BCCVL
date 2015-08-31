@@ -1,6 +1,6 @@
 #!/bin/sh
 
-export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/bin:/usr/sbin:$PATH
 
 from="monitor@bccvl.org.au"
 support="g.weis@griffith.edu.au"
