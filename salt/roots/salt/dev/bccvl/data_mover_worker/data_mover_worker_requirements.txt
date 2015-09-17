@@ -1,2 +1,4 @@
 celery=={{ pillar['versions']['celery'] }}
--e org.bccvl.tasks
+dropbox=={{ pillar['versions']['dropbox'] }}
+google-api-python-client=={{ pillar['versions']['google-api-python-client'] }}
+-e org.bccvl.tasks[exports]

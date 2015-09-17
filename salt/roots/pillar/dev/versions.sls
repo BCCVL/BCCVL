@@ -10,3 +10,5 @@ versions:
     # The following are branch names or tags
     plone: develop
     visualiser: develop
+    dropbox: 3.23
+    google-api-python-client: 1.4.1
