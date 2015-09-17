@@ -48,6 +48,14 @@ gmp-devel:
     - require:
       - user: {{ user.name }}
 
+/home/{{ user.name }}:
+  file.directory:
+    - user: {{ user.name }}
+    - group: {{ user.name }}
+    - mode: 0750
+    - require:
+      - user: {{ user.name }}
+
 /home/{{ user.name }}/.ssh/id_dsa:
   file.managed:
     - user: {{ user.name }}
