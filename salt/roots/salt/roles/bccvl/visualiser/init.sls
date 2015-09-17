@@ -103,28 +103,10 @@ Visualiser Virtualenv:
       - pkg: python27-python-virtualenv
       - file: /usr/local/bin/python27-virtualenv
 
-Visualiser Virtualenv Nose:
-  cmd.run:
-    - name: scl enable python27 "/home/{{ user.name }}/BCCVL_Visualiser/env/bin/pip install nose=={{ pillar['versions']['nose'] }}"
-    - unless: scl enable python27 "/home/{{ user.name }}/BCCVL_Visualiser/env/bin/pip show nose | grep -q 'Version:'"
-    - user: {{ user.name }}
-    - group: {{ user.name }}
-    - require:
-      - virtualenv: Visualiser Virtualenv
-
 Visualiser Virtualenv Numpy:
   cmd.run:
     - name: scl enable python27 "/home/{{ user.name }}/BCCVL_Visualiser/env/bin/pip install numpy=={{ pillar['versions']['numpy'] }}"
     - unless: scl enable python27 "/home/{{ user.name }}/BCCVL_Visualiser/env/bin/pip show numpy | grep -q 'Version:'"
-    - user: {{ user.name }}
-    - group: {{ user.name }}
-    - require:
-      - virtualenv: Visualiser Virtualenv
-
-Visualiser Virtualenv Mock:
-  cmd.run:
-    - name: scl enable python27 "/home/{{ user.name }}/BCCVL_Visualiser/env/bin/pip install mock=={{ pillar['versions']['mock'] }}"
-    - unless: scl enable python27 "/home/{{ user.name }}/BCCVL_Visualiser/env/bin/pip show mock | grep -q 'Version:'"
     - user: {{ user.name }}
     - group: {{ user.name }}
     - require:
@@ -138,8 +120,6 @@ Visualiser Virtualenv Matplotlib:
     - group: {{ user.name }}
     - require:
       - cmd: Visualiser Virtualenv Numpy
-      - cmd: Visualiser Virtualenv Nose
-      - cmd: Visualiser Virtualenv Mock
 
 Visualiser Buildout Config:
   file.managed:
