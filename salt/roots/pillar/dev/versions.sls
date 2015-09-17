@@ -7,6 +7,8 @@ versions:
     numpy: 1.9.1
     mock: 1.0.1
     matplotlib: 1.4.2
+    gunicorn: 19.3.0
+    futures: 3.0.3
     # The following are branch names or tags
     plone: develop
     visualiser: develop
