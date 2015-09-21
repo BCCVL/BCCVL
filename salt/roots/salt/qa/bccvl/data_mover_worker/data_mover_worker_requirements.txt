@@ -2,4 +2,6 @@
 {% set tasks_version = pillar['versions']['org.bccvl.tasks'] %}
 
 celery=={{ celery_version }}
+dropbox=={{ pillar['versions']['dropbox'] }}
+google-api-python-client=={{ pillar['versions']['google-api-python-client'] }}
 https://github.com/BCCVL/org.bccvl.tasks/archive/{{ tasks_version }}.tar.gz#egg=org.bccvl.tasks-{{ tasks_version }}

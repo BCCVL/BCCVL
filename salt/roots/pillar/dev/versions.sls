@@ -9,8 +9,8 @@ versions:
     matplotlib: 1.4.2
     gunicorn: 19.3.0
     futures: 3.0.3
+    dropbox: 3.23
+    google-api-python-client: 1.4.1
     # The following are branch names or tags
     plone: develop
     visualiser: develop
-    dropbox: 3.23
-    google-api-python-client: 1.4.1

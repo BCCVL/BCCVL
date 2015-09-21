@@ -1,4 +1,3 @@
-setuptools==18.3.1
 celery=={{ pillar['versions']['celery'] }}
 dropbox=={{ pillar['versions']['dropbox'] }}
 google-api-python-client=={{ pillar['versions']['google-api-python-client'] }}
