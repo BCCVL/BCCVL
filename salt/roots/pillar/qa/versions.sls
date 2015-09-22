@@ -2,7 +2,7 @@
 
 versions:
     celery: 3.1.17
-    org.bccvl.tasks: 1.9.0rc1
+    org.bccvl.tasks: 1.9.0
     zc.buildout: 2.2.1
     nose: 1.3.4
     numpy: 1.9.1
