@@ -4,7 +4,7 @@
   git.latest:
     - name: https://github.com/BCCVL/org.bccvl.tasks.git
     - target: /home/{{ user.name }}/worker/org.bccvl.tasks
-    - rev: develop
+    - rev: {{ pillar['versions']['org.bccvl.tasks'] }}
     - user: {{ user.name }}
     - require:
       - user: {{ user.name }}

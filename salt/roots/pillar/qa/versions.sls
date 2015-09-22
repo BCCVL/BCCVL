@@ -15,3 +15,4 @@ versions:
     # The following are branch names or tags
     plone: qa
     visualiser: qa
+    data_mover: qa

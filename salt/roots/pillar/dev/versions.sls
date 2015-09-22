@@ -12,5 +12,7 @@ versions:
     dropbox: 3.23
     google-api-python-client: 1.4.1
     # The following are branch names or tags
+    org.bccvl.tasks: develop
     plone: develop
     visualiser: develop
+    data_mover: develop
