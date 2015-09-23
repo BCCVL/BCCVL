@@ -1,5 +1,6 @@
 {% set user = salt['pillar.get']('worker:user', {'name': 'bccvl'}) %}
 {% set rabbitmq = salt['pillar.get']('worker:rabbitmq',{}) %}
+{% set sentry = salt['pillar.get']('sentry',{}) %}
 
 {% set cred = rabbitmq.get('user', 'guest') + ':' + rabbitmq.get('pass', 'guest') %}
 {% set host = rabbitmq.get('host', '127.0.0.1') %}
@@ -62,4 +63,9 @@
         "class": "logging.handlers.SysLogHandler",
         "address": "/dev/log"
     }
+    {% if sentry %}
+    , "sentry": {
+        "dsn": "{{ sentry['dsn'] }}"
+    }
+    {% endif %}
 }
