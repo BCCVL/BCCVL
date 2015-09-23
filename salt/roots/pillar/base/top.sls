@@ -8,6 +8,7 @@ dev:
     - collectd
     - users
     - versions
+    - sentry
   'monitor*dev*':
     - salt.master
     - monitor
@@ -24,6 +25,7 @@ qa:
     - openssh
     - users
     - versions
+    - sentry
   'monitor*qa*':
     - salt.master
     - monitor
@@ -40,6 +42,7 @@ prod:
     - openssh
     - users
     - versions
+    - sentry
   'monitor*prod*':
     - salt.master
     - monitor
