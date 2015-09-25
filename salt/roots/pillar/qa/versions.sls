@@ -12,6 +12,7 @@ versions:
     futures: 3.0.3
     dropbox: 3.23
     google-api-python-client: 1.4.1
+    raven: 5.7.2
     # The following are branch names or tags
     plone: qa
     visualiser: qa
