@@ -12,7 +12,8 @@ versions:
     futures: 3.0.3
     dropbox: 3.23
     google-api-python-client: 1.4.1    
+    raven: 5.7.2
     # The following are branch names or tags
-    plone: 1.9.2
-    visualiser: 1.6.0
+    plone: 1.9.3
+    visualiser: 1.6.1
 
