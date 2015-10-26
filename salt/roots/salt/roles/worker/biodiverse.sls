@@ -63,7 +63,6 @@ biodiverse_source:
     - rev: r1.0
     - target: /home/bccvl/biodiverse
     - user: bccvl
-    - group: bccvl
     - require:
       - user: bccvl
       - file: biodiverse_source
