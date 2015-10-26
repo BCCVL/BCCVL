@@ -3,7 +3,7 @@ include:
 
 collectd:
   pkg.installed:
-    - fromrepo: rpmforge-testing
+    - enablerepo: rpmforge-testing
     - require:
       - pkgrepo: rpmforge
   service.running:
