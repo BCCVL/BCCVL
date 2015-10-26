@@ -3,7 +3,6 @@
 base:
   '*':
     - roles-as-grains
-    - minion-id-as-hostname
     - timezone
     - locale
     - salt.minion
