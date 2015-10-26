@@ -2,6 +2,7 @@
 
 salt:
   minion:
+    id: {{ grains['id'] }}
     master: {{ vars.monitor.hostname }}
     #module_config:
     #  test: True
