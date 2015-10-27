@@ -3,7 +3,6 @@ include:
   - rsyslog
   - rabbitmq
   - apache
-  - 4store
   - varnish
   - haproxy
   - bccvl.data_mover

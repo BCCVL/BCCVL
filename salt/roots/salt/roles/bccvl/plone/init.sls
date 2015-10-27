@@ -10,7 +10,6 @@ include:
   - exempi.devel
   - libjpeg-turbo
   - python27
-  - 4store
   - supervisord
   - gdal
   - bccvl.plone.plone_virtualenv
@@ -140,7 +139,6 @@ libtiff-devel:
     - require:
       - cmd: /home/{{ user.name }}/bccvl_buildout/bin/buildout
       - file: /home/{{ user.name }}/bccvl_buildout/etc/bccvl_celery.json
-      - service: 4store
     - watch:
       - git: plone_virtualenv
       - file: /home/{{ user.name }}/bccvl_buildout/buildout.cfg

@@ -3,7 +3,6 @@ include:
   - bccvl.rsyslog
   - bccvl.rabbitmq
   - bccvl.apache
-  - bccvl.4store
   - bccvl.varnish
   - bccvl.haproxy
   - bccvl.data_mover
