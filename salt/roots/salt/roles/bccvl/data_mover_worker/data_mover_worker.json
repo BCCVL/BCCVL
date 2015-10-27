@@ -41,7 +41,8 @@
             {"org.bccvl.tasks.datamover.move": {"queue": "datamover", "routing_key": "datamover"}},
             {"org.bccvl.tasks.export_services.export_result": {"queue": "datamover", "routing_key": "datamover"}},
             {"org.bccvl.tasks.compute.r_task": {"queue": "worker", "routing_key": "worker"}},
-            {"org.bccvl.tasks.compute.perl_task": {"queue": "worker", "routing_key": "worker"}}
+            {"org.bccvl.tasks.compute.perl_task": {"queue": "worker", "routing_key": "worker"}},
+            {"org.bccvl.tasks.compute.demo_task": {"queue": "worker", "routing_key": "worker"}}            
         ],
         "TASK_SERIALIZER": "json",
         "QUEUES": {
