@@ -13,7 +13,6 @@ data_mover_source:
     - rev: {{ pillar['versions']['data_mover'] }}
     - target: /home/{{ user.name }}/bccvl_data_mover
     - user: {{ user.name }}
-    - group: {{ user.name }}
     - require:
       - user: {{ user.name }}
       - file: data_mover_source
