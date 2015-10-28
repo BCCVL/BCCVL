@@ -1,5 +1,5 @@
 celery=={{ pillar['versions']['celery'] }}
-{% if pillar['senty'] %}
+{% if pillar['sentry'] %}
 raven=={{ pillar['versions']['raven'] }}
 {% endif %}
 -e org.bccvl.tasks
