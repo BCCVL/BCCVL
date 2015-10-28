@@ -1,4 +1,7 @@
 celery=={{ pillar['versions']['celery'] }}
 dropbox=={{ pillar['versions']['dropbox'] }}
 google-api-python-client=={{ pillar['versions']['google-api-python-client'] }}
+{% if pillar['senty'] %}
+raven=={{ pillar['versions']['raven'] }}
+{% endif %}
 -e org.bccvl.tasks[exports]
