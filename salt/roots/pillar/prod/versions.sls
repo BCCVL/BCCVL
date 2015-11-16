@@ -1,8 +1,8 @@
 
 versions:
     celery: 3.1.17
-    org.bccvl.tasks: 1.9.0
-    data_mover: 1.7.1
+    org.bccvl.tasks: 1.9.1
+    data_mover: 1.7.2
     zc.buildout: 2.2.1
     nose: 1.3.4
     numpy: 1.9.1
@@ -14,6 +14,6 @@ versions:
     google-api-python-client: 1.4.1    
     raven: 5.7.2
     # The following are branch names or tags
-    plone: 1.9.3
+    plone: 1.9.4
     visualiser: 1.6.1
 
