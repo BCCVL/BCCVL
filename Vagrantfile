@@ -76,6 +76,7 @@ Vagrant.configure("2") do |config|
     worker.vm.hostname = "worker-dev"
 
     worker.vm.synced_folder "dev/worker/org.bccvl.tasks", "/home/bccvl/worker/org.bccvl.tasks", create: true, mount_options: ["uid=401,gid=401"]
+    worker.vm.synced_folder "dev/worker/org.bccvl.movelib", "/home/bccvl/worker/org.bccvl.movelib", create: true, mount_options: ["uid=401,gid=401"]
 
     worker.vm.provider "virtualbox" do |v|
       v.name = "worker-dev"
@@ -109,6 +110,7 @@ Vagrant.configure("2") do |config|
     # source checkouts for data_mover
     bccvl.vm.synced_folder "dev/bccvl/bccvl_data_mover", "/home/data_mover/bccvl_data_mover", create: true, mount_options: ["uid=403,gid=403"]
     bccvl.vm.synced_folder "dev/bccvl/bccvl_data_mover_worker/org.bccvl.tasks", "/home/data_mover/worker/org.bccvl.tasks", create: true, mount_options: ["uid=403,gid=403"]
+    bccvl.vm.synced_folder "dev/bccvl/bccvl_data_mover_worker/org.bccvl.movelib", "/home/data_mover/worker/org.bccvl.movelib", create: true, mount_options: ["uid=403,gid=403"]
     # source checkouts for visualiser
     bccvl.vm.synced_folder "dev/bccvl/BCCVL_Visualiser", "/home/visualiser/BCCVL_Visualiser", create: true, mount_options: ["uid=404,gid=404"]
 
