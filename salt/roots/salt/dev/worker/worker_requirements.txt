@@ -1,5 +1,5 @@
 celery=={{ pillar['versions']['celery'] }}
-GDAL=={{ pillar['versions']['GDAL'] }}
+GDAL=={{ pillar['versions']['GDAL'] }} --global-option=build_ext --global-option="-I/usr/include/gdal"
 {% if pillar['sentry'] %}
 raven=={{ pillar['versions']['raven'] }}
 {% endif %}
