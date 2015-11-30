@@ -52,7 +52,7 @@ nectar:
   os_auth_version: 2
   #os_storage_url: https://swift.rc.nectar.org.au:8888/v1/AUTH_<whatevel>
   #os_tenant_name: <replace with tenant name> Biodiversity_Climate_Change_VL
-  #os_user: <replace with user name>
+  #os_username: <replace with user name>
   #os_password: <replace with user key>
   #os_temp_url_key: <replace with key>
 
