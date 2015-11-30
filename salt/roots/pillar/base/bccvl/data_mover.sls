@@ -17,14 +17,3 @@ data_mover:
   ssh_pubkey: {{ data_mover_id_dsa_pub|string|json }}
 
   tmpdir: /tmp/data_mover
-
-  swift:
-    nectar:
-      auth:
-        url: {{ vars.nectar.auth.url }}
-        version: {{ vars.nectar.auth.version }}
-      tenant:
-        name: {{ vars.nectar.tenant.name }}
-      user:
-        name: {{ vars.nectar.user.name }}
-        key: {{ vars.nectar.user.key }}

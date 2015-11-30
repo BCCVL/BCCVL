@@ -12,8 +12,11 @@ versions:
     dropbox: 3.23
     google-api-python-client: 1.4.1
     raven: 5.7.2
+    # GDAL python bindings
+    GDAL: 1.9.1
     # The following are branch names or tags
     org.bccvl.tasks: develop
+    org.bccvl.movelib: develop
     plone: develop
     visualiser: develop
     data_mover: develop

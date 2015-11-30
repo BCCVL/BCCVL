@@ -5,6 +5,9 @@ include:
   - rsyslog
   - R
   - supervisord
+  - gdal
+  - exempi
+  - libyaml
   - git
   - python27
   - worker.rlibs

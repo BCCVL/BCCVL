@@ -1,6 +1,9 @@
 {% set user = salt['pillar.get']('data_mover:user', {'name': 'data_mover'}) %}
 
 include:
+  - gdal
+  - proj4
+  - exempi
   - supervisord
   - git
   - python27

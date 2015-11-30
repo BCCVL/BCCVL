@@ -86,7 +86,7 @@ gmp-devel:
       - file: /usr/local/bin/python27-virtualenv
       - git: data_mover_source
 
-/home/{{ user.name }}/bccvl_data_mover/data_mover/data_mover_buildout.cfg:
+/home/{{ user.name }}/bccvl_data_mover/data_mover/buildout.cfg:
   file.managed:
     - source:
       - salt://bccvl/data_mover/data_mover_buildout.cfg
@@ -100,12 +100,12 @@ gmp-devel:
 /home/{{ user.name }}/bccvl_data_mover/data_mover/bin/buildout:
   cmd.run:
     - cwd: /home/{{ user.name }}/bccvl_data_mover/data_mover/
-    - name: scl enable python27 ". bin/activate; python2.7 bootstrap.py -v {{ pillar['versions']['zc.buildout'] }} -c data_mover_buildout.cfg"
+    - name: scl enable python27 ". bin/activate; python2.7 bootstrap.py -v {{ pillar['versions']['zc.buildout'] }}"
     - user: {{ user.name }}
     - group: {{ user.name }}
     - unless: test -x /home/{{ user.name }}/bccvl_data_mover/data_mover/bin/buildout
     - require:
-      - file: /home/{{ user.name }}/bccvl_data_mover/data_mover/data_mover_buildout.cfg
+      - file: /home/{{ user.name }}/bccvl_data_mover/data_mover/buildout.cfg
       - git: data_mover_source
       - pkg: python27-python
       - virtualenv: /home/{{ user.name }}/bccvl_data_mover/data_mover
@@ -113,7 +113,7 @@ gmp-devel:
 /home/{{ user.name }}/bccvl_data_mover/data_mover/bin/pserve:
   cmd.run:
     - cwd: /home/{{ user.name }}/bccvl_data_mover/data_mover/
-    - name: scl enable python27 ". bin/activate; ./bin/buildout  -c data_mover_buildout.cfg"
+    - name: scl enable python27 ". bin/activate; ./bin/buildout"
     - user: {{ user.name }}
     - group: {{ user.name }}
     - require:
@@ -124,16 +124,6 @@ gmp-devel:
       - pkg: gmp-devel
     - watch:
       - git: data_mover_source
-
-/home/{{ user.name }}/bccvl_data_mover/data_mover/production.sqlite:
-  cmd.run:
-    - cwd: /home/{{ user.name }}/bccvl_data_mover/data_mover/
-    - user: {{ user.name }}
-    - group: {{ user.name }}
-    - name: scl enable python27 ". bin/activate; ./bin/initialize_data_mover_db production.ini"
-    - unless: test -f /home/{{ user.name }}/bccvl_data_mover/data_mover/production.sqlite
-    - watch:
-      - cmd: /home/{{ user.name }}/bccvl_data_mover/data_mover/bin/pserve
 
 /home/{{ user.name }}/bccvl_data_mover/data_mover/data_mover.ini:
   file.managed:
@@ -157,7 +147,6 @@ gmp-devel:
     - template: jinja
     - require:
       - pkg: supervisor
-      - cmd: /home/{{ user.name }}/bccvl_data_mover/data_mover/production.sqlite
       - file: /home/{{ user.name }}/bccvl_data_mover/data_mover/data_mover.ini
     - watch_in:
       - service: supervisord

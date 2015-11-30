@@ -23,3 +23,5 @@ visualiser:
   # Root folder where visualiser stores it's data. (needs leading
   # slash but can't handle trailing slash)
   tmp: /tmp
+
+  ssl_verify: {{ vars.requests.ssl.verify }}

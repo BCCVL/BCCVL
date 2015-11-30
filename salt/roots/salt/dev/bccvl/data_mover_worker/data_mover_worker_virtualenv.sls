@@ -12,3 +12,16 @@
       - file: /home/{{ user.name }}/worker
     - watch_in:
       - cmd: data_mover_worker_virtualenv
+
+/home/{{ user.name }}/worker/org.bccvl.movelib:
+  git.latest:
+    - name: https://github.com/BCCVL/org.bccvl.movelib.git
+    - target: /home/{{ user.name }}/worker/org.bccvl.movelib
+    - rev: {{ pillar['versions']['org.bccvl.movelib'] }}
+    - user: {{ user.name }}
+    - require:
+      - user: {{ user.name }}
+      - pkg: git
+      - file: /home/{{ user.name }}/worker
+    - watch_in:
+      - cmd: data_mover_worker_virtualenv

@@ -1,5 +1,7 @@
 celery=={{ pillar['versions']['celery'] }}
+GDAL=={{ pillar['versions']['GDAL'] }}
 {% if pillar['sentry'] %}
 raven=={{ pillar['versions']['raven'] }}
 {% endif %}
--e org.bccvl.tasks
+-e org.bccvl.movelib[http,scp,swift]
+-e org.bccvl.tasks[metadata]

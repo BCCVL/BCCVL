@@ -2,5 +2,5 @@
 
 # override this per environment if required
 
-# sentry:
+sentry:
 #    dsn: __DSN__

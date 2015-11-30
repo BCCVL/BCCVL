@@ -1,6 +1,3 @@
-#base:
-#  '*':
-#    - mine_functions
 
 dev:
   '*dev*':
@@ -9,6 +6,8 @@ dev:
     - users
     - versions
     - sentry
+    - authtkt
+    - nectar
   'monitor*dev*':
     - salt.master
     - monitor
@@ -26,6 +25,8 @@ qa:
     - users
     - versions
     - sentry
+    - authtkt
+    - nectar
   'monitor*qa*':
     - salt.master
     - monitor
@@ -43,6 +44,8 @@ prod:
     - users
     - versions
     - sentry
+    - authtkt
+    - nectar
   'monitor*prod*':
     - salt.master
     - monitor

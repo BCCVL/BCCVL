@@ -48,11 +48,20 @@ shibboleth:
   enabled: False
 
 nectar:
-  auth:
-    url: https://keystone.rc.nectar.org.au:5000/v2.0/
-    version: 2
-  tenant:
-    name: <replace with tenant name> Biodiversity_Climate_Change_VL
-  user:
-    name: <replace with user name>
-    key: <replace with user key>
+  os_auth_url: https://keystone.rc.nectar.org.au:5000/v2.0/
+  os_auth_version: 2
+  #os_storage_url: https://swift.rc.nectar.org.au:8888/v1/AUTH_<whatevel>
+  #os_tenant_name: <replace with tenant name> Biodiversity_Climate_Change_VL
+  #os_user: <replace with user name>
+  #os_password: <replace with user key>
+  #os_temp_url_key: <replace with key>
+
+authtkt:
+  #name: <cookie name>
+  domain: {{ bccvl.hostname }}
+  #secret: <cookie secret>
+  secure: True
+
+requests:
+  ssl:
+    verify: true

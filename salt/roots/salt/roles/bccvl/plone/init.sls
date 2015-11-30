@@ -101,7 +101,7 @@ libtiff-devel:
   file.directory:
     - user: {{ user.name }}
     - group: {{ user.name }}
-    - mode: 750
+    - mode: 753
     - makedirs: True
     - require_in:
         - cmd: /home/{{ user.name }}/bccvl_buildout/bin/buildout
