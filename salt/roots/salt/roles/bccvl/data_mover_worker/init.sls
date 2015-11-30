@@ -36,6 +36,15 @@ include:
     - require:
       - file: /home/{{ user.name }}/worker
 
+data_mover_worker_virtualenv_upgrade_pip:
+  cmd.run:
+    - name: scl enable python27 ". bin/activate; pip install pip==7.1.2"
+    - cwd: /home/{{ user.name }}/worker
+    - unless: scl enable python27 ". bin/activate; pip -V | grep 'pip 7.1.2 '"
+    - user: {{ user.name }}
+    - require:
+      - virtualenv: /home/{{ user.name }}/worker
+
 data_mover_worker_virtualenv:
   cmd.wait:
     - name: scl enable python27 ". bin/activate; pip install -r requirements.txt"
@@ -45,6 +54,7 @@ data_mover_worker_virtualenv:
       - pkg: python27-python-devel
       - pkg: python27-python-virtualenv
       - virtualenv: /home/{{ user.name }}/worker
+      - cmd: data_mover_worker_virtualenv_upgrade_pip
     - watch:
       - file: /home/{{ user.name }}/worker/requirements.txt
 
