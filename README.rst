@@ -138,5 +138,4 @@ TODO:
 
 * document folder structure ... esp. pillar/base/keys and certs
 * document how and what to override for different environments
-* change monitor node to manage all envs
-* add halite to monitor
+
