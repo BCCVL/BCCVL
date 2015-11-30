@@ -1,4 +1,3 @@
-pip==7.1.2
 celery=={{ pillar['versions']['celery'] }}
 GDAL=={{ pillar['versions']['GDAL'] }} --global-option=build_ext --global-option="-I/usr/include/gdal"
 {% if pillar['sentry'] %}

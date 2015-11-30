@@ -107,6 +107,15 @@ service iptables restart:
     - require:
       - file: /home/{{ user.name }}/worker
 
+worker_virtualenv_upgrade_pip:
+  cmd.wait:
+    - name: scl enable python27 ". bin/activate; pip install pip==7.1.2"
+    - cwd: /home/{{ user.name }}/worker
+    - unless: scl enable python27 ". bin/activate; pip -V grep 'pip 7.1.2 '"
+    - user: {{ user.name }}
+    - require:
+      - virtuarenv: /hom/{{ user.name }}/worker
+
 worker_virtualenv:
   cmd.wait:
     - name: scl enable python27 ". bin/activate; pip install -r requirements.txt"
