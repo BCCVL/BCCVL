@@ -14,6 +14,6 @@ versions:
     google-api-python-client: 1.4.1    
     raven: 5.7.2
     # The following are branch names or tags
-    plone: 1.9.4
+    plone: 1.9.5
     visualiser: 1.6.1
 
