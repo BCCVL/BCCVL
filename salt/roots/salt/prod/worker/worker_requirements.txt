@@ -1,8 +1,0 @@
-{% set celery_version = pillar['versions']['celery'] %}
-{% set tasks_version = pillar['versions']['org.bccvl.tasks'] %}
-
-celery=={{ celery_version }}
-{% if pillar['sentry'] %}
-raven=={{ pillar['versions']['raven'] }}
-{% endif %}
-https://github.com/BCCVL/org.bccvl.tasks/archive/{{ tasks_version }}.tar.gz#egg=org.bccvl.tasks-{{ tasks_version }}
