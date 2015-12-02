@@ -2,7 +2,6 @@
 
 versions:
     celery: 3.1.17
-    org.bccvl.tasks: 1.9.0
     zc.buildout: 2.2.1
     nose: 1.3.4
     numpy: 1.9.1
@@ -13,7 +12,12 @@ versions:
     dropbox: 3.23
     google-api-python-client: 1.4.1
     raven: 5.7.2
+    pip: 7.1.2
+    # GDAL python bindings
+    GDAL: 1.9.1
     # The following are branch names or tags
+    org.bccvl.tasks: 1.9.2rc1
+    org.bccvl.movelib: 1.0.0rc1
     plone: qa
     visualiser: qa
     data_mover: qa
