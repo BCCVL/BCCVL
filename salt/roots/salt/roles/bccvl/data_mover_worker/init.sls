@@ -1,4 +1,5 @@
 {% set user = salt['pillar.get']('data_mover:user', {'name': 'data_mover'}) %}
+{% set versions = salt['pillar.get']('versions') %}
 
 include:
   - gdal
@@ -38,9 +39,9 @@ include:
 
 data_mover_worker_virtualenv_upgrade_pip:
   cmd.run:
-    - name: scl enable python27 ". bin/activate; pip install pip==7.1.2"
+    - name: scl enable python27 ". bin/activate; pip install pip=={{ versions.pip }}"
     - cwd: /home/{{ user.name }}/worker
-    - unless: scl enable python27 ". bin/activate; pip -V | grep 'pip 7.1.2 '"
+    - unless: scl enable python27 ". bin/activate; pip -V | grep 'pip {{ versions.pip }} '"
     - user: {{ user.name }}
     - require:
       - virtualenv: /home/{{ user.name }}/worker
