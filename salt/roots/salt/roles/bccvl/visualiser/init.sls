@@ -27,6 +27,8 @@ include:
   - ncurses
   - tk
   - wget
+  - cmake
+  - swig
 
 
 {{ user.name }}:
