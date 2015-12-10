@@ -164,7 +164,7 @@ Visualiser Buildout:
     - cwd: /home/{{ user.name }}/BCCVL_Visualiser/BCCVL_Visualiser
     - user: {{ user.name }}
     - group: {{ user.name }}
-    - name: scl enable python27 "./bin/buildout"
+    - name: scl enable python27 ". ../env/bin/activate; ./bin/buildout"
     - require:
       - cmd: Visualiser Bootstrap Buildout
 
