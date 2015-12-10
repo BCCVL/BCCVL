@@ -114,6 +114,15 @@ Visualiser Virtualenv Numpy:
     - require:
       - virtualenv: Visualiser Virtualenv
 
+Visualiser Virtualenv Mock:
+  cmd.run:
+    - name: scl enable python27 "/home/{{ user.name }}/BCCVL_Visualiser/env/bin/pip install mock=={{ pillar['versions']['mock'] }}"
+    - unless: scl enable python27 "/home/{{ user.name }}/BCCVL_Visualiser/env/bin/pip show mock | grep -q 'Version:'"
+    - user: {{ user.name }}
+    - group: {{ user.name }}
+    - require:
+      - virtualenv: Visualiser Virtualenv
+
 Visualiser Virtualenv Matplotlib:
   cmd.run:
     - name: scl enable python27 "/home/{{ user.name }}/BCCVL_Visualiser/env/bin/pip install matplotlib=={{ pillar['versions']['matplotlib'] }}"
@@ -122,6 +131,7 @@ Visualiser Virtualenv Matplotlib:
     - group: {{ user.name }}
     - require:
       - cmd: Visualiser Virtualenv Numpy
+      - cmd: Visualiser Virtualenv Mock
 
 Visualiser Buildout Config:
   file.managed:
