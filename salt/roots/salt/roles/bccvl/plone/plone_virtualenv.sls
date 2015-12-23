@@ -27,4 +27,4 @@ plone_virtualenv:
       - git: plone_virtualenv
       - pkg: python27-python-virtualenv
       - file: /usr/local/bin/python27-virtualenv
-      - file: /mnt/plone_var
+      - file: {{ salt['pillar.get']('plone:storage:root') }}
