@@ -32,6 +32,22 @@ Create an empty users.sls::
 
   $ touch /srv/pillar/base/users.sls
 
+Copy /srv/pillar/base/variables.yml to /srv/pillar/dev/variables.yml
+and change the authtkt and requests sections to:
+
+.. code:: yaml
+
+    authtkt:
+      name: __ac
+      domain: {{ bccvl.hostname }}
+      secret: secret
+      secure: True
+
+    requests:
+      ssl:
+        verify: false
+
+
 Because the master "salts" itself, we have to run highstate on the master
 first::
 
