@@ -65,3 +65,11 @@ authtkt:
 requests:
   ssl:
     verify: true
+
+oauth:
+  figshare:
+    client_key: XXX
+    client_secret: XXX
+  googledrive:
+    client_id: XXX
+    client_secret: XXX

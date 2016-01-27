@@ -3,6 +3,7 @@
 {% set sentry = salt['pillar.get']('sentry',{}) %}
 {% set authtkt = salt['pillar.get']('authtkt', {}) %}
 {% set nectar = salt['pillar.get']('nectar', {}) %}
+{% set oauth = salt['pillar.get']('oauth', {}) %}
 
 {% set cred = rabbitmq.get('user', 'guest') + ':' + rabbitmq.get('pass', 'guest') %}
 {% set host = rabbitmq.get('host', '127.0.0.1') %}
@@ -77,6 +78,7 @@
     , "bccvl": {
         "cookie": {{ authtkt|json }},
         "ssl": { "verify": false },
-        "swift": {{ nectar|json }}
+        "swift": {{ nectar|json }},
+        "oauth": {{ oauth|json }}
     }
 }
