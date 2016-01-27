@@ -8,6 +8,7 @@ dev:
     - sentry
     - authtkt
     - nectar
+    - oauth
   'monitor*dev*':
     - salt.master
     - monitor
@@ -27,6 +28,7 @@ qa:
     - sentry
     - authtkt
     - nectar
+    - oauth
   'monitor*qa*':
     - salt.master
     - monitor
@@ -46,6 +48,7 @@ prod:
     - sentry
     - authtkt
     - nectar
+    - oauth
   'monitor*prod*':
     - salt.master
     - monitor
