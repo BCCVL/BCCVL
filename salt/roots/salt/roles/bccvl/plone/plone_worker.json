@@ -44,6 +44,7 @@
             {"org.bccvl.tasks.datamover.move": {"queue": "datamover", "routing_key": "datamover"}},
             {"org.bccvl.tasks.datamover.move": {"queue": "datamover", "routing_key": "datamover"}},
             {"org.bccvl.tasks.datamover.pull_occurrences_from_ala": {"queue": "datamover", "routing_key": "datamover"}},
+            {"org.bccvl.tasks.datamover.pull_occurrences_from_gbif": {"queue": "datamover", "routing_key": "datamover"}},            
             {"org.bccvl.tasks.datamover.update_metadata": {"queue": "datamover", "routing_key": "datamover"}},
             {"org.bccvl.tasks.export_services.export_result": {"queue": "datamover", "routing_key": "datamover"}},
             {"org.bccvl.tasks.compute.r_task": {"queue": "worker", "routing_key": "worker"}},
