@@ -89,6 +89,7 @@ include:
   {'name': 'scales',       'version': '0.2.4',   'hash': 'sha1=14ce2e1fad263e96c9e4a910eb1df4123c619a6c'},
   {'name': 'proto',        'version': '0.3-10',  'hash': 'sha1=cf5132335b810d73e1e828ae04ce7f151f771051'},
   {'name': 'ggplot2',      'version': '1.0.0',   'hash': 'sha1=2ff9bb37c385a3c10e90da75f886b6adfb977fac'},
+  {'name': 'gridExtra',    'version': '2.0.0',   'hash': 'sha1=70bbe0f76f797396e8286ffa7e0fb7edbe545d50'},
 ] %}
 
 /home/bccvl/R_libs:

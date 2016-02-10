@@ -94,7 +94,8 @@ RLIBS=(rjson_0.2.13.tar.gz
        munsell_0.4.2.tar.gz
        labeling_0.3.tar.gz
        scales_0.2.4.tar.gz
-       proto_0.3-10.tar.gz )
+       proto_0.3-10.tar.gz
+       gridExtra_2.0.0.tar.gz )
 
 for lib in ${RLIBS[@]} ; do
   get_r_lib "${lib}"
