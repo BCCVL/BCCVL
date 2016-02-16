@@ -29,3 +29,5 @@ worker:
   data_mover_ssh_pubkey: {{ data_mover_id_dsa_pub|string|json }}
   data_mover: {{ vars.bccvl.hostname }}
   data_mover_ca: {{ vars.bccvl.ca }}
+
+  ssl_verify: {{ vars.requests.ssl.verify }}

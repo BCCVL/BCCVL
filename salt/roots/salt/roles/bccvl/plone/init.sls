@@ -76,14 +76,37 @@ libtiff-devel:
 
 # plone worker celery settings
 /home/{{ user.name }}/bccvl_buildout/etc/bccvl_celery.json:
+  file.absent
+    # - source: salt://bccvl/plone/plone_worker.json
+    # - user: {{ user.name }}
+    # - group: {{ user.name }}
+    # - mode: 640
+    # - template: jinja
+    # - require:
+    #   - file: /home/{{ user.name }}/bccvl_buildout/etc
+
+# plone worker celery settings
+/home/{{ user.name }}/bccvl_buildout/celeryconfig.py:
   file.managed:
-    - source: salt://bccvl/plone/plone_worker.json
+    - source: salt://bccvl/plone/plone_worker.py
+    - user: {{ user.name }}
+    - group: {{ user.name }}
+    - mode: 640
+    - template: jinja
+    - require:
+      - file: /home/{{ user.name }}/bccvl_buildout
+
+# plone worker celery settings
+/home/{{ user.name }}/bccvl_buildout/etc/bccvl.ini:
+  file.managed:
+    - source: salt://bccvl/plone/plone_worker.ini
     - user: {{ user.name }}
     - group: {{ user.name }}
     - mode: 640
     - template: jinja
     - require:
       - file: /home/{{ user.name }}/bccvl_buildout/etc
+
 
 /home/{{ user.name }}/bccvl_buildout/buildout.cfg:
   file.managed:
@@ -138,7 +161,8 @@ libtiff-devel:
     - group: {{ user.name }}
     - require:
       - cmd: /home/{{ user.name }}/bccvl_buildout/bin/buildout
-      - file: /home/{{ user.name }}/bccvl_buildout/etc/bccvl_celery.json
+      - file: /home/{{ user.name }}/bccvl_buildout/etc/bccvl.ini
+      - file: /home/{{ user.name }}/bccvl_buildout/celeryconfig.py
     - watch:
       - git: plone_virtualenv
       - file: /home/{{ user.name }}/bccvl_buildout/buildout.cfg
@@ -153,7 +177,8 @@ libtiff-devel:
     - require:
       - pkg: supervisor
       - cmd: /home/{{ user.name }}/bccvl_buildout/bin/instance-debug
-      - file: /home/{{ user.name }}/bccvl_buildout/etc/bccvl_celery.json
+      - file: /home/{{ user.name }}/bccvl_buildout/etc/bccvl.ini
+      - file: /home/{{ user.name }}/bccvl_buildout/celeryconfig.py
     - watch_in:
       - service: supervisord
 
@@ -185,6 +210,7 @@ libtiff-devel:
     - require:
       - pkg: supervisor
       - cmd: /home/{{ user.name }}/bccvl_buildout/bin/instance-debug
-      - file: /home/{{ user.name }}/bccvl_buildout/etc/bccvl_celery.json
+      - file: /home/{{ user.name }}/bccvl_buildout/etc/bccvl.ini
+      - file: /home/{{ user.name }}/bccvl_buildout/celeryconfig.py
     - watch_in:
       - service: supervisord

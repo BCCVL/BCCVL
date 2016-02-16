@@ -60,8 +60,29 @@ data_mover_worker_virtualenv:
       - file: /home/{{ user.name }}/worker/requirements.txt
 
 /home/{{ user.name }}/worker/celery.json:
+  file.absent
+  # file.managed:
+  #   - source: salt://bccvl/data_mover_worker/data_mover_worker.json
+  #   - user: {{ user.name }}
+  #   - group: {{ user.name }}
+  #   - mode: 640
+  #   - template: jinja
+  #   - require:
+  #     - file: /home/{{ user.name }}/worker
+
+/home/{{ user.name }}/worker/celeryconfig.py:
   file.managed:
-    - source: salt://bccvl/data_mover_worker/data_mover_worker.json
+    - source: salt://bccvl/data_mover_worker/data_mover_worker.py
+    - user: {{ user.name }}
+    - group: {{ user.name }}
+    - mode: 640
+    - template: jinja
+    - require:
+      - file: /home/{{ user.name }}/worker
+
+/home/{{ user.name }}/worker/bccvl.ini:
+  file.managed:
+    - source: salt://bccvl/data_mover_worker/data_mover_worker.ini
     - user: {{ user.name }}
     - group: {{ user.name }}
     - mode: 640
@@ -78,7 +99,8 @@ data_mover_worker_virtualenv:
     - template: jinja
     - require:
       - pkg: supervisor
-      - file: /home/{{ user.name }}/worker/celery.json
+      - file: /home/{{ user.name }}/worker/celeryconfig.py
+      - file: /home/{{ user.name }}/worker/bccvl.ini
       - user: {{ user.name }}
     - watch_in:
       - service: supervisord

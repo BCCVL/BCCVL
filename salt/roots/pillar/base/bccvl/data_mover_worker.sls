@@ -15,3 +15,5 @@ data_mover_worker:
     vhost: bccvl
     user: {{ vars.rabbitmq.users.bccvl.name }}
     pass: {{ vars.rabbitmq.users.bccvl.pass }}
+
+  ssl_verify: {{ vars.requests.ssl.verify }}

@@ -53,3 +53,5 @@ plone:
   zeomonitor:
     host: 127.0.0.1
     port: 8502
+
+  ssl_verify: {{ vars.requests.ssl.verify }}

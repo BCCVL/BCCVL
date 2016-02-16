@@ -131,14 +131,36 @@ worker_virtualenv:
       - file: /home/{{ user.name }}/worker/requirements.txt
 
 /home/{{ user.name }}/worker/celery.json:
+  file.absent
+  # file.managed:
+  #   - source: salt://worker/worker_celery.json
+  #   - user: {{ user.name }}
+  #   - group: {{ user.name }}
+  #   - mode: 640
+  #   - template: jinja
+  #   - require:
+  #     - file: /home/{{ user.name }}/worker
+
+/home/{{ user.name }}/worker/celeryconfig.py:
   file.managed:
-    - source: salt://worker/worker_celery.json
+    - source: salt://worker/worker.py
     - user: {{ user.name }}
     - group: {{ user.name }}
     - mode: 640
     - template: jinja
     - require:
       - file: /home/{{ user.name }}/worker
+
+/home/{{ user.name }}/worker/bccvl.ini:
+  file.managed:
+    - source: salt://worker/worker.ini
+    - user: {{ user.name }}
+    - group: {{ user.name }}
+    - mode: 640
+    - template: jinja
+    - require:
+      - file: /home/{{ user.name }}/worker
+
 
 /mnt/workdir:
   file.directory:
@@ -155,7 +177,8 @@ worker_virtualenv:
     - template: jinja
     - require:
       - pkg: supervisor
-      - file: /home/{{ user.name }}/worker/celery.json
+      - file: /home/{{ user.name }}/worker/celeryconfig.py
+      - file: /home/{{ user.name }}/worker/bccvl.ini
       - user: {{ user.name }}
       - cmd: worker_virtualenv
       - file: /mnt/workdir
