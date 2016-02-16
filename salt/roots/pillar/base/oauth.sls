@@ -1,5 +1,6 @@
 {% import_yaml "variables.yml" as vars %}
 
+{% if 'oauth' in vars %}
 oauth:
 {% for key in vars.oauth %}
 {% if vars.oauth[key] %}
@@ -11,4 +12,4 @@ oauth:
 {% endfor %}
 {% endif %}
 {% endfor %}
-
+{% endif %}
