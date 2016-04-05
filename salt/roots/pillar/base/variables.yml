@@ -61,6 +61,7 @@ authtkt:
   domain: {{ bccvl.hostname }}
   #secret: <cookie secret>
   secure: True
+  tokens: org.bccvl.DownloadDataset
 
 requests:
   ssl:
