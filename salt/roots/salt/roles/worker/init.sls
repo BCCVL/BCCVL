@@ -110,7 +110,7 @@ service iptables restart:
 
 worker_virtualenv_upgrade_pip:
   cmd.run:
-    - name: scl enable python27 ". bin/activate; pip install pip=={{ versions.pip }}"
+    - name: scl enable python27 ". bin/activate; pip install pip=={{ versions.pip }} setuptools=17.1"
     - cwd: /home/{{ user.name }}/worker
     - unless: scl enable python27 ". bin/activate; pip -V | grep 'pip {{ versions.pip }} '"
     - user: {{ user.name }}
