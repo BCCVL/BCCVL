@@ -74,6 +74,7 @@ RLIBS=(FNN_1.1.tar.gz
        gamlss.data_4.3-2.tar.gz
        gamlss.dist_4.3-5.tar.gz
        gbm_2.1.1.tar.gz
+       gdalUtils_2.0.1.7.tar.gz
        ggplot2_2.0.0.tar.gz
        gridExtra_2.2.0.tar.gz
        gstat_1.1-2.tar.gz

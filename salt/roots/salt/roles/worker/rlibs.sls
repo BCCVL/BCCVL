@@ -68,6 +68,7 @@ include:
     {'name': 'gamlss.data',  'version': '4.3-2',   'hash': '8f0a7d30cd30ec125f006e6712f70bf4ade95151'},
     {'name': 'gamlss.dist',  'version': '4.3-5',   'hash': '4f102d46a701ec9592f205a69ecda80498e9619d'},
     {'name': 'gbm',          'version': '2.1.1',   'hash': 'b6559a9974e55388aa30613c028df13263869263'},
+    {'name': 'gdalUtils',    'version': '2.0.1.7', 'hash': '412fe40012ee91ea7e82f9693e58e1096275f707'},
     {'name': 'ggplot2',      'version': '2.0.0',   'hash': '9b409c22a474c9db85db7c91c4a516802cd663b0'},
     {'name': 'gridExtra',    'version': '2.2.0',   'hash': 'cb626c7ff4b3cec0c1139d48094d9765280c5f0f'},
     {'name': 'gstat',        'version': '1.1-2',   'hash': '1c1770159afd40238d790b8dddad00256fabdfc5'},
