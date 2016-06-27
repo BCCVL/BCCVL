@@ -130,13 +130,23 @@ libtiff-devel:
         - cmd: /home/{{ user.name }}/bccvl_buildout/bin/buildout
 {% endif %}
 
+plone_setuptools:
+  cmd.run:
+    - name: scl enable python27 ". ./bin/activate; ./bin/pip install setuptools=={{ pillar['versions']['setuptools'] }}"
+    - cwd: /home/{{ user.name }}/bccvl_buildout
+    - unless: test "$(scl enable python27 \\"./bin/pip show setuptools | grep Version | cut -d ' '  -f 2\\")" = "{{ pillar['versions']['setuptools'] }}"
+    - user: {{ user.name }}
+    - group: {{ user.name }}
+    - require:
+        - virtualenv: plone_virtualenv
+
 /home/{{ user.name }}/bccvl_buildout/bin/buildout:
   cmd.run:
     - name: scl enable python27 ". ./bin/activate; python2.7 bootstrap.py -v {{ pillar['versions']['zc.buildout'] }}"
     - cwd: /home/{{ user.name }}/bccvl_buildout
     - user: {{ user.name }}
     - group: {{ user.name }}
-    - unless: test -x /home/{{ user.name }}/bccvl_buildout/bin/buildout
+    - unless: test "$(/home/{{ user.name }}/bccvl_buildout/bin/buildout --version)" = "buildout version {{ pillar['versions']['zc.buildout'] }}"
     - require:
       - file: /home/{{ user.name }}/bccvl_buildout/buildout.cfg
       - virtualenv: plone_virtualenv
@@ -150,6 +160,8 @@ libtiff-devel:
       - pkg: libtiff-devel
       - pkg: exempi-devel
       - pkg: gdal-devel
+    - watch:
+      - cmd: plone_setuptools
 
 # TODO: will this run on update? (see watch) or would unless: override
 # any watch state... wolud this be different with cmd.wait?
@@ -166,6 +178,7 @@ libtiff-devel:
     - watch:
       - git: plone_virtualenv
       - file: /home/{{ user.name }}/bccvl_buildout/buildout.cfg
+      - cmd: /home/{{ user.name }}/bccvl_buildout/bin/buildout
 
 /etc/supervisord.d/plone.ini:
   file.managed:
