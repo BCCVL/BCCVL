@@ -92,17 +92,31 @@ subjectAltName = \$ENV::SUBJECTALTNAME
 
 EOL
 
+    popd
+fi
+
+# if CA key does not exist, generate it
+if [[ ! -f "${CADIR}/private/cakey.pem" ]] ; then
+    pushd "${CADIR}"
+    SUBJECTALTNAME="${CANAME}" openssl genrsa -out private/cakey.pem 2048
+    popd
+fi
+
+# Generate CA Root Cert
+if [[ ! -f "${CADIR}/cacert.pem" ]] ; then
+    pushd "${CADIR}"
     # generate Certificate Authority
-    SUBJECTALTNAME="${CANAME}" openssl req -x509 -config openssl.cnf -newkey rsa:2048 -days 365 -out cacert.pem -outform PEM -subj /CN=${CANAME}/ -nodes
+    SUBJECTALTNAME="${CANAME}" openssl req -new -x509 -config openssl.cnf -days 365 -key private/cakey.pem -out cacert.pem -outform PEM -subj /CN=${CANAME}/ -nodes
     SUBJECTALTNAME="${CANAME}" openssl x509 -in cacert.pem -out cacert.cer -outform DER
     popd
 fi
+
 
 function create_server_cert {
     # create dir in current folder and generate cert for given CN
     CADIR=$1
     DIR=$2
-    CN=$3
+    SAN=$3
     if [[ -d ${DIR} ]] ; then
       echo "Directory ${DIR} already exists"
       return 1
@@ -110,9 +124,13 @@ function create_server_cert {
     mkdir ${DIR}
     pushd ${DIR}
     openssl genrsa -out key.pem 2048
-    SUBJECTALTNAME="DNS:$CN" openssl req -new -key key.pem -out req.pem -outform PEM -subj /CN=${CN}/O=BCCVL/ -nodes
+    # get first entry in SAN
+    CN="${SAN%%,*}"
+    # remove IP:, DNS:, etc. prefix for CN
+    CN="${CN#*:}"
+    SUBJECTALTNAME="$SAN" openssl req -new -key key.pem -out req.pem -outform PEM -subj /CN=${CN}/O=BCCVL/ -nodes
     pushd ${CADIR}
-    SUBJECTALTNAME="DNS:$CN" openssl ca -config openssl.cnf -in ${DIR}/req.pem -out ${DIR}/cert.pem -notext -batch -extensions server_ca_extensions
+    SUBJECTALTNAME="$SAN" openssl ca -config openssl.cnf -in ${DIR}/req.pem -out ${DIR}/cert.pem -notext -batch -extensions server_ca_extensions
     popd  # CADIR
     # optional pkcs12 file for e.g. java servers
     # openssl pkcs12 -export -out keycert.p12 -in cert.pem -inkey key.pem -passout pass:MySecretPassword
@@ -149,7 +167,7 @@ function create_cert_environment {
 
   # create the server certs
   for name in ${SERVER_CERTS} ; do
-    create_server_cert ${CADIR} "${CURDIR}/${name}-${ENV}" "${DNSMAP[${name}-${ENV}]}"
+    create_server_cert ${CADIR} "${CURDIR}/${name}-${ENV}" "${SUBJECTMAP[${name}-${ENV}]}"
   done
 
   # create some client certs:
@@ -176,23 +194,23 @@ function create_cert_environment {
 }
 
 # map ENV names to domain names
-declare -A DNSMAP
-DNSMAP=(
-  ["monitor-dev"]="192.168.100.100"
-  ["monitor-qa"]="monitor.bccvl.org.au"
-  ["monitor-prod"]="monitor.bccvl.org.au"
-  ["rsyslog-dev"]="192.168.100.100"
-  ["rsyslog-qa"]="monitor.bccvl.org.au"
-  ["rsyslog-prod"]="monitor.bccvl.org.au"
-  ["bccvl-dev"]="192.168.100.200"
-  ["bccvl-qa"]="qa.bccvl.org.au"
-  ["bccvl-prod"]="app.bccvl.org.au"
-  ["rabbitmq-dev"]="192.168.100.200"
-  ["rabbitmq-qa"]="qa.bccvl.org.au"
-  ["rabbitmq-prod"]="app.bccvl.org.au"
-  ["rabbitweb-dev"]="192.168.100.200"
-  ["rabbitweb-qa"]="qa.bccvl.org.au"
-  ["rabbitweb-prod"]="app.bccvl.org.au"
+declare -A SUBJECTMAP
+SUBJECTMAP=(
+  ["monitor-dev"]="IP:192.168.100.100"
+  ["monitor-qa"]="DNS:monitor.bccvl.org.au"
+  ["monitor-prod"]="DNS:monitor.bccvl.org.au"
+  ["rsyslog-dev"]="IP:192.168.100.100,DNS:192.168.100.100"
+  ["rsyslog-qa"]="DNS:monitor.bccvl.org.au"
+  ["rsyslog-prod"]="DNS:monitor.bccvl.org.au"
+  ["bccvl-dev"]="IP:192.168.100.200"
+  ["bccvl-qa"]="DNS:qa.bccvl.org.au"
+  ["bccvl-prod"]="DNS:app.bccvl.org.au"
+  ["rabbitmq-dev"]="IP:192.168.100.200"
+  ["rabbitmq-qa"]="DNS:qa.bccvl.org.au"
+  ["rabbitmq-prod"]="DNS:app.bccvl.org.au"
+  ["rabbitweb-dev"]="IP:192.168.100.200"
+  ["rabbitweb-qa"]="DNS:qa.bccvl.org.au"
+  ["rabbitweb-prod"]="DNS:app.bccvl.org.au"
 )
 
 SERVER_CERTS="monitor rsyslog bccvl rabbitmq rabbitweb"
