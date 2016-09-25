@@ -96,11 +96,11 @@ RLIBS=(FNN_1.1.tar.gz
        png_0.1-7.tar.gz
        proto_0.3-10.tar.gz
        randomForest_4.6-12.tar.gz
-       raster_2.5-2.tar.gz
+       raster_2.5-8.tar.gz
        rasterVis_0.37.tar.gz
        reshape_0.8.5.tar.gz
        reshape2_1.4.1.tar.gz
-       rgdal_1.1-3.tar.gz
+       rgdal_1.1-10.tar.gz
        rgeos_0.3-17.tar.gz
        rjson_0.2.15.tar.gz
        rpart_4.1-10.tar.gz
