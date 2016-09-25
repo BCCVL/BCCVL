@@ -94,7 +94,7 @@ include:
     {'name': 'rasterVis',    'version': '0.37',    'hash': '25879fd73992c626df10badc7942492c39796178'},
     {'name': 'reshape',      'version': '0.8.5',   'hash': 'a7fb85caf9fc1f22b7caa238d0abb033534d0f68'},
     {'name': 'reshape2',     'version': '1.4.1',   'hash': '6e6328a0baf4dd24944f650ddf70030613aefb0a'},
-    {'name': 'rgdal',        'version': '1.1-10',  'hash': 'e80ca358a00fae07d05bd3fb52969dc58040b982'},
+    {'name': 'rgdal',        'version': '1.1-3',   'hash': '8e6fdd0bad7ecdd046236d2b7bc123a936b5e8d1'},
     {'name': 'rgeos',        'version': '0.3-17',  'hash': '17dd28d13c001c37c23e15992f8c724885626de3'},
     {'name': 'rjson',        'version': '0.2.15',  'hash': '230b4e4883226d3437f72331089774070112fef9'},
     {'name': 'rpart',        'version': '4.1-10',  'hash': 'f395e7316fe4a13cdfdebd7f3d1c40f10686509b'},

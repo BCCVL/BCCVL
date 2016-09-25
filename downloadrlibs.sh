@@ -100,7 +100,7 @@ RLIBS=(FNN_1.1.tar.gz
        rasterVis_0.37.tar.gz
        reshape_0.8.5.tar.gz
        reshape2_1.4.1.tar.gz
-       rgdal_1.1-10.tar.gz
+       rgdal_1.1-3.tar.gz
        rgeos_0.3-17.tar.gz
        rjson_0.2.15.tar.gz
        rpart_4.1-10.tar.gz
