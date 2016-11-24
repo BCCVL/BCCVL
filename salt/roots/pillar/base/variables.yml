@@ -56,6 +56,10 @@ nectar:
   #os_password: <replace with user key>
   #os_temp_url_key: <replace with key>
 
+ala:
+  #sandboxurl: <http://sandbox-test.ala.org.au/sandbox/api/uploadFile>
+  #apikey: <replace with key>
+
 authtkt:
   #name: <cookie name>
   domain: {{ bccvl.hostname }}
