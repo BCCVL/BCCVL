@@ -7,6 +7,7 @@ include:
   - subversion
   - mercurial
   - zlib
+  - libffi-devel
   - exempi.devel
   - libjpeg-turbo
   - python27

@@ -7,6 +7,7 @@ include:
   - exempi
   - supervisord
   - git
+  - libffi-devel
   - python27
   - bccvl.data_mover
 

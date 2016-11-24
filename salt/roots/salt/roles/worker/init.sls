@@ -9,6 +9,7 @@ include:
   - gdal
   - exempi
   - libyaml
+  - libffi-devel
   - git
   - python27
   - worker.rlibs
