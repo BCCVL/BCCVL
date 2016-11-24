@@ -66,6 +66,7 @@ RLIBS=(FNN_1.1.tar.gz
        dichromat_2.0-0.tar.gz
        digest_0.6.9.tar.gz
        dismo_1.0-15.tar.gz
+       doParallel_1.0.10.tar.gz
        evaluate_0.8.tar.gz
        foreach_1.4.3.tar.gz
        foreign_0.8-66.tar.gz
@@ -88,6 +89,7 @@ RLIBS=(FNN_1.1.tar.gz
        magrittr_1.5.tar.gz
        mda_0.4-8.tar.gz
        mgcv_1.8-9.tar.gz
+       mmap_0.6-12.tar.gz
        munsell_0.4.3.tar.gz
        nlme_3.1-122.tar.gz
        nnet_7.3-11.tar.gz
