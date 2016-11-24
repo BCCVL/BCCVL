@@ -108,6 +108,7 @@ RLIBS=(FNN_1.1.tar.gz
        sp_1.2-2.tar.gz
        spacetime_1.1-5.tar.gz
        spatial_7.3-11.tar.gz
+       spatial.tools_1.4.8.tar.gz
        stringi_1.0-1.tar.gz
        stringr_1.0.0.tar.gz
        survival_2.38-3.tar.gz
