@@ -50,7 +50,7 @@ shibboleth:
 nectar:
   os_auth_url: https://keystone.rc.nectar.org.au:5000/v2.0/
   os_auth_version: 2
-  #os_storage_url: https://swift.rc.nectar.org.au:8888/v1/AUTH_<whatevel>
+  #os_storage_url: https://swift.rc.nectar.org.au/v1/AUTH_<whatever>
   #os_tenant_name: <replace with tenant name> Biodiversity_Climate_Change_VL
   #os_username: <replace with user name>
   #os_password: <replace with user key>
