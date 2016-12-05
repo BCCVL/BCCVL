@@ -11,15 +11,15 @@ versions:
     futures: 3.0.3
     dropbox: 3.23
     google-api-python-client: 1.4.1
-    raven: 5.7.2
+    raven: 5.32.0
     pip: 7.1.2
     setuptools: 19.6.1
     # GDAL python bindings
     GDAL: 1.9.1
     # The following are branch names or tags
-    org.bccvl.tasks: 1.13.2
-    org.bccvl.movelib: 1.3.2
-    plone: 1.13.3
-    visualiser: 1.7.4
+    org.bccvl.tasks: 1.14.0
+    org.bccvl.movelib: 1.4.0
+    plone: 1.14.0
+    visualiser: 1.8.0
     data_mover: 1.7.4
 
