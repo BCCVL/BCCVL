@@ -9,6 +9,7 @@ dev:
     - authtkt
     - nectar
     - oauth
+    - ala
   'monitor*dev*':
     - salt.master
     - monitor
@@ -29,6 +30,7 @@ qa:
     - authtkt
     - nectar
     - oauth
+    - ala
   'monitor*qa*':
     - salt.master
     - monitor
@@ -49,6 +51,7 @@ prod:
     - authtkt
     - nectar
     - oauth
+    - ala
   'monitor*prod*':
     - salt.master
     - monitor
