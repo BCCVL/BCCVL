@@ -76,15 +76,15 @@ gmp-devel:
       - user: {{ user.name }}
       - ssh_known_hosts: {{ user.name }}
 
-/home/{{ user.name }}/bccvl_data_mover/data_mover:
-   virtualenv.managed:
-    - venv_bin: /usr/local/bin/python27-virtualenv
-    - user: {{ user.name }}
-    - cwd: /home/{{ user.name }}/bccvl_data_mover
-    - require:
-      - pkg: python27-python-virtualenv
-      - file: /usr/local/bin/python27-virtualenv
-      - git: data_mover_source
+# /home/{{ user.name }}/bccvl_data_mover/data_mover:
+#    virtualenv.managed:
+#     - venv_bin: /usr/local/bin/python27-virtualenv
+#     - user: {{ user.name }}
+#     - cwd: /home/{{ user.name }}/bccvl_data_mover
+#     - require:
+#       - pkg: python27-python-virtualenv
+#       - file: /usr/local/bin/python27-virtualenv
+#       - git: data_mover_source
 
 # /home/{{ user.name }}/bccvl_data_mover/data_mover/buildout.cfg:
 #   file.managed:
