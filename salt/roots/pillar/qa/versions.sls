@@ -17,8 +17,8 @@ versions:
     # GDAL python bindings
     GDAL: 1.9.1
     # The following are branch names or tags
-    org.bccvl.tasks: 1.14.0rc1
-    org.bccvl.movelib: 1.4.0rc0
+    org.bccvl.tasks: 1.14.0rc2
+    org.bccvl.movelib: 1.4.0rc1
     plone: qa
     visualiser: qa
     data_mover: qa
