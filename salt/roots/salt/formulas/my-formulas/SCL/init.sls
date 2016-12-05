@@ -1,3 +1,3 @@
 
-centos-release-SCL:
+centos-release-scl:
   pkg.installed
