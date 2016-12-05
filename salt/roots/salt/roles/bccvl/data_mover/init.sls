@@ -86,67 +86,67 @@ gmp-devel:
       - file: /usr/local/bin/python27-virtualenv
       - git: data_mover_source
 
-/home/{{ user.name }}/bccvl_data_mover/data_mover/buildout.cfg:
-  file.managed:
-    - source:
-      - salt://bccvl/data_mover/data_mover_buildout.cfg
-    - template: jinja
-    - user: {{ user.name }}
-    - group: {{ user.name }}
-    - mode: 640
-    - require:
-      - git: data_mover_source
+# /home/{{ user.name }}/bccvl_data_mover/data_mover/buildout.cfg:
+#   file.managed:
+#     - source:
+#       - salt://bccvl/data_mover/data_mover_buildout.cfg
+#     - template: jinja
+#     - user: {{ user.name }}
+#     - group: {{ user.name }}
+#     - mode: 640
+#     - require:
+#       - git: data_mover_source
 
-/home/{{ user.name }}/bccvl_data_mover/data_mover/bin/buildout:
-  cmd.run:
-    - cwd: /home/{{ user.name }}/bccvl_data_mover/data_mover/
-    - name: scl enable python27 ". bin/activate; python2.7 bootstrap.py -v {{ pillar['versions']['zc.buildout'] }}"
-    - user: {{ user.name }}
-    - group: {{ user.name }}
-    - unless: test -x /home/{{ user.name }}/bccvl_data_mover/data_mover/bin/buildout
-    - require:
-      - file: /home/{{ user.name }}/bccvl_data_mover/data_mover/buildout.cfg
-      - git: data_mover_source
-      - pkg: python27-python
-      - virtualenv: /home/{{ user.name }}/bccvl_data_mover/data_mover
+# /home/{{ user.name }}/bccvl_data_mover/data_mover/bin/buildout:
+#   cmd.run:
+#     - cwd: /home/{{ user.name }}/bccvl_data_mover/data_mover/
+#     - name: scl enable python27 ". bin/activate; python2.7 bootstrap.py -v {{ pillar['versions']['zc.buildout'] }}"
+#     - user: {{ user.name }}
+#     - group: {{ user.name }}
+#     - unless: test -x /home/{{ user.name }}/bccvl_data_mover/data_mover/bin/buildout
+#     - require:
+#       - file: /home/{{ user.name }}/bccvl_data_mover/data_mover/buildout.cfg
+#       - git: data_mover_source
+#       - pkg: python27-python
+#       - virtualenv: /home/{{ user.name }}/bccvl_data_mover/data_mover
 
-/home/{{ user.name }}/bccvl_data_mover/data_mover/bin/pserve:
-  cmd.run:
-    - cwd: /home/{{ user.name }}/bccvl_data_mover/data_mover/
-    - name: scl enable python27 ". bin/activate; ./bin/buildout"
-    - user: {{ user.name }}
-    - group: {{ user.name }}
-    - require:
-      - cmd: /home/{{ user.name }}/bccvl_data_mover/data_mover/bin/buildout
-      - pkg: gcc
-      - pkg: libyaml-devel
-      - pkg: python27-python-devel
-      - pkg: gmp-devel
-    - watch:
-      - git: data_mover_source
+# /home/{{ user.name }}/bccvl_data_mover/data_mover/bin/pserve:
+#   cmd.run:
+#     - cwd: /home/{{ user.name }}/bccvl_data_mover/data_mover/
+#     - name: scl enable python27 ". bin/activate; ./bin/buildout"
+#     - user: {{ user.name }}
+#     - group: {{ user.name }}
+#     - require:
+#       - cmd: /home/{{ user.name }}/bccvl_data_mover/data_mover/bin/buildout
+#       - pkg: gcc
+#       - pkg: libyaml-devel
+#       - pkg: python27-python-devel
+#       - pkg: gmp-devel
+#     - watch:
+#       - git: data_mover_source
 
-/home/{{ user.name }}/bccvl_data_mover/data_mover/data_mover.ini:
-  file.managed:
-    - source:
-      - salt://bccvl/data_mover/data_mover.ini
-    - template: jinja
-    - user: {{ user.name }}
-    - group: {{ user.name }}
-    - mode: 640
-    - require:
-      - git: data_mover_source
-    - watch_in:
-      - service: supervisord
+# /home/{{ user.name }}/bccvl_data_mover/data_mover/data_mover.ini:
+#   file.managed:
+#     - source:
+#       - salt://bccvl/data_mover/data_mover.ini
+#     - template: jinja
+#     - user: {{ user.name }}
+#     - group: {{ user.name }}
+#     - mode: 640
+#     - require:
+#       - git: data_mover_source
+#     - watch_in:
+#       - service: supervisord
 
-/etc/supervisord.d/data_mover.ini:
-  file.managed:
-    - source: salt://bccvl/data_mover/data_mover_supervisord.ini
-    - user: root
-    - group: root
-    - mode: 640
-    - template: jinja
-    - require:
-      - pkg: supervisor
-      - file: /home/{{ user.name }}/bccvl_data_mover/data_mover/data_mover.ini
-    - watch_in:
-      - service: supervisord
+# /etc/supervisord.d/data_mover.ini:
+#   file.managed:
+#     - source: salt://bccvl/data_mover/data_mover_supervisord.ini
+#     - user: root
+#     - group: root
+#     - mode: 640
+#     - template: jinja
+#     - require:
+#       - pkg: supervisor
+#       - file: /home/{{ user.name }}/bccvl_data_mover/data_mover/data_mover.ini
+#     - watch_in:
+#       - service: supervisord

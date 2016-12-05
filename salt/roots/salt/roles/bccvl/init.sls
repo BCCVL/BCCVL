@@ -5,7 +5,7 @@ include:
   - apache
   - varnish
   - haproxy
-  #- bccvl.data_mover
+  - bccvl.data_mover
   - bccvl.data_mover_worker
   - bccvl.visualiser
   - bccvl.plone
