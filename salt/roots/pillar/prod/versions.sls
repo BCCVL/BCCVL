@@ -19,7 +19,7 @@ versions:
     # The following are branch names or tags
     org.bccvl.tasks: 1.14.0
     org.bccvl.movelib: 1.4.0
-    plone: 1.14.0
+    plone: 1.14.1
     visualiser: 1.8.0
     data_mover: 1.7.4
 
