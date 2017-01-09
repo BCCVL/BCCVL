@@ -158,6 +158,16 @@ Visualiser Production INI:
     - require:
       - git: Visualiser Clone
 
+Visualiser Setuptools:
+  cmd.run:
+    - name: scl enable python27 ". ../env/bin/activate; pip install setuptools=={{ pillar['versions']['setuptools'] }}"
+    - cwd: /home/{{ user.name }}/BCCVL_Visualiser/BCCVL_Visualiser
+    - unless: test "$(scl enable python27 \\"../env/bin/pip show setuptools | grep Version | cut -d ' '  -f 2\\")" = "{{ pillar['versions']['setuptools'] }}"
+    - user: {{ user.name }}
+    - group: {{ user.name }}
+    - require:
+        - virtualenv: Visualiser Virtualenv
+
 Visualiser Bootstrap Buildout:
   cmd.run:
     - cwd: /home/{{ user.name }}/BCCVL_Visualiser/BCCVL_Visualiser
@@ -167,6 +177,7 @@ Visualiser Bootstrap Buildout:
     - unless: test -x /home/{{ user.name }}/BCCVL_Visualiser/BCCVL_Visualiser/bin/buildout
     - require:
       - cmd: Visualiser Virtualenv Matplotlib
+      - cmd: Visualiser Setuptools
       - file: Visualiser Buildout Config
 
 Visualiser Buildout:
