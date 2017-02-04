@@ -20,6 +20,6 @@ versions:
     org.bccvl.tasks: 1.14.2
     org.bccvl.movelib: 1.4.3
     plone: 1.14.5
-    visualiser: 1.8.0
+    visualiser: 1.8.2
     data_mover: 1.7.4
 
