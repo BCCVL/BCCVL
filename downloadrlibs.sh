@@ -86,6 +86,7 @@ RLIBS=(FNN_1.1.tar.gz
        labeling_0.3.tar.gz
        lattice_0.20-33.tar.gz
        latticeExtra_0.6-28.tar.gz
+       lme4_1.1-11.tar.gz
        magrittr_1.5.tar.gz
        mda_0.4-8.tar.gz
        mgcv_1.8-9.tar.gz
@@ -93,6 +94,7 @@ RLIBS=(FNN_1.1.tar.gz
        munsell_0.4.3.tar.gz
        nlme_3.1-122.tar.gz
        nnet_7.3-11.tar.gz
+       ordinal_2015.1-21.tar.gz
        pROC_1.8.tar.gz
        plyr_1.8.3.tar.gz
        png_0.1-7.tar.gz
