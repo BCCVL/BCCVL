@@ -58,6 +58,7 @@ RLIBS=(FNN_1.1.tar.gz
        abind_1.4-3.tar.gz
        biomod2_3.1-64.tar.gz
        boot_1.3-17.tar.gz
+       caret_6.0-76.tar.gz
        class_7.3-14.tar.gz
        cluster_2.0.3.tar.gz
        codetools_0.2-14.tar.gz
@@ -76,7 +77,8 @@ RLIBS=(FNN_1.1.tar.gz
        gamlss.dist_4.3-5.tar.gz
        gbm_2.1.1.tar.gz
        gdalUtils_2.0.1.7.tar.gz
-       ggplot2_2.0.0.tar.gz
+       ggdendro_0.1-20.tar.gz
+       ggplot2_2.2.1.tar.gz
        gridExtra_2.2.0.tar.gz
        gstat_1.1-2.tar.gz
        gtable_0.2.0.tar.gz
