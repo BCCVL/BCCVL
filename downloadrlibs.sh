@@ -118,6 +118,7 @@ RLIBS=(FNN_1.1.tar.gz
        stringi_1.0-1.tar.gz
        stringr_1.0.0.tar.gz
        survival_2.38-3.tar.gz
+       ucminf_1.1-4.tar.gz
        xts_0.9-7.tar.gz
        zoo_1.7-12.tar.gz )
 
