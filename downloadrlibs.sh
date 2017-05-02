@@ -20,7 +20,7 @@ fi
 
 function get_r_lib() {
 
-  mirror="http://cran.ms.unimelb.edu.au"
+  mirror="http://mirror.aarnet.edu.au/pub/CRAN"
   contrib="${mirror}/src/contrib"
   archive="${contrib}/Archive"
 
