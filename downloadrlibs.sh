@@ -48,16 +48,19 @@ RLIBS=(FNN_1.1.tar.gz
        KernSmooth_2.23-15.tar.gz
        MASS_7.3-45.tar.gz
        Matrix_1.2-3.tar.gz
+       ModelMetrics_1.1.0.tar.gz
        R.methodsS3_1.7.1.tar.gz
        R.oo_1.20.0.tar.gz
        R.utils_2.2.0.tar.gz
        R2HTML_2.3.1.tar.gz
        RColorBrewer_1.1-2.tar.gz
        Rcpp_0.12.3.tar.gz
+       RcppEigen_0.3.3.3.0.tar.gz
        SDMTools_1.1-221.tar.gz
        abind_1.4-3.tar.gz
        biomod2_3.1-64.tar.gz
        boot_1.3-17.tar.gz
+       car_2.1-4.tar.gz
        caret_6.0-76.tar.gz
        class_7.3-14.tar.gz
        cluster_2.0.3.tar.gz
@@ -88,13 +91,16 @@ RLIBS=(FNN_1.1.tar.gz
        labeling_0.3.tar.gz
        lattice_0.20-33.tar.gz
        latticeExtra_0.6-28.tar.gz
+       lazyeval_0.2.0.tar.gz
        lme4_1.1-11.tar.gz
        magrittr_1.5.tar.gz
        mda_0.4-8.tar.gz
        mgcv_1.8-9.tar.gz
+       minqa_1.2.4.tar.gz
        mmap_0.6-12.tar.gz
        munsell_0.4.3.tar.gz
        nlme_3.1-122.tar.gz
+       nloptr_1.0.4.tar.gz
        nnet_7.3-11.tar.gz
        ordinal_2015.1-21.tar.gz
        pROC_1.8.tar.gz
@@ -118,6 +124,7 @@ RLIBS=(FNN_1.1.tar.gz
        stringi_1.0-1.tar.gz
        stringr_1.0.0.tar.gz
        survival_2.38-3.tar.gz
+       tibble_1.3.0.tar.gz
        ucminf_1.1-4.tar.gz
        xts_0.9-7.tar.gz
        zoo_1.7-12.tar.gz )
