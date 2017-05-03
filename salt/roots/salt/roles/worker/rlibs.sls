@@ -112,6 +112,7 @@ include:
     {'name': 'stringi',       'version': '1.0-1',   'hash': 'b9fdcd23ae8950ea527574b74139ad74678b739f'},
     {'name': 'stringr',       'version': '1.0.0',   'hash': '1b135f1084752c3a094243f151e197a1dc0149f7'},
     {'name': 'survival',      'version': '2.38-3',  'hash': '23556bf5e4249dcefc5a16fcc25a0725af55fe1e'},
+    {'name': 'ucminf',        'version': '1.1-4',   'hash': '3faa27a97f96ad775bc120bf07965d6950a253b1'},    
     {'name': 'xts',           'version': '0.9-7',   'hash': 'c398c823ef2e31d5342954cc654424f05c97c52a'},
     {'name': 'zoo',           'version': '1.7-12',  'hash': '73a7dc5152b21d4cd215c07a22f020b537c352c9'},
 ] %}
