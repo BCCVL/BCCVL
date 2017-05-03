@@ -48,6 +48,7 @@ RLIBS=(FNN_1.1.tar.gz
        KernSmooth_2.23-15.tar.gz
        MASS_7.3-45.tar.gz
        Matrix_1.2-3.tar.gz
+       MatrixModels_0.4-1.tar.gz
        ModelMetrics_1.1.0.tar.gz
        R.methodsS3_1.7.1.tar.gz
        R.oo_1.20.0.tar.gz
@@ -61,7 +62,7 @@ RLIBS=(FNN_1.1.tar.gz
        abind_1.4-3.tar.gz
        biomod2_3.1-64.tar.gz
        boot_1.3-17.tar.gz
-       car_2.1-4.tar.gz
+       car_2.1-0.tar.gz
        caret_6.0-76.tar.gz
        class_7.3-14.tar.gz
        cluster_2.0.3.tar.gz
@@ -100,11 +101,11 @@ RLIBS=(FNN_1.1.tar.gz
        minqa_1.2.4.tar.gz
        mmap_0.6-12.tar.gz
        munsell_0.4.3.tar.gz
-       nlme_3.1-122.tar.gz
+       nlme_3.1-123.tar.gz
        nloptr_1.0.4.tar.gz
        nnet_7.3-11.tar.gz
        ordinal_2015.1-21.tar.gz
-       pbkrtest_0.4-7.tar.gz
+       pbkrtest_0.4-2.tar.gz
        pROC_1.8.tar.gz
        plyr_1.8.3.tar.gz
        png_0.1-7.tar.gz
@@ -119,7 +120,7 @@ RLIBS=(FNN_1.1.tar.gz
        rgeos_0.3-17.tar.gz
        rjson_0.2.15.tar.gz
        rpart_4.1-10.tar.gz
-       scales_0.4.0.tar.gz
+       scales_0.4.1.tar.gz
        sp_1.2-2.tar.gz
        spacetime_1.1-5.tar.gz
        spatial_7.3-11.tar.gz
