@@ -57,6 +57,7 @@ RLIBS=(FNN_1.1.tar.gz
        Rcpp_0.12.3.tar.gz
        RcppEigen_0.3.3.3.0.tar.gz
        SDMTools_1.1-221.tar.gz
+       SparseM_1.77.tar.gz
        abind_1.4-3.tar.gz
        biomod2_3.1-64.tar.gz
        boot_1.3-17.tar.gz
@@ -103,10 +104,12 @@ RLIBS=(FNN_1.1.tar.gz
        nloptr_1.0.4.tar.gz
        nnet_7.3-11.tar.gz
        ordinal_2015.1-21.tar.gz
+       pbkrtest_0.4-7.tar.gz
        pROC_1.8.tar.gz
        plyr_1.8.3.tar.gz
        png_0.1-7.tar.gz
        proto_0.3-10.tar.gz
+       quantreg_5.33.tar.gz
        randomForest_4.6-12.tar.gz
        raster_2.5-8.tar.gz
        rasterVis_0.37.tar.gz
