@@ -2,7 +2,7 @@
 
 versions:
     celery: 3.1.17
-    zc.buildout: 2.5.0
+    zc.buildout: 2.9.3
     nose: 1.3.4
     numpy: 1.9.1
     mock: 1.0.1
@@ -13,7 +13,7 @@ versions:
     google-api-python-client: 1.4.1
     raven: 5.32.0
     pip: 7.1.2
-    setuptools: 19.6.1
+    setuptools: 36.0.1
     # GDAL python bindings
     GDAL: 1.9.1
     # The following are branch names or tags
