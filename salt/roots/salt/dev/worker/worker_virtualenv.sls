@@ -11,7 +11,7 @@
       - pkg: git
       - file: /home/{{ user.name }}/worker
     - require_in:
-      - cmd: worker_virtualenv
+      - cmd: worker_virtualenv_upgrade_pip
 
 /home/{{ user.name }}/worker/org.bccvl.movelib:
   git.latest:
@@ -24,4 +24,4 @@
       - pkg: git
       - file: /home/{{ user.name }}/worker
     - require_in:
-      - cmd: worker_virtualenv
+      - cmd: worker_virtualenv_upgrade_pip
