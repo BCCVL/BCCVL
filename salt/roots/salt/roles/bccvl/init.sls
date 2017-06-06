@@ -7,8 +7,8 @@ include:
   - haproxy
   - bccvl.data_mover
   - bccvl.data_mover_worker
-  - bccvl.visualiser
   - bccvl.plone
+#  - bccvl.visualiser
 
 /etc/sysconfig/iptables:
   file.managed:
