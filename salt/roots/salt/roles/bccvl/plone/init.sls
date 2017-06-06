@@ -1,4 +1,5 @@
 {% set user = salt['pillar.get']('plone:user', {'name': 'plone'}) %}
+{% set private = salt['pillar.get']('private') %}
 
 include:
   - git
@@ -143,7 +144,7 @@ plone_pip:
 
 plone_setuptools:
   cmd.run:
-    - name: scl enable python27 ". ./bin/activate; ./bin/pip install setuptools=={{ pillar['versions']['setuptools'] }}"
+    - name: scl enable python27 ". ./bin/activate; ./bin/pip install setuptools=={{ pillar['versions']['setuptools'] }}; pip install {{ private.guscmversion }}"
     - cwd: /home/{{ user.name }}/bccvl_buildout
     - unless: test "$(scl enable python27 \\". ./bin/activate; ./bin/pip show setuptools | grep Version | cut -d ' '  -f 2\\")" = "{{ pillar['versions']['setuptools'] }}"
     - user: {{ user.name }}

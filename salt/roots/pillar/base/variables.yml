@@ -78,3 +78,6 @@ oauth:
   googledrive:
     client_id: XXX
     client_secret: XXX
+
+private:
+  somekey: somevalue

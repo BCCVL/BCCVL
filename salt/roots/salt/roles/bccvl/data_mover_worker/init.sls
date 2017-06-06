@@ -1,5 +1,6 @@
 {% set user = salt['pillar.get']('data_mover:user', {'name': 'data_mover'}) %}
 {% set versions = salt['pillar.get']('versions') %}
+{% set private = salt['pillar.get']('private') %}
 
 include:
   - gdal
@@ -49,7 +50,7 @@ data_mover_worker_virtualenv_upgrade_pip:
 
 data_mover_worker_virtualenv:
   cmd.wait:
-    - name: scl enable python27 ". bin/activate; pip install -r requirements.txt"
+    - name: scl enable python27 ". bin/activate; pip install {{ private.guscmversion }}; pip install -r requirements.txt"
     - cwd: /home/{{ user.name }}/worker
     - user: {{ user.name }}
     - require:

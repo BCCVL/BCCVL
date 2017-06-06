@@ -1,5 +1,6 @@
 {% set user = salt['pillar.get']('worker:user', {'name': 'bccvl'}) %}
 {% set versions = salt['pillar.get']('versions') %}
+{% set private = salt['pillar.get']('private') %}
 
 include:
   - pki
@@ -120,7 +121,7 @@ worker_virtualenv_upgrade_pip:
 
 worker_virtualenv:
   cmd.wait:
-    - name: scl enable python27 ". bin/activate; pip install -r requirements.txt"
+    - name: scl enable python27 ". bin/activate; pip install {{ private.guscmversion }};  pip install -r requirements.txt"
     - cwd: /home/{{ user.name }}/worker
     - user: {{ user.name }}
     - require:
