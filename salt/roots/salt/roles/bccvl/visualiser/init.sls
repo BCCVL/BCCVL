@@ -160,7 +160,7 @@ Visualiser Production INI:
 
 Visualiser Pip:
   cmd.run:
-    - name: scle enable python27 ". ../env/bin/activate; pip install --upgrade six packaging appdirs pip"
+    - name: scl enable python27 ". ../env/bin/activate; pip install --upgrade six packaging appdirs pip"
     - cwd: /home/{{ user.name }}/BCCVL_Visualiser/BCCVL_Visualiser
     - unless: test "$(scl enable python27 \\". ../env/bin/activate; pip show pip | grep Version | cut -d ' '  -f 2\\")" = "{{ pillar['versions']['pip'] }}"
     - user: {{ user.name }}

@@ -134,7 +134,7 @@ libtiff-devel:
 
 plone_pip:
   cmd.run:
-    - name: scle enable python27 ". ./bin/activate; ./bin/pip install --upgrade six packaging appdirs pip"
+    - name: scl enable python27 ". ./bin/activate; ./bin/pip install --upgrade six packaging appdirs pip"
     - cwd: /home/{{ user.name }}/bccvl_buildout
     - unless: test "$(scl enable python27 \\". ./bin/activate; ./bin/pip show pip | grep Version | cut -d ' '  -f 2\\")" = "{{ pillar['versions']['pip'] }}"
     - user: {{ user.name }}
