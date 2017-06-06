@@ -10,7 +10,7 @@
       - user: {{ user.name }}
       - pkg: git
       - file: /home/{{ user.name }}/worker
-    - watch_in:
+    - require_in:
       - cmd: worker_virtualenv
 
 /home/{{ user.name }}/worker/org.bccvl.movelib:
@@ -23,5 +23,5 @@
       - user: {{ user.name }}
       - pkg: git
       - file: /home/{{ user.name }}/worker
-    - watch_in:
+    - require_in:
       - cmd: worker_virtualenv
