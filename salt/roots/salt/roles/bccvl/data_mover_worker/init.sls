@@ -40,7 +40,7 @@ include:
 
 data_mover_worker_virtualenv_upgrade_pip:
   cmd.run:
-    - name: scl enable python27 ". bin/activate; pip install pip=={{ versions.pip }}"
+    - name: scl enable python27 ". bin/activate; pip install --upgrade six packaging appdirs pip=={{ versions.pip }}; pip install --upgrade setuptools=={{ versions.setuptools }}"
     - cwd: /home/{{ user.name }}/worker
     - unless: scl enable python27 ". bin/activate; pip -V | grep 'pip {{ versions.pip }} '"
     - user: {{ user.name }}
