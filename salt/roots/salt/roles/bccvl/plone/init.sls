@@ -131,15 +131,25 @@ libtiff-devel:
         - cmd: /home/{{ user.name }}/bccvl_buildout/bin/buildout
 {% endif %}
 
-plone_setuptools:
+plone_pip:
   cmd.run:
-    - name: scl enable python27 ". ./bin/activate; ./bin/pip install setuptools=={{ pillar['versions']['setuptools'] }}"
+    - name: scle enable python27 ". ./bin/activate; ./bin/pip install --upgrade six packaging appdirs pip"
     - cwd: /home/{{ user.name }}/bccvl_buildout
-    - unless: test "$(scl enable python27 \\"./bin/pip show setuptools | grep Version | cut -d ' '  -f 2\\")" = "{{ pillar['versions']['setuptools'] }}"
+    - unless: test "$(scl enable python27 \\". ./bin/activate; ./bin/pip show pip | grep Version | cut -d ' '  -f 2\\")" = "{{ pillar['versions']['pip'] }}"
     - user: {{ user.name }}
     - group: {{ user.name }}
     - require:
         - virtualenv: plone_virtualenv
+
+plone_setuptools:
+  cmd.run:
+    - name: scl enable python27 ". ./bin/activate; ./bin/pip install setuptools=={{ pillar['versions']['setuptools'] }}"
+    - cwd: /home/{{ user.name }}/bccvl_buildout
+    - unless: test "$(scl enable python27 \\". ./bin/activate; ./bin/pip show setuptools | grep Version | cut -d ' '  -f 2\\")" = "{{ pillar['versions']['setuptools'] }}"
+    - user: {{ user.name }}
+    - group: {{ user.name }}
+    - require:
+        - cmd: plone_pip
 
 /home/{{ user.name }}/bccvl_buildout/bin/buildout:
   cmd.run:

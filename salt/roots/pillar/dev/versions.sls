@@ -12,7 +12,7 @@ versions:
     dropbox: 3.23
     google-api-python-client: 1.4.1
     raven: 5.32.0
-    pip: 7.1.2
+    pip: 9.0.1
     setuptools: 36.0.1
     # GDAL python bindings
     GDAL: 1.9.1

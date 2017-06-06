@@ -158,15 +158,25 @@ Visualiser Production INI:
     - require:
       - git: Visualiser Clone
 
-Visualiser Setuptools:
+Visualiser Pip:
   cmd.run:
-    - name: scl enable python27 ". ../env/bin/activate; pip install setuptools=={{ pillar['versions']['setuptools'] }}"
-    - cwd: /home/{{ user.name }}/BCCVL_Visualiser/BCCVL_Visualiser
-    - unless: test "$(scl enable python27 \\"../env/bin/pip show setuptools | grep Version | cut -d ' '  -f 2\\")" = "{{ pillar['versions']['setuptools'] }}"
+    - name: scle enable python27 ". ../env/bin/activate; pip install --upgrade six packaging appdirs pip"
+    - cwd: /home/{{ user.name }}/bccvl_buildout
+    - unless: test "$(scl enable python27 \\". ../env/bin/activate; pip show pip | grep Version | cut -d ' '  -f 2\\")" = "{{ pillar['versions']['pip'] }}"
     - user: {{ user.name }}
     - group: {{ user.name }}
     - require:
         - virtualenv: Visualiser Virtualenv
+
+Visualiser Setuptools:
+  cmd.run:
+    - name: scl enable python27 ". ../env/bin/activate; pip install setuptools=={{ pillar['versions']['setuptools'] }}"
+    - cwd: /home/{{ user.name }}/BCCVL_Visualiser/BCCVL_Visualiser
+    - unless: test "$(scl enable python27 \\". ../env/bin/activate; pip show setuptools | grep Version | cut -d ' '  -f 2\\")" = "{{ pillar['versions']['setuptools'] }}"
+    - user: {{ user.name }}
+    - group: {{ user.name }}
+    - require:
+        - cmd: Visualiser Pip
 
 Visualiser Bootstrap Buildout:
   cmd.run:
