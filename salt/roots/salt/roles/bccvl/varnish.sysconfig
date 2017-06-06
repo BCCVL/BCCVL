@@ -100,7 +100,8 @@ DAEMON_OPTS="-a ${VARNISH_LISTEN_ADDRESS}:${VARNISH_LISTEN_PORT} \
              -w ${VARNISH_MIN_THREADS},${VARNISH_MAX_THREADS},${VARNISH_THREAD_TIMEOUT} \
              -u varnish -g varnish \
              -S ${VARNISH_SECRET_FILE} \
-             -s ${VARNISH_STORAGE}"
+             -s ${VARNISH_STORAGE} \
+             -p pipe_timeout=300"
 #
 
 
