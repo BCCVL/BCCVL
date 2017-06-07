@@ -3,7 +3,5 @@ GDAL=={{ pillar['versions']['GDAL'] }} --global-option="build_ext" --global-opti
 {% if pillar['sentry'] %}
 raven=={{ pillar['versions']['raven'] }}
 {% endif %}
--f https://github.com/BCCVL/org.bccvl.movelib/archive/{{ pillar['versions']['org.bccvl.movelib'] }}.tar.gz#egg=org.bccvl.movelib-{{ pillar['versions']['org.bccvl.movelib'] }}
--f https://github.com/BCCVL/org.bccvl.tasks/archive/{{ pillar['versions']['org.bccvl.tasks'] }}.tar.gz#egg=org.bccvl.tasks-{{ pillar['versions']['org.bccvl.tasks'] }}
 org.bccvl.movelib[http,scp,swift]=={{ pillar['versions']['org.bccvl.movelib'] }}
 org.bccvl.tasks[metadata]=={{ pillar['versions']['org.bccvl.tasks'] }}

@@ -81,3 +81,5 @@ oauth:
 
 private:
   somekey: somevalue
+  pypi_index_url: https://pypi.org/simple/
+

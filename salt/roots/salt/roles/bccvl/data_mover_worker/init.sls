@@ -41,7 +41,7 @@ include:
 
 data_mover_worker_virtualenv_upgrade_pip:
   cmd.run:
-    - name: scl enable python27 ". bin/activate; pip install --upgrade six packaging appdirs pip=={{ versions.pip }}; pip install --upgrade setuptools=={{ versions.setuptools }}"
+    - name: scl enable python27 ". bin/activate; pip install --index-url {{ private.pypi_index_url }} --upgrade six packaging appdirs pip=={{ versions.pip }}; pip install --index-url {{ private.pypi_index_url }} --upgrade setuptools=={{ versions.setuptools }}"
     - cwd: /home/{{ user.name }}/worker
     - unless: scl enable python27 ". bin/activate; pip -V | grep 'pip {{ versions.pip }} '"
     - user: {{ user.name }}
@@ -50,7 +50,7 @@ data_mover_worker_virtualenv_upgrade_pip:
 
 data_mover_worker_virtualenv:
   cmd.wait:
-    - name: scl enable python27 ". bin/activate; pip install {{ private.guscmversion }}; pip install -r requirements.txt"
+    - name: scl enable python27 ". bin/activate; pip install --index-url {{ private.pypi_index_url }} guscmversion; pip install --index-url {{ private.pypi_index_url }} -r requirements.txt"
     - cwd: /home/{{ user.name }}/worker
     - user: {{ user.name }}
     - require:
