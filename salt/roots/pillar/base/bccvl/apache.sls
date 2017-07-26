@@ -2,4 +2,4 @@
 
 apache:
   servername: {{ vars.bccvl.hostname }}
-  serveradmin: g.weis@griffith.edu.au
+  serveradmin: support@bccvl.org.au
