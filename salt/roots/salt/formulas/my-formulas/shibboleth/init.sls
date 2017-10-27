@@ -39,8 +39,8 @@ shibd:
 
 /etc/shibboleth/aaf-metadata-cert.pem:
   file.managed:
-    - source: https://ds.aaf.edu.au/distribution/metadata/aaf-metadata-cert.pem
-    - source_hash: sha256=18de1f447181033c2b91726919f51d21214f36bb450eb5988d3ebb19cd2e9ec5
+    - source:  https://md.aaf.edu.au/aaf-metadata-certificate.pem
+    - source_hash: sha256=00ec963039ca877b7111db3188d3d646e071c4c84ab8201fc35ad62a77ffa1a1
     - user: shibd
     - group: shibd
     - mode: 644
