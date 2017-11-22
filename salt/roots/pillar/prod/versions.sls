@@ -13,7 +13,7 @@ versions:
     google-api-python-client: 1.4.1
     raven: 5.32.0
     pip: 9.0.1
-    setuptools: 36.0.1.post20171109
+    setuptools: 36.6.0.post20171109
     # GDAL python bindings
     GDAL: 1.9.1
     # The following are branch names or tags
