@@ -114,7 +114,7 @@ worker_virtualenv_upgrade_pip:
   cmd.run:
     - name: scl enable python27 ". bin/activate; pip install --index-url {{ private.pypi_index_url }} --upgrade six packaging appdirs pip=={{ versions.pip }}; pip install --index-url {{ private.pypi_index_url }} --upgrade setuptools=={{ versions.setuptools }}"
     - cwd: /home/{{ user.name }}/worker
-    - unless: scl enable python27 ". bin/activate; pip -V | grep 'pip {{ versions.pip }} '"
+    - unless: scl enable python27 ". bin/activate; pip -V | grep 'pip {{ versions.pip }} ' && pip list --format=columns | grep 'setuptools.*{{ versions.setuptools }}'"
     - user: {{ user.name }}
     - require:
       - virtualenv: /home/{{ user.name }}/worker
