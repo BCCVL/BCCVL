@@ -2,7 +2,7 @@
 
 versions:
     celery: 3.1.17
-    zc.buildout: 2.9.3
+    zc.buildout: 2.9.5
     nose: 1.3.4
     numpy: 1.9.1
     mock: 1.0.1
@@ -13,13 +13,13 @@ versions:
     google-api-python-client: 1.4.1
     raven: 5.32.0
     pip: 9.0.1
-    setuptools: 36.0.1
+    setuptools: 36.0.1.post20171110
     # GDAL python bindings
     GDAL: 1.9.1
     # The following are branch names or tags
-    org.bccvl.tasks: 1.16.0
-    org.bccvl.movelib: 1.6.0
-    plone: 1.16.0
-    visualiser: 1.8.4
+    org.bccvl.tasks: 1.17.0
+    org.bccvl.movelib: 1.7.0
+    plone: 1.17.0
+    visualiser: 1.8.6
     data_mover: 1.7.4
 
