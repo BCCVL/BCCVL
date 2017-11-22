@@ -1,7 +1,10 @@
 
 
 versions:
-    celery: 3.1.17
+    celery: 3.1.25
+    kombu: 3.0.37
+    billiard: 3.3.0.23
+    amqp: 1.4.9
     zc.buildout: 2.9.5
     nose: 1.3.4
     numpy: 1.9.1

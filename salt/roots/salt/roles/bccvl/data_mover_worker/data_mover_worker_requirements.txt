@@ -1,4 +1,7 @@
 celery=={{ pillar['versions']['celery'] }}
+kombu=={{ pillar['versions']['kombu'] }}
+billiard=={{ pillar['versions']['billard'] }}
+amqp=={{ pillar['versions']['amqp'] }}
 dropbox=={{ pillar['versions']['dropbox'] }}
 google-api-python-client=={{ pillar['versions']['google-api-python-client'] }}
 GDAL=={{ pillar['versions']['GDAL'] }} --global-option="build_ext" --global-option="-I/usr/include/gdal"
