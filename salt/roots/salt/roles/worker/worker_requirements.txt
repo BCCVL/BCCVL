@@ -1,6 +1,6 @@
 celery=={{ pillar['versions']['celery'] }}
 kombu=={{ pillar['versions']['kombu'] }}
-billiard=={{ pillar['versions']['billard'] }}
+billiard=={{ pillar['versions']['billiard'] }}
 amqp=={{ pillar['versions']['amqp'] }}
 GDAL=={{ pillar['versions']['GDAL'] }} --global-option="build_ext" --global-option="-I/usr/include/gdal"
 {% if pillar['sentry'] %}
