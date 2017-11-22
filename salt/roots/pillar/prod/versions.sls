@@ -14,7 +14,7 @@ versions:
     futures: 3.0.3
     dropbox: 3.23
     google-api-python-client: 1.4.1
-    raven: 5.32.0
+    raven: 6.3.0
     pip: 9.0.1
     setuptools: 36.6.0.post20171109
     # GDAL python bindings
