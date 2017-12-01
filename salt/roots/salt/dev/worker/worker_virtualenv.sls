@@ -12,6 +12,8 @@
       - file: /home/{{ user.name }}/worker
     - require_in:
       - cmd: worker_virtualenv_upgrade_pip
+    - watch_in:
+      - cmd: worker_virtualenv
 
 /home/{{ user.name }}/worker/org.bccvl.movelib:
   git.latest:
@@ -25,3 +27,5 @@
       - file: /home/{{ user.name }}/worker
     - require_in:
       - cmd: worker_virtualenv_upgrade_pip
+    - wach_in:
+      - cmd: worker_virtualenv
