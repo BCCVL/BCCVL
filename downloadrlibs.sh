@@ -45,6 +45,8 @@ function get_r_lib() {
 }
 
 RLIBS=(BH_1.65.0-1.tar.gz
+       CVST_0.2-1.tar.gz
+       DEoptimR_1.0-8.tar.gz
        DRR_0.0.2.tar.gz
        FNN_1.1.tar.gz
        KernSmooth_2.23-15.tar.gz
@@ -67,6 +69,7 @@ RLIBS=(BH_1.65.0-1.tar.gz
        TeachingDemos_2.10.tar.gz
        abind_1.4-5.tar.gz
        assertthat_0.2.0.tar.gz
+       bindr_0.1.tar.gz
        bindrcpp_0.2.tar.gz
        biomod2_3.3-7.tar.gz
        boot_1.3-17.tar.gz
@@ -107,9 +110,11 @@ RLIBS=(BH_1.65.0-1.tar.gz
        intervals_0.15.1.tar.gz
        ipred_0.9-6.tar.gz
        iterators_1.0.9.tar.gz
+       kernlab_0.9-25.tar.gz
        labeling_0.3.tar.gz
        lattice_0.20-35.tar.gz
        latticeExtra_0.6-28.tar.gz
+       lava_1.5.1.tar.gz
        lazyeval_0.2.1.tar.gz
        lme4_1.1-14.tar.gz
        lubridate_1.7.1.tar.gz
@@ -119,6 +124,7 @@ RLIBS=(BH_1.65.0-1.tar.gz
        mgcv_1.8-22.tar.gz
        minqa_1.2.4.tar.gz
        mmap_0.6-15.tar.gz
+       mnormt_1.5-5.tar.gz
        munsell_0.4.3.tar.gz
        nlme_3.1-131.tar.gz
        nloptr_1.0.4.tar.gz
