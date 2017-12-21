@@ -39,7 +39,7 @@ include:
 # Hmisc_3.14-4
 {% set rpkgs = [
     {'name': 'BH',            'version': '1.65.0-1', 'hash': '51e5b837df99bbce793472a06224e4cd2d842c72'},
-    {'name': 'CVST',          'version': '0.1-1',   'hash': '82d8100ccbe51a0f600980c6991e2b6d0a4391bd'},
+    {'name': 'CVST',          'version': '0.2-1',   'hash': '82d8100ccbe51a0f600980c6991e2b6d0a4391bd'},
     {'name': 'DEoptimR',      'version': '1.0-8',   'hash': '3974d3642d4426fa2ee2093c13cae7aeba2dd70f'},
     {'name': 'DRR',           'version': '0.0.2',   'hash': 'bf72024918f9122493ed239880835678df18250a'},
     {'name': 'FNN',           'version': '1.1',     'hash': 'ac5c9025e3eb3b6323c7e785191b1e087801442d'},
@@ -122,6 +122,7 @@ include:
     {'name': 'nlme',          'version': '3.1-131', 'hash': '5c8a7916b35365f70392f8a01b7a32644edbbfc7'},
     {'name': 'nloptr',        'version': '1.0.4',   'hash': '96a408dd280081c4ee4e56050afd317e8c3cfef9'},
     {'name': 'nnet',          'version': '7.3-12',  'hash': 'fdbd8ae630e15abf92ddc4e92d39112f1f61a3a4'},
+    {'name': 'numDeriv',      'version': '2016.8-1', 'hash': '8d43a502c4ee1efcf8b3dcf5ba1c91667c84198a'},
     {'name': 'ordinal',       'version': '2015.6-28','hash': '514532a3a2de3c567bf6d022e57f930cc5575a18'},
     {'name': 'pbkrtest',      'version': '0.4-2',   'hash': 'c31d8c536f14bb089a505daf762aa7c3ee14e4a7'},
     {'name': 'pROC',          'version': '1.8',     'hash': '4885d34ce8738b8a85bf9fb2276cd2d637ea263d'},

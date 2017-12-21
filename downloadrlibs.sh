@@ -129,6 +129,7 @@ RLIBS=(BH_1.65.0-1.tar.gz
        nlme_3.1-131.tar.gz
        nloptr_1.0.4.tar.gz
        nnet_7.3-12.tar.gz
+       numDeriv_2016.8-1.tar.gz
        ordinal_2015.6-28.tar.gz
        pbkrtest_0.4-4.tar.gz
        pROC_1.8.tar.gz
