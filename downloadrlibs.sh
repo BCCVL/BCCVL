@@ -50,6 +50,7 @@ RLIBS=(FNN_1.1.tar.gz
        Matrix_1.2-3.tar.gz
        MatrixModels_0.4-1.tar.gz
        ModelMetrics_1.1.0.tar.gz
+       PresenceAbsence_1.1.9.tar.gz
        R.methodsS3_1.7.1.tar.gz
        R.oo_1.21.0.tar.gz
        R.utils_2.6.0.tar.gz
@@ -61,7 +62,7 @@ RLIBS=(FNN_1.1.tar.gz
        abind_1.4-5.tar.gz
        biomod2_3.3-7.tar.gz
        boot_1.3-17.tar.gz
-       car_2.1-6.tar.gz
+       car_2.1-0.tar.gz
        caret_6.0-78.tar.gz
        class_7.3-14.tar.gz
        cluster_2.0.3.tar.gz
@@ -72,6 +73,7 @@ RLIBS=(FNN_1.1.tar.gz
        digest_0.6.13.tar.gz
        dismo_1.1-4.tar.gz
        doParallel_1.0.11.tar.gz
+       earth_4.6.0.tar.gz
        evaluate_0.10.1.tar.gz
        foreach_1.4.4.tar.gz
        foreign_0.8-69.tar.gz
@@ -96,6 +98,7 @@ RLIBS=(FNN_1.1.tar.gz
        lazyeval_0.2.1.tar.gz
        lme4_1.1-14.tar.gz
        magrittr_1.5.tar.gz
+       maxent_1.3.3.1.tar.gz
        mda_0.4-10.tar.gz
        mgcv_1.8-22.tar.gz
        minqa_1.2.4.tar.gz
@@ -105,7 +108,7 @@ RLIBS=(FNN_1.1.tar.gz
        nloptr_1.0.4.tar.gz
        nnet_7.3-12.tar.gz
        ordinal_2015.6-28.tar.gz
-       pbkrtest_0.4-2.tar.gz
+       pbkrtest_0.4-4.tar.gz
        pROC_1.8.tar.gz
        plyr_1.8.4.tar.gz
        png_0.1-7.tar.gz
@@ -114,11 +117,13 @@ RLIBS=(FNN_1.1.tar.gz
        randomForest_4.6-12.tar.gz
        raster_2.6-7.tar.gz
        rasterVis_0.41.tar.gz
+       recipes_0.1.1.tar.gz
        reshape_0.8.7.tar.gz
        reshape2_1.4.3.tar.gz
        rgdal_1.1-3.tar.gz
        rgeos_0.3-23.tar.gz
        rjson_0.2.15.tar.gz
+       rlang_0.1.4.tar.gz
        rpart_4.1-10.tar.gz
        scales_0.5.0.tar.gz
        sp_1.2-5.tar.gz
@@ -130,6 +135,8 @@ RLIBS=(FNN_1.1.tar.gz
        survival_2.41-3.tar.gz
        tibble_1.3.4.tar.gz
        ucminf_1.1-4.tar.gz
+       viridisLite_0.2.0.tar.gz
+       withr_2.1.1.tar.gz
        xts_0.10-0.tar.gz
        zoo_1.8-0.tar.gz )
 
