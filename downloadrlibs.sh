@@ -57,22 +57,28 @@ RLIBS=(FNN_1.1.tar.gz
        RColorBrewer_1.1-2.tar.gz
        Rcpp_0.12.14.tar.gz
        RcppEigen_0.3.3.3.1.tar.gz
+       RcppRoll_0.2.2.tar.gz
        SDMTools_1.1-221.tar.gz
        SparseM_1.77.tar.gz
+       TeachingDemos_2.10.tar.gz
        abind_1.4-5.tar.gz
        biomod2_3.3-7.tar.gz
        boot_1.3-17.tar.gz
+       broom_0.4.3.tar.gz
        car_2.1-0.tar.gz
        caret_6.0-78.tar.gz
        class_7.3-14.tar.gz
        cluster_2.0.3.tar.gz
        codetools_0.2-14.tar.gz
        colorspace_1.3-2.tar.gz
+       ddalpha_1.3.1.tar.gz
        deldir_0.1-14.tar.gz
        dichromat_2.0-0.tar.gz
        digest_0.6.13.tar.gz
+       dimRed_0.1.0.tar.gz
        dismo_1.1-4.tar.gz
        doParallel_1.0.11.tar.gz
+       dplyr_0.7.4.tar.gz
        earth_4.6.0.tar.gz
        evaluate_0.10.1.tar.gz
        foreach_1.4.4.tar.gz
@@ -86,17 +92,20 @@ RLIBS=(FNN_1.1.tar.gz
        gdalUtils_2.0.1.7.tar.gz
        ggdendro_0.1-20.tar.gz
        ggplot2_2.2.1.tar.gz
+       gower_0.1.2.tar.gz
        gridExtra_2.3.tar.gz
        gstat_1.1-5.tar.gz
        gtable_0.2.0.tar.gz
        hexbin_1.27.1.tar.gz
        intervals_0.15.1.tar.gz
+       ipred_0.9-6.tar.gz
        iterators_1.0.9.tar.gz
        labeling_0.3.tar.gz
        lattice_0.20-35.tar.gz
        latticeExtra_0.6-28.tar.gz
        lazyeval_0.2.1.tar.gz
        lme4_1.1-14.tar.gz
+       lubridate_1.7.1.tar.gz
        magrittr_1.5.tar.gz
        maxent_1.3.3.1.tar.gz
        mda_0.4-10.tar.gz
@@ -110,9 +119,11 @@ RLIBS=(FNN_1.1.tar.gz
        ordinal_2015.6-28.tar.gz
        pbkrtest_0.4-4.tar.gz
        pROC_1.8.tar.gz
+       plotmo_3.3.4.tar.gz
        plyr_1.8.4.tar.gz
        png_0.1-7.tar.gz
        proto_1.0.0.tar.gz
+       purrr_0.2.4.tar.gz
        quantreg_5.34.tar.gz
        randomForest_4.6-12.tar.gz
        raster_2.6-7.tar.gz
@@ -134,6 +145,9 @@ RLIBS=(FNN_1.1.tar.gz
        stringr_1.2.0.tar.gz
        survival_2.41-3.tar.gz
        tibble_1.3.4.tar.gz
+       tidyselect_0.2.3.tar.gz
+       timeDate_3042.101.tar.gz
+       tm_0.7-3.tar.gz
        ucminf_1.1-4.tar.gz
        viridisLite_0.2.0.tar.gz
        withr_2.1.1.tar.gz
