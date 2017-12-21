@@ -51,7 +51,7 @@ include:
     {'name': 'R.methodsS3',   'version': '1.7.1',   'hash': '75a9b2872030f9e6ef8c321de7132ae759e0deef'},
     {'name': 'R.oo',          'version': '1.21.0',  'hash': 'b19f76d0261d11bfe703e5f244746d0a221211d0'},
     {'name': 'R.utils',       'version': '2.6.0',   'hash': 'a7d3555cbcaf37848742fb1db41ed6ea0ff17c05'},
-    {'name': 'R6',            'version': '2.2.2',   'hash', '79a34be63e9cf52844a2a9277967d7c31af6d51d'},
+    {'name': 'R6',            'version': '2.2.2',   'hash': '79a34be63e9cf52844a2a9277967d7c31af6d51d'},
     {'name': 'RColorBrewer',  'version': '1.1-2',   'hash': 'ffe73355d888a62bcee6d25f6700c8a8fa6464d8'},
     {'name': 'Rcpp',          'version': '0.12.3',  'hash': 'c519915794f554cb9de0061d8adc24928d3ef127'},
     {'name': 'RcppEigen',     'version': '0.3.3.3.0', 'hash': '8687702aea67f7b5b1a2b9d045aac0ff84b0db52'},
