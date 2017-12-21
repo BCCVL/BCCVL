@@ -44,16 +44,20 @@ function get_r_lib() {
   ${SHASUM} "${dest}"  | cut -f1 -d ' ' > "${name}"
 }
 
-RLIBS=(FNN_1.1.tar.gz
+RLIBS=(BH_1.65.0-1.tar.gz
+       DRR_0.0.2.tar.gz
+       FNN_1.1.tar.gz
        KernSmooth_2.23-15.tar.gz
        MASS_7.3-47.tar.gz
        Matrix_1.2-3.tar.gz
        MatrixModels_0.4-1.tar.gz
        ModelMetrics_1.1.0.tar.gz
+       NLP_0.1-11.tar.gz
        PresenceAbsence_1.1.9.tar.gz
        R.methodsS3_1.7.1.tar.gz
        R.oo_1.21.0.tar.gz
        R.utils_2.6.0.tar.gz
+       R6_2.2.2.tar.gz
        RColorBrewer_1.1-2.tar.gz
        Rcpp_0.12.14.tar.gz
        RcppEigen_0.3.3.3.1.tar.gz
@@ -62,6 +66,8 @@ RLIBS=(FNN_1.1.tar.gz
        SparseM_1.77.tar.gz
        TeachingDemos_2.10.tar.gz
        abind_1.4-5.tar.gz
+       assertthat_0.2.0.tar.gz
+       bindrcpp_0.2.tar.gz
        biomod2_3.3-7.tar.gz
        boot_1.3-17.tar.gz
        broom_0.4.3.tar.gz
@@ -92,6 +98,7 @@ RLIBS=(FNN_1.1.tar.gz
        gdalUtils_2.0.1.7.tar.gz
        ggdendro_0.1-20.tar.gz
        ggplot2_2.2.1.tar.gz
+       glue_1.2.0.tar.gz
        gower_0.1.2.tar.gz
        gridExtra_2.3.tar.gz
        gstat_1.1-5.tar.gz
@@ -119,10 +126,15 @@ RLIBS=(FNN_1.1.tar.gz
        ordinal_2015.6-28.tar.gz
        pbkrtest_0.4-4.tar.gz
        pROC_1.8.tar.gz
+       pkgconfig_2.0.1.tar.gz
+       plogr_0.1-1.tar.gz
        plotmo_3.3.4.tar.gz
+       plotrix_3.7.tar.gz
        plyr_1.8.4.tar.gz
        png_0.1-7.tar.gz
+       prodlim_1.6.1.tar.gz
        proto_1.0.0.tar.gz
+       psych_1.7.8.tar.gz
        purrr_0.2.4.tar.gz
        quantreg_5.34.tar.gz
        randomForest_4.6-12.tar.gz
@@ -135,8 +147,11 @@ RLIBS=(FNN_1.1.tar.gz
        rgeos_0.3-23.tar.gz
        rjson_0.2.15.tar.gz
        rlang_0.1.4.tar.gz
+       robustbase_0.92-8.tar.gz
        rpart_4.1-10.tar.gz
        scales_0.5.0.tar.gz
+       sfsmisc_1.1-1.tar.gz
+       slam_0.1-37.tar.gz
        sp_1.2-5.tar.gz
        spacetime_1.2-1.tar.gz
        spatial_7.3-11.tar.gz
@@ -145,12 +160,14 @@ RLIBS=(FNN_1.1.tar.gz
        stringr_1.2.0.tar.gz
        survival_2.41-3.tar.gz
        tibble_1.3.4.tar.gz
+       tidyr_0.7.2.tar.gz
        tidyselect_0.2.3.tar.gz
        timeDate_3042.101.tar.gz
        tm_0.7-3.tar.gz
        ucminf_1.1-4.tar.gz
        viridisLite_0.2.0.tar.gz
        withr_2.1.1.tar.gz
+       xml2_1.1.1.tar.gz
        xts_0.10-0.tar.gz
        zoo_1.8-0.tar.gz )
 
