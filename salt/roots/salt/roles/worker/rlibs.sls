@@ -163,7 +163,7 @@ include:
     {'name': 'tidyr',         'version': '0.7.2',   'hash': 'bbe4adcb7a6107abd85ef5ed188201801d05387d'},
     {'name': 'tidyselect',    'version': '0.2.3',   'hash': 'c85b91357f782f4bbb75ffe90f6ac06e7b8c71f5'},
     {'name': 'timeDate',      'version': '3042.101', 'hash': 'bdc27e3822a323e0507399b92e990bb5c1f8101d'},
-    {'name': 'tm',            'version': '0.7-3',   'hash': '06bcb6ae986955c5565b18b4b7e5f2f45fe8a269'},
+    {'name': 'tm',            'version': '0.7-1',   'hash': '7ddb1e9f0dbf58236ed246814b55171e65ad31f3'},
     {'name': 'ucminf',        'version': '1.1-4',   'hash': '3faa27a97f96ad775bc120bf07965d6950a253b1'},
     {'name': 'viridisLite',   'version': '0.2.0',   'hash': '53fc6a97adf703b8bdb78d978170060b302d658c'},
     {'name': 'withr',         'version': '2.1.1',   'hash': '60d65c0c3a639b4899b1b6d071327f563b98ccbe'},
