@@ -117,7 +117,7 @@ RLIBS=(BH_1.65.0-1.tar.gz
        lava_1.5.1.tar.gz
        lazyeval_0.2.1.tar.gz
        lme4_1.1-14.tar.gz
-       lubridate_1.7.1.tar.gz
+       lubridate_1.6.0.tar.gz
        magrittr_1.5.tar.gz
        maxent_1.3.3.1.tar.gz
        mda_0.4-10.tar.gz

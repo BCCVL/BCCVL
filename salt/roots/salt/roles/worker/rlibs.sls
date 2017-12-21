@@ -110,7 +110,7 @@ include:
     {'name': 'lava',          'version': '1.5.1',   'hash': 'f3c845fe5b2d33c767b336cc82a8f654771a1ac6'},
     {'name': 'lazyeval',      'version': '0.2.1',   'hash': '002606abdace20eda0be1004e71a1aab250d0577'},
     {'name': 'lme4',          'version': '1.1-14',  'hash': '3f419c84de92bce5b5d7d563c62205f3f4207276'},
-    {'name': 'lubridate',     'version': '1.7.1',   'hash': '852e46d4c8b6a1507652bafc68e161a972916367'},
+    {'name': 'lubridate',     'version': '1.6.0',   'hash': '08b777d453bbf11d2016fd600781fe008bcc4e08'},
     {'name': 'magrittr',      'version': '1.5',     'hash': '174f9188eb2c87702c3ad28f19cf6250cda021f5'},
     {'name': 'maxent',        'version': '1.3.3.1', 'hash': '45c7c532490ccbab359128519b7eb49782952030'},
     {'name': 'mda',           'version': '0.4-10',  'hash': '2d4b55903f5268281a72a519efcd4fe1eaf961f2'},
