@@ -72,7 +72,7 @@ include:
     {'name': 'dimRed',        'version': '0.1.0',   'hash': 'f01cbfcfafaf3e1a20bd5c4fc18c09ba5f9af256'},
     {'name': 'dismo',         'version': '1.1-4',   'hash': 'b194c36a7ed65fa5008832b6e056b3231933f3a3'},
     {'name': 'doParallel',    'version': '1.0.11',  'hash': '2d7ecb3408c94c555c4efc3717140da8cd8a3117'},
-    {'name': 'dplyr',         'version': '0.7.4',   'hanh': '4c0e4952c81d8229432d16c2a9dfeee947302c37'},
+    {'name': 'dplyr',         'version': '0.7.4',   'hash': '4c0e4952c81d8229432d16c2a9dfeee947302c37'},
     {'name': 'earth',         'version': '4.6.0',   'hash': 'f4c17a941aba96e379a29df0d7fbfdb747d61ab6'},
     {'name': 'evaluate',      'version': '0.10.1',  'hash': '7cbf409b310687e055dbb86ae653c1fd8e1e1544'},
     {'name': 'foreach',       'version': '1.4.4',   'hash': '6030ba909b54ec60d1445d062b9b2a10d4ef2edd'},
