@@ -80,6 +80,6 @@ oauth:
     client_secret: XXX
 
 private:
-  somekey: somevalue
+  prefer_final: "true"
   pypi_index_url: https://pypi.org/simple/
 
