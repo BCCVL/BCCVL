@@ -144,7 +144,7 @@ plone_pip:
 
 plone_setuptools:
   cmd.run:
-    - name: scl enable python27 ". ./bin/activate; ./bin/pip install --index-url {{ private.pypi_index_url }} setuptools=={{ pillar['versions']['setuptools'] }}; pip install --index-url {{ private.pypi_index_url }} guscmversion"
+    - name: scl enable python27 ". ./bin/activate; ./bin/pip install --index-url {{ private.pypi_index_url }} setuptools=={{ pillar['versions']['setuptools'] }}; pip install --index-url {{ private.pypi_index_url }} guscmversion buildout.wheel"
     - cwd: /home/{{ user.name }}/bccvl_buildout
     - unless: test "$(scl enable python27 \\". ./bin/activate; ./bin/pip show setuptools | grep Version | cut -d ' '  -f 2\\")" = "{{ pillar['versions']['setuptools'] }}"
     - user: {{ user.name }}

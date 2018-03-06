@@ -3,6 +3,6 @@
 {% if 'private' in vars %}
 private:
 {% for key in vars.private %}
-  {{ key }}: {{ vars.private[key] }}
+  {{ key }}: "{{ vars.private[key] }}"
 {% endfor %}
 {% endif %}
