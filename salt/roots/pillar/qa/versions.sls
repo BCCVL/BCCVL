@@ -22,8 +22,15 @@ versions:
     # GDAL python bindings
     GDAL: 1.9.1
     # The following are branch names or tags
+    # TODO: these are rather version pins for released packages
+    #       need to check install for the components to build from package
+    #       rather than git clone
     org.bccvl.tasks: 1.17.1.dev22+g33afa35
     org.bccvl.movelib: 1.7.1.dev5+g37628a0
+    org.bccvl.site: 1.17.1.dev51+gaab00c2
+    org.bccvl.compute: 1.17.1.dev60+g958b86a
+    org.bccvl.testsetup: 1.16.1.dev4+g711b127
+    org.bccvl.theme: 1.17.1.dev89+g1765623
     plone: master
     visualiser: 1.8.7.dev4+gff41e44
     data_mover: master

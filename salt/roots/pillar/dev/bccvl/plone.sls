@@ -24,7 +24,6 @@ plone:
   ssh_privkey: {{ plone_id_dsa_priv|string|json }}
   ssh_pubkey: {{ plone_id_dsa_pub|string|json }}
 
-
   storage:
     root: /mnt/plone_var
 
