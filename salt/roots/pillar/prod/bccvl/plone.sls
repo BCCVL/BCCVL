@@ -22,7 +22,7 @@ plone:
   siteid: bccvl
 
   storage:
-    root: /mnt/plone_var/var
+    root: /bccvl-app-db/plone_var/var
 
   mr_developer_always_checkout: false
   site_replace: false
