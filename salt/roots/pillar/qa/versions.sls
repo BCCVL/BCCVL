@@ -25,12 +25,12 @@ versions:
     # TODO: these are rather version pins for released packages
     #       need to check install for the components to build from package
     #       rather than git clone
-    org.bccvl.tasks: 1.17.1.dev23+g1b9a820
-    org.bccvl.movelib: 1.7.1.dev5+g37628a0
-    org.bccvl.site: 1.17.1.dev52+g21faec9
-    org.bccvl.compute: 1.17.1.dev62+g96ee414
-    org.bccvl.testsetup: 1.16.1.dev7+gc7473fb
-    org.bccvl.theme: 1.17.1.dev100+ge77edb5
+    org.bccvl.tasks: 1.18.0
+    org.bccvl.movelib: 1.8.0
+    org.bccvl.site: 1.18.0
+    org.bccvl.compute: 1.18.0
+    org.bccvl.testsetup: 1.18.0
+    org.bccvl.theme: 1.18.0
     plone: master
-    visualiser: 1.8.7.dev4+gff41e44
+    visualiser: 1.8.7
     data_mover: master
