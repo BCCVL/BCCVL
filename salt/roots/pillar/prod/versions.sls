@@ -9,7 +9,7 @@ versions:
     matplotlib: 1.4.2
     gunicorn: 19.3.0
     futures: 3.0.3
-    dropbox: 3.23
+    dropbox: 8.7.1
     google-api-python-client: 1.4.1
     raven: 6.3.0
     pip: 9.0.1

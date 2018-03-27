@@ -50,7 +50,7 @@ data_mover_worker_virtualenv_upgrade_pip:
 
 data_mover_worker_virtualenv:
   cmd.wait:
-    - name: scl enable python27 ". bin/activate; pip install --index-url {{ private.pypi_index_url }} guscmversion; pip install --index-url {{ private.pypi_index_url }} -r requirements.txt"
+    - name: scl enable python27 ". bin/activate; pip install --index-url {{ private.pypi_index_url }}; pip install --index-url {{ private.pypi_index_url }} -r requirements.txt"
     - cwd: /home/{{ user.name }}/worker
     - user: {{ user.name }}
     - require:
