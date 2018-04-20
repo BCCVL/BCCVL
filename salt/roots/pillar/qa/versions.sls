@@ -27,7 +27,7 @@ versions:
     #       rather than git clone
     org.bccvl.tasks: 1.18.1.dev9+g0f6bf70
     org.bccvl.movelib: 1.8.0
-    org.bccvl.site: 1.18.1.dev55+gfbae116
+    org.bccvl.site: 1.18.1.dev56+g36a9cf0
     org.bccvl.compute: 1.18.1.dev17+gff58785
     org.bccvl.testsetup: 1.18.1.dev17+g1be49b6
     org.bccvl.theme: 1.18.1.dev44+g1f22c61
