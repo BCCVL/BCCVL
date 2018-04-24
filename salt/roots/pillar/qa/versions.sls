@@ -28,7 +28,7 @@ versions:
     org.bccvl.tasks: 1.18.1.dev9+g0f6bf70
     org.bccvl.movelib: 1.8.0
     org.bccvl.site: 1.18.1.dev58+gad41bf4
-    org.bccvl.compute: 1.18.1.dev18+g7681050
+    org.bccvl.compute: 1.18.1.dev20+g29e7342
     org.bccvl.testsetup: 1.18.1.dev17+g1be49b6
     org.bccvl.theme: 1.18.1.dev44+g1f22c61
     plone: master
