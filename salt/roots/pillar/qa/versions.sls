@@ -30,7 +30,7 @@ versions:
     org.bccvl.site: 1.18.1.dev59+g64fb4b6
     org.bccvl.compute: 1.18.1.dev22+g74c44e1
     org.bccvl.testsetup: 1.18.1.dev17+g1be49b6
-    org.bccvl.theme: 1.18.1.dev44+g1f22c61
+    org.bccvl.theme: 1.18.1.dev45+g3f85a08
     plone: master
     visualiser: 1.8.7
     data_mover: master
