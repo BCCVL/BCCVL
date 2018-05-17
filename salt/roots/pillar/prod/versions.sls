@@ -27,10 +27,10 @@ versions:
     #       rather than git clone
     org.bccvl.tasks: 1.18.0
     org.bccvl.movelib: 1.8.0
-    org.bccvl.site: 1.18.0
-    org.bccvl.compute: 1.18.0
+    org.bccvl.site: 1.19.0
+    org.bccvl.compute: 1.19.0
     org.bccvl.testsetup: 1.18.0
-    org.bccvl.theme: 1.18.0
+    org.bccvl.theme: 1.19.0
     plone: 1.18.0
     visualiser: 1.8.7
     data_mover: master
