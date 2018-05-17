@@ -25,7 +25,7 @@ versions:
     # TODO: these are rather version pins for released packages
     #       need to check install for the components to build from package
     #       rather than git clone
-    org.bccvl.tasks: 1.18.0
+    org.bccvl.tasks: 1.19.0
     org.bccvl.movelib: 1.8.0
     org.bccvl.site: 1.19.0
     org.bccvl.compute: 1.19.0
