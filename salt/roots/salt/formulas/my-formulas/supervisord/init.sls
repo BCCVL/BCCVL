@@ -1,6 +1,6 @@
 
 supervisor:
-  pkg.installed:
+  pkg.installed
 
 # TODO: configure childlogdir=/var/log/supervisord/
 supervisord:
