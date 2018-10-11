@@ -152,11 +152,12 @@ plone_setuptools:
     - require:
         - cmd: plone_pip
 
+# buildout.wheel==0.2.0 extension is only compatible with up to wheel=0.31.1
 plone_wheel:
   cmd.run:
-    - name: scl enable python27 ". ./bin/activate; ./bin/pip install --index-url {{ private.pypi_index_url }} --upgrade wheel"
+    - name: scl enable python27 ". ./bin/activate; ./bin/pip install --index-url {{ private.pypi_index_url }} --upgrade wheel==0.31.1"
     - cwd: /home/{{ user.name }}/bccvl_buildout
-    - unless: scl enable python27 ". ./bin/activate; ./bin/pip show wheelpip | grep Version | cut -d ' '  -f 2"
+    - unless: test "$(scl enable python27 \\". ./bin/activate; ./bin/pip show wheel | grep Version | cut -d ' '  -f 2\\")" = "0.31.1"
     - user: {{ user.name }}
     - group: {{ user.name }}
     - require:
