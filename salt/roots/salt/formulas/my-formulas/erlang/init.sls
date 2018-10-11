@@ -15,9 +15,29 @@ allow-obsolete:
     - pattern: 'obsoletes=.*'
     - repl: 'obsoletes=0'
 
+erlang-examples:
+  pkg.removed:
+    - version: "19.1-1.el6"
+
+erlang-gs:
+  pkg.removed:
+    - version: "19.1-1.el6"
+
+erlang-percept:
+  pkg.removed:
+    - version: "19.1-1.el6"
+
+erlang-ose:
+  pkg.removed:
+    - version: "18.3-2.el6"
+
 erlang:
   pkg.installed:
     - version: "20.3.8.7-1.el6"
     - require:
       - pkgrepo: erlang-solutions
       - file: allow-obsolete
+      - pkg: erlang-examples
+      - pkg: erlang-gs
+      - pkg: erlang-percept
+      - pkg: erlang-ose

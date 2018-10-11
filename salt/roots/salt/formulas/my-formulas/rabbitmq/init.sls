@@ -8,7 +8,7 @@ include:
 install_rabbit_rpm_pubkey:
   cmd.run:
     - name: rpm --import https://dl.bintray.com/rabbitmq/Keys/rabbitmq-release-signing-key.asc
-    - unless: rpm -qi  gpg-pubkey | egrep "RabbitMQ"
+    - unless: rpm -qi  gpg-pubkey | egrep "gpg-pubkey-6026dfca-573adfde"
 
 bintray-rabbitmq-server:
   pkgrepo.managed:
