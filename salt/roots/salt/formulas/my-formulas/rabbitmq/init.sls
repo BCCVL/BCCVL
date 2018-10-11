@@ -7,16 +7,23 @@ include:
 
 install_rabbit_rpm_pubkey:
   cmd.run:
-    - name: rpm --import http://www.rabbitmq.com/rabbitmq-signing-key-public.asc
+    - name: rpm --import https://dl.bintray.com/rabbitmq/Keys/rabbitmq-release-signing-key.asc
     - unless: rpm -qi  gpg-pubkey | egrep "RabbitMQ"
 
+bintray-rabbitmq-server:
+  pkgrepo.managed:
+    - humanname: bintray-rabbitmq-server
+    - baseurl: https://dl.bintray.com/rabbitmq/rpm/rabbitmq-server/v3.6.x/el/$releasever/
+    - gpgcheck: 1
+    # - gpgkey: http://packages.erlang-solutions.com/rpm/erlang_solutions.asc
+    - enabled: 1
+
 rabbitmq-server:
-  pkg:
-    - installed
-    - sources:
-      - rabbitmq-server: https://www.rabbitmq.com/releases/rabbitmq-server/v3.3.1/rabbitmq-server-3.3.1-1.noarch.rpm
+  pkg.installed:
+    - version: "3.6.16-2.el6"
     - require:
       - cmd: install_rabbit_rpm_pubkey
+      - pkgrepo: bintray-rabbitmq-server
       - pkg: erlang
   service:
     - running
