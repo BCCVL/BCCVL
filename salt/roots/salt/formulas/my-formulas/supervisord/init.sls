@@ -1,10 +1,6 @@
-include:
-  - erpel
 
 supervisor:
   pkg.installed:
-    - require:
-      - pkgrepo: erpel
 
 # TODO: configure childlogdir=/var/log/supervisord/
 supervisord:

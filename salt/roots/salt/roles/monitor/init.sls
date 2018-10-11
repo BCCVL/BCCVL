@@ -6,7 +6,6 @@ include:
   - rsyslog
   - rsyslog.mongodb
   - rsyslog.pgsql
-  - erpel
   - supervisord
   - virtualenv
   - flower

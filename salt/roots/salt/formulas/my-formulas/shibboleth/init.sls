@@ -1,12 +1,7 @@
 
-include:
-  - erpel
-
 shibboleth:
   pkg:
     - installed
-    - require:
-      - pkgrepo: erpel
 
 shibd:
   service:
