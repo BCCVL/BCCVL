@@ -166,6 +166,7 @@ include:
     {'name': 'tm',            'version': '0.7-1',   'hash': '7ddb1e9f0dbf58236ed246814b55171e65ad31f3'},
     {'name': 'ucminf',        'version': '1.1-4',   'hash': '3faa27a97f96ad775bc120bf07965d6950a253b1'},
     {'name': 'viridisLite',   'version': '0.2.0',   'hash': '53fc6a97adf703b8bdb78d978170060b302d658c'},
+    {'name': 'visreg',        'version': '2.5-0',   'hash': '6b34651bd92e606f922aa2c53887075f0080eaab'},
     {'name': 'withr',         'version': '2.1.1',   'hash': '60d65c0c3a639b4899b1b6d071327f563b98ccbe'},
     {'name': 'xml2',          'version': '1.1.1',   'hash': '4431dde88efddd9881bda85ed478e8f2c519ac35'},
     {'name': 'xts',           'version': '0.10-0',  'hash': '9bc0f828628244fb9fd18215cb51a1ae4421609b'},

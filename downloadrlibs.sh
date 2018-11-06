@@ -173,6 +173,7 @@ RLIBS=(BH_1.65.0-1.tar.gz
        tm_0.7-1.tar.gz
        ucminf_1.1-4.tar.gz
        viridisLite_0.2.0.tar.gz
+       visreg_2.5-0.tar.gz
        withr_2.1.1.tar.gz
        xml2_1.1.1.tar.gz
        xts_0.10-0.tar.gz
