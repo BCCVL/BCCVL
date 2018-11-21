@@ -134,7 +134,7 @@ libtiff-devel:
 
 plone_pip:
   cmd.run:
-    - name: scl enable python27 ". ./bin/activate; ./bin/pip install --index-url {{ private.pypi_index_url }} --upgrade six packaging appdirs pip"
+    - name: scl enable python27 ". ./bin/activate; ./bin/pip install --index-url {{ private.pypi_index_url }} --upgrade six packaging appdirs pip=={{ pillar['versions']['pip'] }}"
     - cwd: /home/{{ user.name }}/bccvl_buildout
     - unless: test "$(scl enable python27 \\". ./bin/activate; ./bin/pip show pip | grep Version | cut -d ' '  -f 2\\")" = "{{ pillar['versions']['pip'] }}"
     - user: {{ user.name }}
@@ -144,7 +144,7 @@ plone_pip:
 
 plone_setuptools:
   cmd.run:
-    - name: scl enable python27 ". ./bin/activate; ./bin/pip install --index-url {{ private.pypi_index_url }} setuptools=={{ pillar['versions']['setuptools'] }};"
+    - name: scl enable python27 ". ./bin/activate; ./bin/pip install --index-url {{ private.pypi_index_url }} setuptools=={{ pillar['versions']['setuptools'] }}"
     - cwd: /home/{{ user.name }}/bccvl_buildout
     - unless: test "$(scl enable python27 \\". ./bin/activate; ./bin/pip show setuptools | grep Version | cut -d ' '  -f 2\\")" = "{{ pillar['versions']['setuptools'] }}"
     - user: {{ user.name }}
@@ -155,9 +155,9 @@ plone_setuptools:
 # buildout.wheel==0.2.0 extension is only compatible with up to wheel=0.31.1
 plone_wheel:
   cmd.run:
-    - name: scl enable python27 ". ./bin/activate; ./bin/pip install --index-url {{ private.pypi_index_url }} --upgrade wheel==0.31.1"
+    - name: scl enable python27 ". ./bin/activate; ./bin/pip install --index-url {{ private.pypi_index_url }} --upgrade wheel=={{ pillar['versions']['wheel'] }}"
     - cwd: /home/{{ user.name }}/bccvl_buildout
-    - unless: test "$(scl enable python27 \\". ./bin/activate; ./bin/pip show wheel | grep Version | cut -d ' '  -f 2\\")" = "0.31.1"
+    - unless: test "$(scl enable python27 \\". ./bin/activate; ./bin/pip show wheel | grep Version | cut -d ' '  -f 2\\")" = "{{ pillar['versions']['wheel'] }}"
     - user: {{ user.name }}
     - group: {{ user.name }}
     - require:

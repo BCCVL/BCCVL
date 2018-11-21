@@ -13,8 +13,7 @@ versions:
     google-api-python-client: 1.4.1
     raven: 6.3.0
     pip: 18.1
-    # setuptools >= 38.2.0 support installing wheels,
-    #                      but zc.buildout 2.9.5 doesn't handle that behaviour
+    wheel: 0.32.2
     setuptools: 40.6.2
     # nose and mock only used by visualiser
     nose: 1.3.4
