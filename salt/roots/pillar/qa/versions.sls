@@ -4,7 +4,7 @@ versions:
     kombu: 3.0.37
     billiard: 3.3.0.23
     amqp: 1.4.9
-    zc.buildout: 2.9.5
+    zc.buildout: 2.12.2
     numpy: 1.9.1
     matplotlib: 1.4.2
     gunicorn: 19.3.0
@@ -12,10 +12,10 @@ versions:
     dropbox: 8.7.1
     google-api-python-client: 1.4.1
     raven: 6.3.0
-    pip: 9.0.1
+    pip: 18.1
     # setuptools >= 38.2.0 support installing wheels,
     #                      but zc.buildout 2.9.5 doesn't handle that behaviour
-    setuptools: 38.1.0
+    setuptools: 40.6.2
     # nose and mock only used by visualiser
     nose: 1.3.4
     mock: 1.0.1
