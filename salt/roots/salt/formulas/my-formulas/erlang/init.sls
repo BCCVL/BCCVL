@@ -17,19 +17,19 @@ allow-obsolete:
 
 erlang-examples:
   pkg.removed:
-    - version: "19.1-1.el6"
+    - version: "18.1-1.el6"
 
 erlang-gs:
   pkg.removed:
-    - version: "19.1-1.el6"
+    - version: "18.1-1.el6"
 
 erlang-percept:
   pkg.removed:
-    - version: "19.1-1.el6"
+    - version: "18.1-1.el6"
 
 erlang-ose:
   pkg.removed:
-    - version: "18.3-2.el6"
+    - version: "18.1-1.el6"
 
 erlang:
   pkg.installed:
