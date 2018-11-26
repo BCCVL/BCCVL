@@ -27,7 +27,7 @@ versions:
     org.bccvl.tasks: 1.21.1.dev9+g7a7f1a4
     org.bccvl.movelib: 1.11.1.dev5+ga22db47
     org.bccvl.site: 1.21.1.dev17+g2c649868
-    org.bccvl.compute: 1.21.1.dev42+gc910fd2
+    org.bccvl.compute: 1.21.1.dev43+gb32c330
     org.bccvl.testsetup: 1.21.1.dev1+g03edd82
     org.bccvl.theme: 1.22.1.dev33+g94e8999
     plone: master
