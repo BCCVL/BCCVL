@@ -26,10 +26,10 @@ versions:
     #       rather than git clone
     org.bccvl.tasks: 1.22.1.dev18+ge244438
     org.bccvl.movelib: 1.12.1.dev12+gfded63b
-    org.bccvl.site: 1.22.1.dev16+g6e9409d0
-    org.bccvl.compute: 1.22.1.dev11+g0d39c36
+    org.bccvl.site: 1.23.1.dev7+gfa49022c
+    org.bccvl.compute: 1.23.1.dev10+g709dbf1
     org.bccvl.testsetup: 1.22.0
-    org.bccvl.theme: 1.23.1.dev17+g50fdec4
+    org.bccvl.theme: 1.24.1.dev5+g03c38e6
     plone: master
     visualiser: 1.8.7
     data_mover: master
