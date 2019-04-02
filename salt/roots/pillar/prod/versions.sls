@@ -32,6 +32,6 @@ versions:
     org.bccvl.compute: 1.25.0
     org.bccvl.testsetup: 1.22.0
     org.bccvl.theme: 1.25.0
-    plone: 1.24.0
+    plone: 1.25.0
     visualiser: 1.8.7
     data_mover: master
