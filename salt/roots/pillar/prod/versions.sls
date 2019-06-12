@@ -27,9 +27,9 @@ versions:
     #       need to check install for the components to build from package
     #       rather than git clone
     org.bccvl.tasks: 1.24.0
-    org.bccvl.movelib: 1.14.0
-    org.bccvl.site: 1.26.0
-    org.bccvl.compute: 1.26.0
+    org.bccvl.movelib: 1.15.0
+    org.bccvl.site: 1.27.0
+    org.bccvl.compute: 1.27.0
     org.bccvl.testsetup: 1.22.0
     org.bccvl.theme: 1.26.0
     plone: 1.26.0
