@@ -46,10 +46,11 @@
             (Set discoveryProtocol to "WAYF" for legacy Shibboleth WAYF support.)
             You can also override entityID on /Login query string, or in RequestMap/htaccess.
             -->
-            <SSO
-                 discoveryProtocol="SAMLDS" discoveryURL="https://ds.aaf.edu.au/discovery/DS">
-              SAML2 SAML1
+            <SSO discoveryProtocol="SAMLDS"
+                    discoveryURL="https://ds.aaf.edu.au/discovery/edugain">
+                              SAML2 SAML1
             </SSO>
+
 
             <!-- SAML and local-only logout. -->
             <Logout>SAML2 Local</Logout>
@@ -81,6 +82,13 @@
              <MetadataFilter type="RequireValidUntil" maxValidityInterval="2419200"/>
              <MetadataFilter type="Signature" certificate="aaf-metadata-cert.pem"/>
          </MetadataProvider>
+
+        <!-- Remotely supplied batch of Edugain metadata. -->
+        <MetadataProvider type="XML" uri="https://md.aaf.edu.au/aaf-edugain-metadata.xml"
+             backingFilePath="eduGAIN-metadata.aaf.xml" reloadInterval="7200">
+           <MetadataFilter type="RequireValidUntil" maxValidityInterval="2419200"/>
+           <MetadataFilter type="Signature" certificate="aaf-metadata-cert.pem"/>
+        </MetadataProvider>
 
 
         <!-- Map to extract attributes from SAML assertions. -->
