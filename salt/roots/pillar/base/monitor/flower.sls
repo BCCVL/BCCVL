@@ -13,7 +13,7 @@ flower:
   auth: {{ auth }}
   {% endif %}
   # auth: email@domain|email2@domain .. or any other regexp
-  # auth: g.weis@griffith.edu.au
+  # auth: y.liaw@griffith.edu.au
 
   # client cert and key to auth with rabbit
   sslcert: {{ flower_sslcert|string|json }}

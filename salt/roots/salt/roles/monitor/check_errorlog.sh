@@ -3,7 +3,7 @@
 export PATH=/usr/local/bin:/usr/sbin:$PATH
 
 from="monitor@bccvl.org.au"
-support="g.weis@griffith.edu.au"
+support="y.liaw@griffith.edu.au"
 
 # loop through all log databases:
 for dbname in dev-logs qa-logs prod-logs logs ; do

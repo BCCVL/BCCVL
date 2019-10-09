@@ -14,7 +14,7 @@ BROKER_USE_SSL = {
     "cert_reqs": 2
 }
 
-ADMINS = ['g.weis@griffith.edu.au']
+ADMINS = ['y.liaw@griffith.edu.au']
 
 CELERY_IMPORTS = [
     "org.bccvl.tasks.datamover",
