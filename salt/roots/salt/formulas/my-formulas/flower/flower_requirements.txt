@@ -1,4 +1,4 @@
 #flower==0.6.0 [auth,threads]
 https://github.com/mher/flower/archive/01caf32073f77667f0050999493810daa7af22ff.tar.gz#egg=flower-0.8.0-dev
 pyOpenSSL==0.14
-requests==2.2.1
+requests==2.20.0
